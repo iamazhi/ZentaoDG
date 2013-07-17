@@ -1,0 +1,101 @@
+<!doctype html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>ZentaoDG | 禅道设计指南</title>
+	<link rel="stylesheet" href="css/bootstrap.css">
+	<link rel="stylesheet" href="css/bootstrap-responsive.css">
+	<link rel="stylesheet" href="css/font-awesome.css">
+	<link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+
+	<!-- Navbar
+	---------------------------------->
+	<div class="navbar navbar-inverse navbar-fixed-top">
+      	<div class="navbar-inner">
+	        <div class="container">
+	          	<button type="button" class="btn btn-navbar" data-toggle="collapse" data-target=".nav-collapse">
+		            <span class="icon-bar"></span>
+		            <span class="icon-bar"></span>
+		            <span class="icon-bar"></span>
+	          	</button>
+	          	<a class="brand" href="index.html">ZentaoDG</a>
+	          	<div class="nav-collapse collapse">
+		            <ul class="nav">
+		              	<li class="dropdown">
+			                <a href="#" class="dropdown-toggle" data-toggle="dropdown">起步 <b class="caret"></b></a>
+			                <ul class="dropdown-menu">
+			                	<li><a href="start.html">使用设计指南</a></li>
+			                	<li><a href="principles.html">设计原则</a></li>
+			                </ul>
+		              	</li>
+		              	<li class="dropdown active">
+		                  	<a href="#" class="dropdown-toggle" data-toggle="dropdown">基础 <b class="caret"></b></a>
+		                  	<ul class="dropdown-menu">
+		                    	<li class="active"><a href="globalcss.html">全局样式表</a></li>
+		                    	<li><a href="#">栅格系统</a></li>
+		                    	<li><a href="#">流式栅格系统</a></li>
+		                  	</ul>
+		              	</li>
+		            </ul>
+	          	</div>
+	        </div>
+      	</div>
+    </div>
+
+	<header class="jumbotron subhead">
+	    <div class="container">
+	    	<h1>[标题]</h1>
+	    	<h4>[一些介绍]</h4>
+	   	</div>		
+	</header>
+
+	<div class="container page-content">
+		<div class="row">
+			<div class="span3 docs-sidebar">
+		        <ul class="nav nav-list docs-sidenav">
+		          <li><a href="#overview"><i class="icon-chevron-right"></i> 概览</a></li>
+		          <li><a href="#detail"><i class="icon-chevron-right"></i> 过渡效果</a></li>
+		        </ul>
+		    </div>
+	      	<div class="span9">
+	      		<div id="overview">
+	      			<div class="page-header"><h1>Overview</h1></div>
+	      		</div>
+			</div>
+		</div>
+	</div>
+
+	<div class="container">
+		<div class="row">
+			<section class="discuss span9 offset3">
+				<div id="disqus_thread" class=""></div>
+	    		<script type="text/javascript">
+	        		/* * * CONFIGURATION VARIABLES: EDIT BEFORE PASTING INTO YOUR WEBPAGE * * */
+	        		var disqus_shortname = 'zentaodg'; // required: replace example with your forum shortname
+
+	        		/* * * DON'T EDIT BELOW THIS LINE * * */
+			        (function() {
+			            var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+			            dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+			            (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+			        })();
+	    		</script>
+	    		<noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+	    		<a href="http://disqus.com" class="dsq-brlink">comments powered by <span class="logo-disqus">Disqus</span></a>
+			</section>			
+		</div>
+	</div>
+
+	<footer class="muted">
+		<div class="container">
+			Zentao Design Guidelines <span class="label">by Catouse</span>
+		</div>
+	</footer>
+
+	<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
+	<script src="js/bootstrap.min.js"></script>
+
+</body>
+</html>

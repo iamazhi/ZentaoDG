@@ -1,0 +1,126 @@
+<!doctype html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>ZentaoDG | 禅道设计指南</title>
+	<link rel="stylesheet" href="css/bootstrap.css">
+	<link rel="stylesheet" href="css/bootstrap-responsive.css">
+	<link rel="stylesheet" href="css/font-awesome.css">
+	<link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+
+	<!-- Navbar
+	---------------------------------->
+	<div class="navbar navbar-inverse navbar-fixed-top">
+      	<div class="navbar-inner">
+	        <div class="container">
+	          	<button type="button" class="btn btn-navbar" data-toggle="collapse" data-target=".nav-collapse">
+		            <span class="icon-bar"></span>
+		            <span class="icon-bar"></span>
+		            <span class="icon-bar"></span>
+	          	</button>
+	          	<a class="brand" href="index.html">ZentaoDG</a>
+	          	<div class="nav-collapse collapse">
+		            <ul class="nav">
+		              	<li class="dropdown active">
+			                <a href="#" class="dropdown-toggle" data-toggle="dropdown">起步 <b class="caret"></b></a>
+			                <ul class="dropdown-menu">
+			                	<li class="active"><a href="start.html">使用设计指南</a></li>
+			                	<li><a href="principles.html">设计原则</a></li>
+			                </ul>
+		              	</li>
+		              	<li class="dropdown">
+		                  	<a href="#" class="dropdown-toggle" data-toggle="dropdown">基础 <b class="caret"></b></a>
+		                  	<ul class="dropdown-menu">
+		                    	<li><a href="globalcss.html">全局样式表</a></li>
+		                    	<li><a href="#">栅格系统</a></li>
+		                    	<li><a href="#">流式栅格系统</a></li>
+		                  	</ul>
+		              	</li>
+		            </ul>
+	          	</div>
+	        </div>
+      	</div>
+    </div>
+
+	<header class="jumbotron subhead">
+	    <div class="container">
+	    	<h1>使用设计指南</h1>
+	    	<h4>好的开始是成功的一半</h4>
+	   	</div>		
+	</header>
+
+	<div class="container page-content">
+		<div class="row">
+			<div class="span3 docs-sidebar">
+		        <ul class="nav nav-list docs-sidenav">
+		          <li><a href="#what"><i class="icon-chevron-right"></i> 这是什么？</a></li>
+		          <li><a href="#why"><i class="icon-chevron-right"></i> 为何需要？</a></li>
+		          <li><a href="#how"><i class="icon-chevron-right"></i> 下一步如何做？</a></li>
+		        </ul>
+		    </div>
+	      	<div class="span9">
+	      		<div id="what" class="page-section">
+	      			<div class="page-header"><h2>这是什么？</h2></div>
+	      			<p>这是一份为禅道开发人员编写的文档，定义了一些设计原则，并基于bootstrap的样式和组件给出用户界面设计方面的建议，以便开发人员构建简洁、直观、吸引人的产品。</p>
+	      			<p>禅道尊崇开源，所以该文档也会给非官方人员进一步开发定制禅道产品提供帮助。</p>
+	      			<div class="alert alert-info">
+		      			<p>本文档在撰写过程中参考了<a href="https://developer.atlassian.com/design/index.html" target="_blank">ADG</a>的思路。文档中给出的组件及示例是基于开源项目<a href="http://twitter.github.io/bootstrap/index.html"  target="_blank">Bootstrap</a>构建和定制。非常感谢ADG提供了定义用户界面设计指南的科学方法。同时Bootstrap是使我们能快速构建实例实现想法的很好工具。</p>	      				
+	      			</div>
+
+	      		</div>
+	      		<div id="why" class="page-section">
+	      			<div class="page-header"><h2>为何需要？</h2></div>
+	      			<p>当产品已具备用户需要的基本功能后，用户通常有N多理由来要求开发人员所开发的产品一定要好用美观和吸引人，但用户和开发人员很少有机会真正理解对方。所以我认为定义用户界面的设计原则及相关细节变得非常重要，起码应该认同以下理由：</p>
+	      			<ol>
+	      				<li>开发出美观易用的产品变得非常迫切；</li>
+	      				<li>开发人员无法把握整个产品线的统一风格；</li>
+	      				<li>正确的使用界面构建方法能大大提高产品性能；</li>
+	      				<li>设计指南能引入已经过大规模应用的最佳方案；</li>
+	      				<li>一次定义，处处使用，便于后期升级</li>
+	      			</ol>
+	      		</div>
+	      		<div id="how" class="page-section">
+	      			<div class="page-header">
+	      				<h2>下一步如何做？</h2>
+	      				<p>应尽可能将此文档分发给产品开发过程中的所有人员。</p>
+	      				<p>后续还会根据此文档指定更丰富的工具来协助开发人员测试自己的创意。</p>
+	      			</div>
+	      		</div>
+			</div>
+		</div>
+	</div>
+
+	<div class="container">
+		<div class="row">
+			<section class="discuss span9 offset3">
+				<div id="disqus_thread" class=""></div>
+	    		<script type="text/javascript">
+	        		/* * * CONFIGURATION VARIABLES: EDIT BEFORE PASTING INTO YOUR WEBPAGE * * */
+	        		var disqus_shortname = 'zentaodg'; // required: replace example with your forum shortname
+
+	        		/* * * DON'T EDIT BELOW THIS LINE * * */
+			        (function() {
+			            var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+			            dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+			            (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+			        })();
+	    		</script>
+	    		<noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+	    		<a href="http://disqus.com" class="dsq-brlink">comments powered by <span class="logo-disqus">Disqus</span></a>
+			</section>			
+		</div>
+	</div>
+
+	<footer class="muted">
+		<div class="container">
+			Zentao Design Guidelines <span class="label">by Catouse</span>
+		</div>
+	</footer>
+
+	<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
+	<script src="js/bootstrap.min.js"></script>
+
+</body>
+</html>
