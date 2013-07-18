@@ -23,53 +23,55 @@
 	          	<a class="brand" href="index.html">ZentaoDG</a>
 	          	<div class="nav-collapse collapse">
 		            <ul class="nav">
-		              	<li class="dropdown">
-			                <a href="#" class="dropdown-toggle" data-toggle="dropdown">起步 <b class="caret"></b></a>
-			                <ul class="dropdown-menu">
-			                	<li><a href="start.html">使用设计指南</a></li>
-			                	<li><a href="principles.html">设计原则</a></li>
-			                </ul>
-		              	</li>
-		              	<li class="dropdown active">
-		                  	<a href="#" class="dropdown-toggle" data-toggle="dropdown">基础 <b class="caret"></b></a>
-		                  	<ul class="dropdown-menu">
-		                    	<li><a href="globalcss.html">全局样式表</a></li>
-		                    	<li><a href="#">栅格系统</a></li>
-		                    	<li><a href="#">流式栅格系统</a></li>
-		                  	</ul>
-		              	</li>
+		              	<li class=""><a href="start.html">起步</a></li>
+		              	<li class=""><a href="foundations.html">基础</a></li>
+		              	<li class=""><a href="controls.html">控件</a></li>
+		              	<li class=""><a href="navigation.html">导航</a></li>
+		              	<li class=""><a href="dialogs.html">对话框</a></li>
+		              	<li class=""><a href="communicators.html">信息展示</a></li>
+		              	<li class=""><a href="patterns.html">样式</a></li>
 		            </ul>
 	          	</div>
 	        </div>
       	</div>
     </div>
 
+	<!-- Header
+	---------------------------------->
 	<header class="jumbotron subhead">
 	    <div class="container">
 	    	<h1>[标题]</h1>
-	    	<h4>[一些介绍]</h4>
+	    	<h4>[这里应该有一个说明]</h4>
 	   	</div>		
 	</header>
 
+	<!-- Content
+	---------------------------------->
 	<div class="container page-content">
 		<div class="row">
 			<div class="span3 docs-sidebar">
 		        <ul class="nav nav-list docs-sidenav">
 		          <li><a href="#overview"><i class="icon-chevron-right"></i> 概览</a></li>
-		          <li><a href="#detail"><i class="icon-chevron-right"></i> 过渡效果</a></li>
+		          <li><a href="#detail"><i class="icon-chevron-right"></i> 详细</a></li>
+		          <li><a href="#discusses"><i class="icon-comments"></i> 讨论</a></li>
 		        </ul>
 		    </div>
 	      	<div class="span9">
-	      		<div id="overview">
-	      			<div class="page-header"><h1>Overview</h1></div>
-	      		</div>
+	      		<section id="overview" class="page-section">
+	      			<div class="page-header"><h1>概览</h1></div>	
+	      		</section>
+	      		<section id="detail" class="page-section">
+					<div class="page-header"><h1>详细</h1></div>
+	      		</section>
 			</div>
 		</div>
 	</div>
 
+	<!-- Discusses
+	---------------------------------->
 	<div class="container">
 		<div class="row">
-			<section class="discuss span9 offset3">
+			<section id="discusses" class="discuss span9 offset3">
 				<div id="disqus_thread" class=""></div>
 	    		<script type="text/javascript">
 	        		/* * * CONFIGURATION VARIABLES: EDIT BEFORE PASTING INTO YOUR WEBPAGE * * */
@@ -88,12 +90,16 @@
 		</div>
 	</div>
 
+	<!-- Footer
+	---------------------------------->
 	<footer class="muted">
 		<div class="container">
 			Zentao Design Guidelines <span class="label">by Catouse</span>
 		</div>
 	</footer>
 
+	<!-- Scripts
+	---------------------------------->
 	<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
 	<script src="js/bootstrap.min.js"></script>
 
