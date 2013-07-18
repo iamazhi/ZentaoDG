@@ -6,6 +6,7 @@
 	<link rel="stylesheet" href="css/bootstrap.css">
 	<link rel="stylesheet" href="css/bootstrap-responsive.css">
 	<link rel="stylesheet" href="css/font-awesome.css">
+	<link rel="stylesheet" href="css/prettify.css">
 	<link rel="stylesheet" href="css/style.css">
 </head>
 <body>
@@ -41,7 +42,7 @@
 	<header class="jumbotron subhead">
 	    <div class="container">
 	    	<h1>基础</h1>
-	    	<h4>了解栅格系统及配色</h4>
+	    	<h4>了解栅格系统、布局及配色表</h4>
 	   	</div>		
 	</header>
 
@@ -51,14 +52,43 @@
 		<div class="row">
 			<div class="span3 docs-sidebar">
 		        <ul class="nav nav-list docs-sidenav">
-		          <li><a href="#overview"><i class="icon-chevron-right"></i> 概览</a></li>
-		          <li><a href="#detail"><i class="icon-chevron-right"></i> 详细</a></li>
+		          <li><a href="#globalcss"><i class="icon-chevron-right"></i> 全局样式表</a></li>
+		          <li><a href="#grid"><i class="icon-chevron-right"></i> 栅格系统</a></li>
+		          <li><a href="#flowgrid"><i class="icon-chevron-right"></i> 流式栅格系统</a></li>
+		          <li><a href="#layouts"><i class="icon-chevron-right"></i> 布局</a></li>
+		          <li><a href="#typography"><i class="icon-chevron-right"></i> 文字排版</a></li>
+		          <li><a href="#colors"><i class="icon-chevron-right"></i> 配色</a></li>
+		          <li><a href="#iconography"><i class="icon-chevron-right"></i> 图标</a></li>
+		          <li><a href="#avatars"><i class="icon-chevron-right"></i> 头像</a></li>
+		          <li><a href="#language"><i class="icon-chevron-right"></i> 语言表述和格式</a></li>
+		          <li><a href="#shortcus"><i class="icon-chevron-right"></i> 键盘快捷键</a></li>
+		          <li><a href="#responsivce"><i class="icon-chevron-right"></i> 响应式设计</a></li>
 		          <li><a href="#discusses"><i class="icon-comments"></i> 讨论</a></li>
 		        </ul>
 		    </div>
 	      	<div class="span9">
-	      		<section id="overview" class="page-section">
-	      			<div class="page-header"><h1>概览</h1></div>	
+	      		<section id="globalcss" class="page-section">
+	      			<div class="page-header"><h1>全局样式表&nbsp;<span class="label label-info" data-toggle="tooltip" title="该节内容在bootstrap文档中有对应部分">bootstrap</span></h1></div>	
+	      			<h3>必须使用HTML5文档类型</h3>
+			        <p>Bootstrap使用的某些HTML元素和CSS属性需要文档类型为HTML5 doctype。因此这一文档类型必须出现在项目的每个页面的开始部分。</p>
+<pre class="prettyprint linenums">
+&lt;!DOCTYPE html&gt;
+&lt;html lang="en"&gt;
+  ...
+&lt;/html&gt;
+</pre>
+			        <h3>排版和链接</h3>
+			        <p>Bootstrap 为屏幕、排版和链接设置了基本的全局样式。尤其是，我们:</p>
+			        <ul>
+			            <li>移除了body的 <code>margin</code></li>
+			            <li>设置了 <code>body</code> 的背景颜色 <code>background-color: white;</code></li>
+			            <li>使用 <code>@baseFontFamily</code>、<code>@baseFontSize</code> 和<code>@baseLineHeight</code> 属性作为我们排版的基础</li>
+			            <li>通过 <code>@linkColor</code> 设置全局链接颜色，并且，当链接处于 <code>:hover</code> 状态时才会带有下划线</li>
+			        </ul>
+			        <p>这些样式可以在 <strong>scaffolding.less</strong> 文件中找到。</p>
+
+			        <h3>用Normalize重置样式</h3>
+			        <p>从 Bootstrap 2 开始, 老的重置方式被 <a href="http://necolas.github.com/normalize.css/" target="_blank">Normalize.css</a> 取代, 这是 <a href="http://twitter.com/necolas" target="_blank">Nicolas Gallagher</a> 和<a href="http://twitter.com/jon_neal" target="_blank">Jonathan Neal</a> 共同维护的一个项目，这一项目还被 <a href="http://html5boilerplate.com" target="_blank">HTML5 Boilerplate</a> 所采用。虽然我们在<strong>reset.less</strong> 文件中使用了许多Normalize的代码，但是，我们也移除了一些不适合Bootstrap的元素。</p>
 	      		</section>
 	      		<section id="detail" class="page-section">
 					<div class="page-header"><h1>详细</h1></div>
@@ -96,6 +126,7 @@
 
 	<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
 	<script src="js/bootstrap.min.js"></script>
-
+	<script src="js/google-code-prettify/prettify.js"></script>
+	<script src="js/script.js"></script>
 </body>
 </html>
