@@ -416,10 +416,7 @@
 						</tr>
 						<tr>
 							<td>
-								<pre><code>&lt;div&gt;
-									&lt;p&gt;代码区域&lt;/p&gt;
-									&lt;/div&gt;
-								</code></pre>
+								<pre><code>&lt;div&gt;&#10;  &lt;p&gt;代码区域&lt;/p&gt;&#10;&lt;/div&gt;</code></pre>
 							</td>
 							<td><code>&lt;pre&gt;&lt;code&gt;...&lt;/code&gt;</code></td>
 							<td>14px 等宽字体</td>
@@ -995,6 +992,169 @@
 						<li>图标应与所指示的内容对应，不同地方的同一个指示内容应该使用同一个图标。</li>
 					</ul>
 					<p>如有需要，也可以自定义专有的图标字体。例如需要使用一些Font Awesome中没有定义的图标，或者由于性能要求太高需要Font Awesome中没有用到的图标。</p>
+				</section>
+				<section id="avatars" class="page-section">
+					<div class="page-header"><h2>头像</h2></div>
+					<p>头像在应用程序中的使用增强了用户识别度，使得应用程序更具亲和力。除了用来标识用户的头像，我们也把头像应用与项目和群组。</p>
+					<h3>用户头像</h3>
+					<p>用户头像有5种尺寸，所有头像都使用了圆角，去掉锋利的边缘。</p>
+					<table class="normal-table">
+						<tr>
+							<th>示例</th>
+							<th>大小</th>
+							<th>边框半径</th>
+							<th>描述</th>
+						</tr>
+						<tr>
+							<td><div class="avatar avatar-16"><img src="img/user-avatar.jpg" alt=""></div></td>
+							<td>16px</td>
+							<td>3px</td>
+							<td>这种小头像并不常见，但在一个下拉菜单时只能使用这种小头像，也可以作为行内元素</td>
+						</tr>
+						<tr>
+							<td><div class="avatar avatar-24"><img src="img/user-avatar.jpg" alt=""></div></td>
+							<td>24px</td>
+							<td>3px</td>
+							<td>可以作为行内元素来使用</td>
+						</tr>
+						<tr>
+							<td><div class="avatar avatar-32"><img src="img/user-avatar.jpg" alt=""></div></td>
+							<td>32px</td>
+							<td>3px</td>
+							<td>用于消息列表、评论、表格等</td>
+						</tr>
+						<tr>
+							<td><div class="avatar avatar-48"><img src="img/user-avatar.jpg" alt=""></div></td>
+							<td>48px</td>
+							<td>3px</td>
+							<td>用于和标题一起使用</td>
+						</tr>
+						<tr>
+							<td><div class="avatar avatar-96"><img src="img/user-avatar.jpg" alt=""></div></td>
+							<td>96px</td>
+							<td>5px</td>
+							<td>通常用于个人主页或个人资料卡片</td>
+						</tr>
+					</table>
+
+					<h3>项目头像</h3>
+					<p>头像还可以项目、空间等。项目头像区别于用户头像使用圆形。在CSS3中只需要设置圆角半径为50%，不过最好已经切割好的图片代替。</p>
+					<table class="normal-table">
+						<tr>
+							<th>示例</th>
+							<th>大小</th>
+							<th>描述</th>
+						</tr>
+						<tr>
+							<td><div class="avatar-project avatar-24"><img src="img/project-avatar.jpg" alt=""></div></td>
+							<td>24px</td>
+							<td>通常用于菜单中，也可以作为行内元素</td>
+						</tr>
+						<tr>
+							<td><div class="avatar-project avatar-32"><img src="img/project-avatar.jpg" alt=""></div></td>
+							<td>32px</td>
+							<td>用在项目列表中</td>
+						</tr>
+						<tr>
+							<td><div class="avatar-project avatar-48"><img src="img/project-avatar.jpg" alt=""></div></td>
+							<td>48px</td>
+							<td>用于侧边栏或页面标题中</td>
+						</tr>
+						<tr>
+							<td><div class="avatar-project avatar-64"><img src="img/project-avatar.jpg" alt=""></div></td>
+							<td>64px</td>
+							<td>用于页面标题确定当前项目主体</td>
+						</tr>
+						<tr>
+							<td><div class="avatar-project avatar-128"><img src="img/project-avatar.jpg" alt=""></div></td>
+							<td>128px</td>
+							<td>通常用于项目主页中或者卡片中</td>
+						</tr>
+					</table>
+
+					<h3>默认头像</h3>
+					<p>当用户没有上传个人头像或者没有指定项目头像时，应用程序应该能够自动使用默认头像来代替。</p>
+					<p>默认图像可以使用字体图标组合实现</p>
+					<h4>用户默认头像</h4>
+					<table class="normal-table">
+						<tr>
+							<th>大小</th>
+							<th>用户</th>
+							<th>群组</th>
+						</tr>
+						<tr>
+							<td>16px</td>
+							<td><div class="avatar-icon avatar-16"><i class="icon-user"></i></div></td>
+							<td><div class="avatar-icon avatar-16"><i class="icon-group"></i></div></td>
+						</tr>
+						<tr>
+							<td>24px</td>
+							<td><div class="avatar-icon avatar-24"><i class="icon-user"></i></div></td>
+							<td><div class="avatar-icon avatar-24"><i class="icon-group"></i></div></td>
+						</tr>
+						<tr>
+							<td>32px</td>
+							<td><div class="avatar-icon avatar-32"><i class="icon-user"></i></div></td>
+							<td><div class="avatar-icon avatar-32"><i class="icon-group"></i></div></td>
+						</tr>
+						<tr>
+							<td>48px</td>
+							<td><div class="avatar-icon"><i class="icon-user"></i></div></td>
+							<td><div class="avatar-icon"><i class="icon-group"></i></div></td>
+						</tr>
+						<tr>
+							<td>96px</td>
+							<td><div class="avatar-icon avatar-96"><i class="icon-user"></i></div></td>
+							<td><div class="avatar-icon avatar-96"><i class="icon-group"></i></div></td>
+						</tr>
+					</table>
+					<h4>项目默认头像</h4>
+					<table class="normal-table">
+						<tr>
+							<th>大小</th>
+							<th colspan="4">示例</th>
+						</tr>
+						<tr>
+						<tr>
+							<td>24px</td>
+							<td><div class="avatar-project-icon avatar-24"><i class="icon-flag"></i></div></td>
+							<td><div class="avatar-project-icon avatar-24"><i class="icon-tasks"></i></div></td>
+							<td><div class="avatar-project-icon avatar-24"><i class="icon-building"></i></div></td>
+							<td><div class="avatar-project-icon avatar-24"><i class="icon-gift"></i></div></td>
+							<td><div class="avatar-project-icon avatar-24"><i class="icon-sitemap"></i></div></td>
+						</tr>
+						<tr>
+							<td>32px</td>
+							<td><div class="avatar-project-icon avatar-32"><i class="icon-flag"></i></div></td>
+							<td><div class="avatar-project-icon avatar-32"><i class="icon-tasks"></i></div></td>
+							<td><div class="avatar-project-icon avatar-32"><i class="icon-building"></i></div></td>
+							<td><div class="avatar-project-icon avatar-32"><i class="icon-gift"></i></div></td>
+							<td><div class="avatar-project-icon avatar-32"><i class="icon-sitemap"></i></div></td>
+						</tr>
+						<tr>
+							<td>48px</td>
+							<td><div class="avatar-project-icon avatar-48"><i class="icon-flag"></i></div></td>
+							<td><div class="avatar-project-icon avatar-48"><i class="icon-tasks"></i></div></td>
+							<td><div class="avatar-project-icon avatar-48"><i class="icon-building"></i></div></td>
+							<td><div class="avatar-project-icon avatar-48"><i class="icon-gift"></i></div></td>
+							<td><div class="avatar-project-icon avatar-48"><i class="icon-sitemap"></i></div></td>
+						</tr>
+						<tr>
+							<td>64px</td>
+							<td><div class="avatar-project-icon avatar-64"><i class="icon-flag"></i></div></td>
+							<td><div class="avatar-project-icon avatar-64"><i class="icon-tasks"></i></div></td>
+							<td><div class="avatar-project-icon avatar-64"><i class="icon-building"></i></div></td>
+							<td><div class="avatar-project-icon avatar-64"><i class="icon-gift"></i></div></td>
+							<td><div class="avatar-project-icon avatar-64"><i class="icon-sitemap"></i></div></td>
+						</tr>
+						<td>128px</td>
+							<td><div class="avatar-project-icon avatar-128"><i class="icon-flag"></i></div></td>
+							<td><div class="avatar-project-icon avatar-128"><i class="icon-tasks"></i></div></td>
+							<td><div class="avatar-project-icon avatar-128"><i class="icon-building"></i></div></td>
+							<td><div class="avatar-project-icon avatar-128"><i class="icon-gift"></i></div></td>
+							<td><div class="avatar-project-icon avatar-128"><i class="icon-sitemap"></i></div></td>
+						</tr>
+					</table>
 				</section>
 			</div>
 		</div>
