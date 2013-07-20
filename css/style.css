@@ -1,4 +1,5 @@
 body {
+	position: relative;
 	padding: 40px 0;
 }
 
@@ -8,7 +9,7 @@ h1, h2, h3, h4,.masthead p, .subhead p, .marketing h2, .lead
   font-weight: normal;
 }
 section{
-	margin-top: 40px;
+	padding-top: 40px;
 }
 footer{
 	border-top: 1px solid #ddd;
@@ -88,6 +89,7 @@ h1.round-sign{
 }
 
 .docs-sidenav {
+	width: 258px;
 	margin: 30px 0 0;
 	padding: 0;
 	background-color: #fff;
@@ -97,6 +99,9 @@ h1.round-sign{
 	-webkit-box-shadow: 0 1px 4px rgba(0,0,0,.065);
 	-moz-box-shadow: 0 1px 4px rgba(0,0,0,.065);
 	box-shadow: 0 1px 4px rgba(0,0,0,.065);
+}
+.docs-sidenav.affix {
+	top: 40px;
 }
 .docs-sidenav > li:first-child > a {
 	-webkit-border-radius: 6px 6px 0 0;
