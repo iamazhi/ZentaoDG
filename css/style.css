@@ -3,10 +3,15 @@ body {
 	padding: 40px 0;
 }
 
-h1, h2, h3, h4,.masthead p, .subhead p, .marketing h2, .lead
+h1, h2, h3,h4,.masthead p, .subhead p, .marketing h2, .lead
 {
   font-family: "Helvetica Neue", Helvetica, Arial, "Microsoft Yahei UI", "Microsoft YaHei", SimHei, "\5B8B\4F53", simsun, sans-serif;
-  font-weight: normal;
+}
+h1,h2{
+	font-weight: normal;
+}
+h5,h6,small{
+	color: #777;
 }
 section{
 	padding-top: 40px;
@@ -16,7 +21,15 @@ footer{
 	margin-top: 40px;
 	padding: 20px 0;
 }
-
+blockquote,q{
+	color: #777;
+}
+q:before{
+	content: open-quote;
+}
+q:after{
+	content: close-quote;
+}
 
 .jumbotron{
 	position: relative;
@@ -234,4 +247,20 @@ line-height: 40px;
 	height: 130px;
 	margin: 10px;
 	float: right;
+}
+
+table.normal-table{
+	width: 100%;
+}
+table.normal-table th,
+table.normal-table td{
+	border-bottom: 1px solid #ccc;
+	padding: 7px 10px;
+	text-align: left;
+	vertical-align: top;
+}
+table.normal-table th{
+	vertical-align: center;
+	font-weight: bold;
+	color: #666;
 }
