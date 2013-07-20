@@ -25,12 +25,31 @@
 	          	<div class="nav-collapse collapse">
 		            <ul class="nav">
 		              	<li class=""><a href="start.html">起步</a></li>
-		              	<li class=""><a href="foundations.html">基础</a></li>
+		              	<li class="active"><a href="foundations.html">基础</a></li>
 		              	<li class=""><a href="controls.html">控件</a></li>
 		              	<li class=""><a href="navigation.html">导航</a></li>
 		              	<li class=""><a href="dialogs.html">对话框</a></li>
 		              	<li class=""><a href="communicators.html">信息展示</a></li>
 		              	<li class=""><a href="patterns.html">样式</a></li>
+		              	<li><a href="">开发资源包</a></li>
+		              	<li><a href="">沙盒</a></li>
+		              	<li class="dropdown">
+		                	<a href="#" class="dropdown-toggle" data-toggle="dropdown">参考 <b class="caret"></b></a>
+			                <ul class="dropdown-menu">
+			                    <li class="divider"></li>
+			                    <li class="nav-header">Bootstrap</li>
+			                    <li><a target="_blank" href="http://twitter.github.io/bootstrap/">Bootstrap 官方 <i class="icon-external-link"></i></a></li>
+			                    <li><a target="_blank" href="http://www.bootcss.com/">Bootstrap 中文站 <i class="icon-external-link"></i></a></li>
+			                    <li class="divider"></li>
+			                    <li class="nav-header">Font Awesome</li>
+			                    <li><a target="_blank" href="http://fortawesome.github.io/Font-Awesome/">Font Awesome <i class="icon-external-link"></i></a></li>
+			                    <li><a target="_blank" href="http://www.bootcss.com/p/font-awesome/">Font Awesome 中文站 <i class="icon-external-link"></i></a></li>
+			                    <li class="divider"></li>
+			                    <li class="nav-header">其他</li>
+			                    <li><a target="_blank" href="http://necolas.github.io/normalize.css/">Normalize.js <i class="icon-external-link"></i></a></li>
+			                    <li><a target="_blank" href="https://developer.atlassian.com/design/index.html">ADG <i class="icon-external-link"></i></a></li>
+			                </ul>
+		              	</li>
 		            </ul>
 	          	</div>
 	        </div>
@@ -69,30 +88,21 @@
 		    </div>
 	      	<div class="span9">
 	      		<section id="globalcss" class="page-section">
-	      			<div class="page-header"><h1>全局样式表&nbsp;<span class="label label-info" data-toggle="tooltip" title="该节内容在bootstrap文档中有对应部分">bootstrap</span></h1></div>	
-	      			<h3>必须使用HTML5文档类型</h3>
-			        <p>Bootstrap使用的某些HTML元素和CSS属性需要文档类型为HTML5 doctype。因此这一文档类型必须出现在项目的每个页面的开始部分。</p>
-<pre class="prettyprint linenums">
-&lt;!DOCTYPE html&gt;
-&lt;html lang="en"&gt;
-  ...
-&lt;/html&gt;
-</pre>
+	      			<div class="page-header"><h1>全局样式表&nbsp;<a class="label label" data-toggle="tooltip" title="该节内容在bootstrap文档中有对应部分" href="http://www.bootcss.com/scaffolding.html#global" target="_blank">bootstrap</a></h1></div>	
+
+	      			<h3>使用HTML5文档类型</h3>
+			        <p>我们会使用HTML5。Html5也是HTML当前最新修订版本，使用Html5的最新特性将很容易开发出符合预期的用户界面。大部分场景中HTML5本身也会兼容旧版本内容的出现，但使用时还是要考虑常用浏览器对Html5的支持程度。</p>
+					<p>Bootstrap使用的某些HTML元素和CSS属性需要文档类型为HTML5 doctype。因此这一文档类型必须出现在项目的每个页面的开始部分。</p>
+
 			        <h3>排版和链接</h3>
-			        <p>Bootstrap 为屏幕、排版和链接设置了基本的全局样式。尤其是，我们:</p>
-			        <ul>
-			            <li>移除了body的 <code>margin</code></li>
-			            <li>设置了 <code>body</code> 的背景颜色 <code>background-color: white;</code></li>
-			            <li>使用 <code>@baseFontFamily</code>、<code>@baseFontSize</code> 和<code>@baseLineHeight</code> 属性作为我们排版的基础</li>
-			            <li>通过 <code>@linkColor</code> 设置全局链接颜色，并且，当链接处于 <code>:hover</code> 状态时才会带有下划线</li>
-			        </ul>
-			        <p>这些样式可以在 <strong>scaffolding.less</strong> 文件中找到。</p>
+			        <p>Html文档在浏览器渲染时会读取用户浏览器的样式设置，为了在所有浏览器获得一致的用户体验，我们会屏幕、链接和排版设置基本的全局样式。例如移除了body的 <code>margin</code>，仅在链接悬停时才设置链接显示下划线等。</p>
 
 			        <h3>用Normalize重置样式</h3>
-			        <p>从 Bootstrap 2 开始, 老的重置方式被 <a href="http://necolas.github.com/normalize.css/" target="_blank">Normalize.css</a> 取代, 这是 <a href="http://twitter.com/necolas" target="_blank">Nicolas Gallagher</a> 和<a href="http://twitter.com/jon_neal" target="_blank">Jonathan Neal</a> 共同维护的一个项目，这一项目还被 <a href="http://html5boilerplate.com" target="_blank">HTML5 Boilerplate</a> 所采用。虽然我们在<strong>reset.less</strong> 文件中使用了许多Normalize的代码，但是，我们也移除了一些不适合Bootstrap的元素。</p>
+			        <p>因样式表具有继承特性，在给用户界面应用样式表时，为了更好利用这一特性，我们希望子级元素在一开始变具备一些基础样式。重置样式就变得非常重要。</p>
+			        <p>从 Bootstrap 2 开始, 老的重置方式被 <a href="http://necolas.github.com/normalize.css/" target="_blank">Normalize.css</a> 取代, 这是 <a href="http://twitter.com/necolas" target="_blank">Nicolas Gallagher</a> 和<a href="http://twitter.com/jon_neal" target="_blank">Jonathan Neal</a> 共同维护的一个项目，这一项目还被 <a href="http://html5boilerplate.com" target="_blank">HTML5 Boilerplate</a> 所采用。需要注意的是Bootstrap在重置样式时并没用完全使用Normalize的所有代码，并且也加入了一些Normalize中没有的内容。</p>
 	      		</section>
 	      		<section id="grid" class="page-section">
-					<div class="page-header"><h1>栅格系统&nbsp;<span class="label label" data-toggle="tooltip" title="该节部分内容在bootstrap文档中有对应部分">bootstrap</span></h1></div>
+					<div class="page-header"><h1>栅格系统&nbsp;<a class="label" data-toggle="tooltip" title="该节部分内容在bootstrap文档中有对应部分" href="http://www.bootcss.com/scaffolding.html#gridSystem" target="_blank">bootstrap</a></h1></div>
 					<p><a href="https://zh.wikipedia.org/zh-cn/%E6%A0%85%E6%A0%BC%E8%AE%BE%E8%AE%A1" target="_blank">栅格系统</a>虽然来源于印刷业，但在web设计同样再合适不过。栅格系统为页面元素定位提供了基础，能容易的实现人性化的布局，保证了页面内元素排列整齐，使得用户更容易阅读。</p>
 					<p>在使用栅格系统时应该尊崇以下原则：</p>
 					<ol>
@@ -126,70 +136,11 @@
 			               <div class="span9">9</div>
 			            </div>
 		          	</div>
-
-		          	<h3>带有基本栅格的HTML代码</h3>
-		          	<p>对于简单的两列式布局，创建一个 <code>.row</code> 容器，并在容器中加入合适数量的 <code>.span*</code> 列即可。由于默认是12列的栅格，所有 <code>.span*</code> 列所跨越的栅格数之和最多是12(或者等于其父容器的栅格数)。</p>
-<pre class="prettyprint linenums">
-&lt;div class="row"&gt;
-  &lt;div class="span4"&gt;...&lt;/div&gt;
-  &lt;div class="span8"&gt;...&lt;/div&gt;
-&lt;/div&gt;
-</pre>
-          			<p>上面的代码展示了 <code>.span4</code> 和 <code>.span8</code> 两列，两列的和总共是12个栅格。</p>
-
-          			<h2>偏移列</h2>
-          			<p>把列向右移动可使用 <code>.offset*</code> 类。每个类都给列的左边距增加了指定单位的列。例如，<code>.offset4</code> 将 <code>.span4</code> 右移了4个列的宽度。</p>
-		            <div class="docs-grid">
-			            <div class="row show-grid">
-			               <div class="span4">4</div>
-			               <div class="span3 offset2">3 offset 2</div>
-			            </div><!-- /row -->
-			            <div class="row show-grid">
-			              	<div class="span3 offset1">3 offset 1</div>
-			              	<div class="span3 offset2">3 offset 2</div>
-			            </div><!-- /row -->
-			            <div class="row show-grid">
-			              	<div class="span6 offset3">6 offset 3</div>
-			            </div><!-- /row -->
-		            </div>
-<pre class="prettyprint linenums">
-&lt;div class="row"&gt;
-  &lt;div class="span4"&gt;...&lt;/div&gt;
-  &lt;div class="span3 offset2"&gt;...&lt;/div&gt;
-&lt;/div&gt;
-</pre>
-
-          			<h2>嵌套列</h2>
-          			<p>在默认的栅格系统里, 在已有的<code>.span*</code>内添加一个新的 <code>.row</code> 并加入 <code>.span*</code> 列，就可实现嵌套。被嵌套列中的每列列数总和要等于父级列。</p>
-		          	<div class="row show-grid">
-			            <div class="span9">
-			              	Level 1 column
-			              	<div class="row show-grid">
-				                <div class="span6">
-				                  Level 2
-				                </div>
-				                <div class="span3">
-				                  Level 2
-				                </div>
-			              	</div>
-			            </div>
-		          	</div>
-<pre class="prettyprint linenums">
-&lt;div class="row"&gt;
-  &lt;div class="span9"&gt;
-    Level 1 column
-    &lt;div class="row"&gt;
-      &lt;div class="span6"&gt;Level 2&lt;/div&gt;
-      &lt;div class="span3"&gt;Level 2&lt;/div&gt;
-    &lt;/div&gt;
-  &lt;/div&gt;
-&lt;/div&gt;
-</pre>
+		          	<p>在Bootstrap中栅格系统也支持偏移和嵌套。</p>
 	      		</section>
-
 	      		<section id="flowgrid" class="page-section">
 		            <div class="page-header">
-		            	<h1>流式栅格系统&nbsp;<span class="label label-info" data-toggle="tooltip" title="该节内容在bootstrap文档中有对应部分">bootstrap</span></h1>
+		            	<h1>流式栅格系统&nbsp;<span class="label" data-toggle="tooltip" title="该节内容在bootstrap文档中有对应部分">bootstrap</span></h1>
 		            </div>
 
 			        <h2>流式栅格系统案例</h2>
@@ -226,73 +177,111 @@
 			                <div class="span12">12</div>
 			            </div>
 		          	</div>
-
-		            <h3>基本的流式栅格HTML代码片段</h3>
-		            <p>将 <code>.row</code> 替换为 <code>.row-fluid</code> 就能让任何一行“流动”起来。应用于每一列的类不用改变，这样能方便的在流式与固定栅格之间切换。</p>
-<pre class="prettyprint linenums">
-&lt;div class="row-fluid"&gt;
-  &lt;div class="span4"&gt;...&lt;/div&gt;
-  &lt;div class="span8"&gt;...&lt;/div&gt;
-&lt;/div&gt;
-</pre>
-
-		            <h2>流式栅格的偏移</h2>
-		            <p>定义方式和固定网格系统相同：给任何想偏移的列添加 <code>.offset*</code> 即可。</p>
-		            <div class="docs-grid">
-			            <div class="row-fluid show-grid">
-			                <div class="span4">4</div>
-			                <div class="span4 offset4">4 offset 4</div>
-			            </div><!-- /row -->
-			            <div class="row-fluid show-grid">
-			                <div class="span3 offset3">3 offset 3</div>
-			                <div class="span3 offset3">3 offset 3</div>
-			            </div><!-- /row -->
-			            <div class="row-fluid show-grid">
-			                <div class="span6 offset6">6 offset 6</div>
-			            </div><!-- /row -->
+		          	<p>在Bootstrap中流式栅格系统同样支持偏移和嵌套。</p>
+        		</section>
+        		<section id="layouts" class="page-section">
+		            <div class="page-header">
+		            	<h1>布局</h1>
 		            </div>
-<pre class="prettyprint linenums">
-&lt;div class="row-fluid"&gt;
-  &lt;div class="span4"&gt;...&lt;/div&gt;
-  &lt;div class="span4 offset2"&gt;...&lt;/div&gt;
-&lt;/div&gt;
-</pre>
 
-			         <h2>流式嵌套布局</h2>
-			         <p>和固定栅格的嵌套有一点不同：被嵌套的列数之和要等于12。这是因为流式栅格使用百分比来设置每列的宽度。</p>
-			         <div class="row-fluid show-grid">
-			            <div class="span12">
-			              	Fluid 12
-			              	<div class="row-fluid show-grid">
-				                <div class="span6">
-				                   Fluid 6
-				                    <div class="row-fluid show-grid">
-					                    <div class="span6">Fluid 6</div>
-					                    <div class="span6">Fluid 6</div>
-				                    </div>
-				                </div>
-				                <div class="span6">Fluid 6</div>
-			              	</div>
-			            </div>
-			         </div>
-<pre class="prettyprint linenums">
-&lt;div class="row-fluid"&gt;
-  &lt;div class="span12"&gt;
-    Fluid 12
-    &lt;div class="row-fluid"&gt;
-      &lt;div class="span6"&gt;
-        Fluid 6
-        &lt;div class="row-fluid"&gt;
-          &lt;div class="span6"&gt;Fluid 6&lt;/div&gt;
-          &lt;div class="span6"&gt;Fluid 6&lt;/div&gt;
-        &lt;/div&gt;
-      &lt;/div&gt;
-      &lt;div class="span6"&gt;Fluid 6&lt;/div&gt;
-    &lt;/div&gt;
-  &lt;/div&gt;
-&lt;/div&gt;
-</pre>
+			        <h2>为何需要布局？</h2>
+			        <p>布局决定了应用界面呈现内容的顺序和范围，帮助用户组织内容，使得用户界面更容易理解和使用。</p>
+			        <p>在一个页面中通常需要用到两个方面的布局：页面布局和内容布局。</p>
+			        
+			        <h2>页面布局</h2>
+			        <p>页面布局的对象包括页面各个不同的部分，例如页面头部、主体内容及页脚等。一般页面都包含页头部和主体内容部分，以下主要从页面头部及主体内容两部分来说明。</p>
+			        <p>根据这页面不同部分随宽度响应的方式使得页面布局有三种：流式布局、固定宽度布局及混合布局。</p>
+					<h3>流式布局（默认布局）</h3>
+					<div class="mini-layout">
+						<div class="mini-layout-head"></div>
+						<div class="mini-layout-body">流式布局</div>
+					</div>
+					<p>流式布局的头部和主体内容部分都会随页面宽度变化而变化。流式布局能够充分利用用户屏幕空间，并且用户具有最多的控制器，能够随着用户调整窗口大小时而自动进行调整。</p>
+					<p>当用户屏幕宽度过大时，某些内容会在一行上显示过多内容而显得不是很合适，例如一行超过200个字符的文本会让阅读时很难找准下一行进而给用户使用带来不便。</p>
+					<h3>固定宽度布局</h3>
+					<div class="mini-layout fixed">
+						<div class="mini-layout-head"></div>
+						<div class="mini-layout-body">固定宽度布局</div>
+					</div>
+					<p>固定宽带布局中限制了页面头部和主体内容部分在水平方向上的宽度，通常保持这两部分在页面中居中。固定宽度布局能够控制页面在水平方向上的尺寸，设计人员能更清楚某些元素在页面展示的效果。这可能会使得用户屏幕没有充分利用。</p>
+					<div class="alert alert-error">
+						固定宽度并保持内容靠左或靠右也有可能但不多见，本文档不推荐这种做法
+					</div>
+					<h3>混合布局</h3>
+					<div class="mini-layout mixed">
+						<div class="mini-layout-head"></div>
+						<div class="mini-layout-body">混合布局</div>
+					</div>
+					<p>混合布局中页面的不同部分能以各自的展现方式使得流式布局和固定宽度布局的方式同时出现在同一个页面上。例如页面头部使用流式布局，而页面主体内容部分使用固定宽度布局，这对于页面头部具有较多内容时比较合适。</p>
+					<p>混合布局在实际使用中很常见，可以根据需要灵活应用，以达到更好的展示效果。</p>
 
+					<h2>内容布局</h2>
+					<p>一个内容部分通常包含侧边栏、导航及文本区等，内容布局即针对一个内容部分各个组件元素采用不同的布局策略。</p>
+					<h3>只有内容</h3>
+					<div class="mini-layout mini-content-layout">
+						<div class="mini-layout-head"></div>
+						<div class="mini-layout-body">只有内容</div>
+					</div>
+					<p>只有内容的布局方式能提供最大的可用宽度。在这种布局下，没有任何侧边栏或其他分隔组件，使得水平方向得以充分利用。一些需要显示很多列的表格及其他需要占用较多水平宽度的内容非常适合只有内容布局的方式。</p>
+
+					<h3>导航和内容</h3>
+					<p>很多时候都需要一个额外的导航来帮助用户在众多内容中选择性浏览。导航可以直接放置与内容顶部或者垂直放置与内容左侧。</p>
+					<table>
+						<tr>
+							<td>
+								<div class="mini-layout mini-content-layout with-nav">
+									<div class="mini-layout-head"></div>
+									<div class="mini-layout-nav"></div>
+									<div class="mini-layout-body">水平导航+内容</div>
+								</div>								
+							</td>
+							<td>&nbsp;&nbsp;</td>
+							<td>
+								<div class="mini-layout mini-content-layout with-sidebar">
+									<div class="mini-layout-head"></div>
+									<div class="mini-layout-sidebar"></div>
+									<div class="mini-layout-body">垂直导航+内容</div>
+								</div>								
+							</td>
+						</tr>
+					</table>
+
+					<h3>内容和侧边栏</h3>
+					<p>很多内容包含有额外的信息，这些信息与内容关系密切，应该和内容放置在一起，这时使用侧边栏会非常合适。根据一般人浏览内容的顺序，通常侧边栏会放置于内容右侧。</p>
+					<div class="mini-layout mini-content-layout">
+						<div class="mini-layout-head"></div>
+						<div class="mini-layout-body with-sidebar">
+							内容+侧边栏
+							<div class="mini-layout-body-sidebar">						
+							</div>
+						</div>
+					</div>
+
+					<h3>导航，内容和侧边栏</h3>
+					<p>根据需要，可以将导航、内容及侧边栏一起使用。</p>
+					<div class="mini-layout mini-content-layout with-sidebar">
+						<div class="mini-layout-head"></div>
+						<div class="mini-layout-sidebar"></div>
+						<div class="mini-layout-body">
+							垂直导航+内容+侧边栏
+							<div class="mini-layout-body-sidebar"></div>
+						</div>
+					</div>	
+
+					<h3>焦点内容</h3>
+					<p>焦点内容通常是固定宽度并显示在页面中间。这样迫使用户仅关注此区域内容才能进行其他操作。这对于一些前提操作非常重要，例如只有用户登录之后才能使用其他功能，这时采用焦点内容布局就非常有必要。</p>
+					<div class="mini-layout mini-content-layout">
+						<div class="mini-layout-head"></div>
+						<div class="mini-layout-focus">焦点内容</div>
+					</div>
+
+		          	<div class="alert alert-info">
+		          	<h4>需要注意什么？</h4>
+			          	<ul>
+			          		<li>在一个应用程序中使用多个布局是很常见的，不过要整体体验应该尽量保持一致。</li>
+			          		<li>使用栅格系统能很方便帮助我们实现各种布局。</li>
+			          	</ul>
+		          	</div>
         		</section>
 			</div>
 		</div>
