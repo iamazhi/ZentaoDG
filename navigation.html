@@ -92,16 +92,103 @@
 			<div class="span9">
 				<section id="application-header" class="page-section">
 					<div class="page-header"><h2>应用导航</h2></div>
-					<p>应用程序导航是整个应用的首要入口。</p>
-					<div class="example-layout">
-						<div class="navbar navbar-inverse">
+					<p>应用程序导航是整个应用的首要入口。用户应该在所有页面都能够看到导航。所有应用程序的导航外观应保持一致。一个导航可以包含以下部分：</p>
+					<table class="normal-table">
+						<tr>
+							<th>名称</th>
+							<th>是否可选</th>
+							<th>描述</th>
+						</tr>
+						<tr>
+							<td><strong>应用程序名称</strong></td>
+							<td>必须</td>
+							<td>可以logo图片代替应用程序名称文本</td>
+						</tr>
+						<tr>
+							<td><strong>菜单项目</strong></td>
+							<td>至少包含一项</td>
+							<td>一个菜单项目对应应用程序的一个模块功能</td>
+						</tr>
+						<tr>
+							<td><strong>下拉菜单项目</strong></td>
+							<td>可选</td>
+							<td>根据需要可以给一个菜单项目指定一些子菜单项目，在用户点击时弹出列表待用户选择</td>
+						</tr>
+						<tr>
+							<td><strong>分隔符</strong></td>
+							<td>可选</td>
+							<td>分隔符可以运用在菜单项目之间或者下次菜单项目列表中，用来从逻辑上给项目分组</td>
+						</tr>
+						<tr>
+							<td><strong>快捷按钮</strong></td>
+							<td>可选</td>
+							<td>为用户提供执行最常用操作的快捷按钮</td>
+						</tr>
+						<tr>
+							<td><strong>搜索框</strong></td>
+							<td>可选</td>
+							<td>供用户通过输入关键字进行搜索导航</td>
+						</tr>
+						<tr>
+							<td><strong>选项菜单</strong></td>
+							<td>可选</td>
+							<td>为用户提供应用帮助及系统配置的菜单</td>
+						</tr>
+						<tr>
+							<td><strong>用户管理</strong></td>
+							<td>可选</td>
+							<td>宣示为当前用户用户名或者用户头像，为用户提供账户管理的菜单</td>
+						</tr>
+					</table>
+					<p>下面是一个典型导航的实例：</p>
+					<div class="example-layout no-padding">
+						<div class="navbar navbar-inverse navbar-example">
 						  <div class="navbar-inner">
-						    <a class="brand" href="#">Title</a>
+						    <a class="brand logo" href="#"></a>
 						    <ul class="nav">
-						      <li class="active"><a href="#">首页</a></li>
-						      <li><a href="#">Link</a></li>
-						      <li><a href="#">Link</a></li>
+						      <li class="active"><a href="#">我的地盘</a></li>
+						      <li class="dropdown">
+										<a href="#" class="dropdown-toggle" data-toggle="dropdown">测试 <b class="caret"></b></a>
+										<ul class="dropdown-menu">
+											<li><a href="#">Bug</a></li>
+											<li><a href="#">用例</a></li>
+											<li class="divider"></li>
+											<li class="nav-header">测试任务</li>
+											<li><a href="#">Link</a></li>
+											<li><a href="#">Link</a></li>
+										</ul>
+									</li>
+									<li><button class="btn btn-primary">新用例</button></li>
 						    </ul>
+						    <ul class="nav pull-right">
+						    	<li class="dropdown">
+						    		<a href="#" class="dropdown-toggle" href="#" data-toggle="dropdown"><i class="icon-cog icon-large"></i> <b class="caret"></b></a>
+						    		<ul class="dropdown-menu">
+											<li><a href="#">系统设置</a></li>
+											<li><a href="#">帮助</a></li>
+											<li class="divider"></li>
+											<li class="nav-header">语言</li>
+											<li><a href="#">简体中文</a></li>
+											<li><a href="#">繁体中文</a></li>
+											<li><a href="#">English</a></li>
+											<li class="divider"></li>
+											<li><a href="#">关于</a></li>
+										</ul>
+						    	</li>
+						    	<li class="dropdown">
+						    		<a class="avatar avatar-24 dropdown-toggle" href="#" data-toggle="dropdown"><img src="img/user-avatar.jpg" alt=""> <b class="caret"></b></a>
+						    		<ul class="dropdown-menu">
+											<li><a href="#">个人信息</a></li>
+											<li><a href="#">更改密码</a></li>
+											<li><a href="#">账户管理</a></li>
+											<li class="divider"></li>
+											<li><a href="#">退出</a></li>
+										</ul>
+						    	</li>
+						    </ul>
+						    <form class="navbar-search pull-right" action="">
+                  <input type="text" class="search-query span2" placeholder="Search">
+                </form>
 						  </div>
 						</div>				
 					</div>

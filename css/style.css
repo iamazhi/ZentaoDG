@@ -172,6 +172,9 @@ h1.round-sign{
 	-moz-box-shadow: 0 1px 2px rgba(0,0,0,.075);
 	box-shadow: 0 1px 2px rgba(0,0,0,.075);
 }
+.example-layout.no-padding{
+	padding: 0 0 20px 0;
+}
 .mini-layout {
 	margin-bottom: 20px;
 	padding: 9px;
@@ -263,6 +266,7 @@ h1.round-sign{
 
 table.normal-table{
 	width: 100%;
+	margin-bottom: 10px;
 }
 table.normal-table th,
 table.normal-table td{
@@ -506,3 +510,18 @@ table.normal-table th{
 	background: #f6f7f9;
 	border: 1px solid #ccc;
 }
+
+.navbar-example .navbar-inner{
+	-webkit-border-radius: 0px;
+	-moz-border-radius: 0px;
+	border-radius: 0px;
+}
+.brand.logo{
+	padding: 0 20px;
+	width: 103px;
+	height: 40px;
+	background: url('../img/logo.png') center no-repeat;
+}
+/*.navbar .nav li a.avatar{
+	padding: 8px 15px;
+}*/
