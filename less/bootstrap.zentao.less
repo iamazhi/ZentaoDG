@@ -25,9 +25,11 @@
 
 // Base CSS
 @import "type.less";
+@import "type.zentao.less";//override type.less
 @import "code.less";
 @import "forms.less";
 @import "tables.less";
+@import "tables.zentao.less";
 
 // Components: common
 // @import "sprites.less";//使用FontAwesome代替图标
@@ -47,8 +49,10 @@
 // override navar.less
 @import "navbar.zentao.less";
 @import "breadcrumbs.less";
+@import "breadcrumbs.zentao.less";//override breadcrumbs.less
 @import "pagination.less";
 @import "pager.less";
+@import "page-header-primary.zentao.less";
 
 // Components: Popovers
 @import "modals.less";
