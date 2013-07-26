@@ -8,12 +8,12 @@
 
 	<!-- 使用静态CSS
 	---------------------------------->
-	<link rel="stylesheet" href="css/bootstrap.zentao.css">
+	<!-- <link rel="stylesheet" href="css/bootstrap.zentao.css"> -->
 
 	<!-- 使用Less
 	---------------------------------->
-	<!-- <link rel="stylesheet/less" href="less/bootstrap.zentao.less">
-	<script src="js/less-1.3.3.min.js"></script> -->
+	<link rel="stylesheet/less" href="less/bootstrap.zentao.less">
+	<script src="js/less-1.3.3.min.js"></script>
 
 	<link rel="stylesheet" href="css/style.css">
 	<link rel="stylesheet" href="css/bootstrap-responsive.min.css">
@@ -93,7 +93,7 @@
 				<section id="application-header" class="page-section">
 					<div class="page-header"><h2>应用导航</h2></div>
 					<p>应用程序导航是整个应用的首要入口。用户应该在所有页面都能够看到导航。所有应用程序的导航外观应保持一致。一个导航可以包含以下部分：</p>
-					<table class="normal-table">
+					<table class="table">
 						<tr>
 							<th>名称</th>
 							<th>是否可选</th>
@@ -196,6 +196,75 @@
 				</section>
 				<section id="page-header" class="page-section">
 					<div class="page-header"><h2>页面头部</h2></div>
+					<p>页面头部是告知用户当前为主理解页面上下文的重要部分。通常页面头部包括页面名称及简短描述、图像、面包屑导航、重要操作按钮等组成。</p>
+					<table class="table">
+						<tr>
+							<th>名称</th>
+							<th>是否可选</th>
+							<th>描述</th>
+						</tr>
+						<tr>
+							<td><strong>页面标题</strong></td>
+							<td>必须</td>
+							<td>一两个词语来概况当前页面内容</td>
+						</tr>
+						<tr>
+							<td><strong>简短描述</strong></td>
+							<td>可选</td>
+							<td>用一句简短的话来对页面标题进行补充描述</td>
+						</tr>
+						<tr>
+							<td><strong>图像</strong></td>
+							<td>可选</td>
+							<td>如果当前页面指示一个用户或者一个项目，可以使用项目头像至于页面头部左侧，便于用户识别</td>
+						</tr>
+						<tr>
+							<td><strong>面包屑</strong></td>
+							<td>可选</td>
+							<td>如有需要应该在第一行加上面包屑导航指示当前页面在应用中的位置</td>
+						</tr>
+						<tr>
+							<td><strong>操作按钮</strong></td>
+							<td>可选</td>
+							<td>与页面紧密相关的常用操作按钮</td>
+						</tr>
+					</table>
+					<p>下面是一个常见的页面头部，充分利用页面头部空间，包括了大部分常用元素。</p>
+					<div class="example-layout no-padding">
+						<div class="page-header-primary">
+							<div class="page-header-image">
+								<div class="avatar-project avatar-64"><img src="img/project-avatar.jpg" alt=""></div>
+							</div>
+							<div class="page-header-main">
+								<ul class="breadcrumb breadcrumb-pure">
+								  <li><a href="#">首页</a> <span class="divider">/</span></li>
+								  <li><a href="#">Library</a> <span class="divider">/</span></li>
+								  <li class="active">Data</li>
+								</ul>
+								<h1>我的地盘 <small>我做主</small></h1>
+							</div>
+							<div class="page-header-actions">
+								<div class="btn-group">
+								  <button class="btn">报告</button>
+								  <button class="btn">计划</button>
+								  <button class="btn">用例</button>
+								</div>
+							</div>
+						</div>
+					</div>
+					<p>下面是一个简洁的页面头部，仅包括页面标题和面包屑。</p>
+					<div class="example-layout no-padding">
+						<div class="page-header-primary">
+							<div class="page-header-main">
+								<ul class="breadcrumb breadcrumb-pure">
+								  <li><a href="#">首页</a> <span class="divider">/</span></li>
+								  <li><a href="#">Library</a> <span class="divider">/</span></li>
+								  <li class="active">Data</li>
+								</ul>
+								<h1>我的地盘</h1>
+							</div>
+						</div>
+					</div>
 				</section>
 				<section id="horizontal-nav" class="page-section">
 					<div class="page-header"><h2>水平导航</h2></div>
