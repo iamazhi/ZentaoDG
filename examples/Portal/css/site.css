@@ -245,12 +245,9 @@ footer .foot-nav a{
 	color: #999;
 }
 
-.regbox,.loginbox{
-	padding: 0 30px;
+.leftbox{
+	padding-left:30px;
 }
 .rightbox{
 	padding-right:30px;
-}
-.regbox .alert{
-	padding: 10px 30px;
 }
