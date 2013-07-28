@@ -163,7 +163,6 @@ body{
 	box-shadow: 0 1px 4px rgba(0, 0, 0, 0.165);
 }
 .feature{
-	margin-top: 10px;
 	padding: 20px 0;
 	background: #fff;
 	border-radius: 7px;
@@ -203,4 +202,36 @@ body{
 	-moz-transition: opacity .5s;
 	-o-transition: opacity .5s;
 	transition: opacity .3s;
+}
+.forums{
+  margin-top: 20px;
+}
+.forums .thumbnail{
+	padding: 20px;
+	background-color: #fff;
+}
+.forums .thumbnail h4{
+	margin-top: 0;
+	padding-bottom: 5px;
+	border-bottom: 1px solid #eee;
+}
+.forums .thumbnail .content{
+	height: 180px;
+}
+.forums .icons-ul li{
+	line-height: 2em;
+}
+footer .footer-content{
+	color: #999;
+	position: relative;
+	margin-top: 10px;
+}
+footer .footer-content .copyright{
+	position: absolute;
+	right: 20px;
+	top: 10px;
+}
+footer .foot-nav a{
+	font-size: small;
+	color: #999;
 }
