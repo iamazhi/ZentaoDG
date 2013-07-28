@@ -162,17 +162,25 @@ body{
 	-moz-box-shadow: 0 1px 4px rgba(0,0,0,0.165);
 	box-shadow: 0 1px 4px rgba(0, 0, 0, 0.165);
 }
-.feature{
-	padding: 20px 0;
+.page-content{
+	padding: 20px 0px;
 	background: #fff;
 	border-radius: 7px;
 	-webkit-box-shadow: 0 1px 4px rgba(0, 0, 0, 0.165);
 	-moz-box-shadow: 0 1px 4px rgba(0,0,0,0.165);
 	box-shadow: 0 1px 4px rgba(0, 0, 0, 0.165);
+	margin-bottom: 10px;
+}
+.feature{
+	padding: 20px 0;
 }
 .feature h4{
 	display: block;
 	text-align: center;
+}
+.breadcrumb{
+	padding: 0 30px;
+	background-color: #fff;
 }
 .feature-icon{
 	margin: 10px auto;
@@ -222,6 +230,7 @@ body{
 	line-height: 2em;
 }
 footer .footer-content{
+	border-top: 2px solid #ddd;
 	color: #999;
 	position: relative;
 	margin-top: 10px;
@@ -234,4 +243,14 @@ footer .footer-content .copyright{
 footer .foot-nav a{
 	font-size: small;
 	color: #999;
+}
+
+.regbox,.loginbox{
+	padding: 0 30px;
+}
+.rightbox{
+	padding-right:30px;
+}
+.regbox .alert{
+	padding: 10px 30px;
 }
