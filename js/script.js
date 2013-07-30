@@ -1,10 +1,10 @@
 $(function (argument) {
 	var $window = $(window)
 
-	// make code pretty
+	  // make code pretty
     window.prettyPrint && prettyPrint();
 
-        // side bar
+    // side bar
     setTimeout(function () {
       $('.docs-sidenav').affix({
         offset: {
