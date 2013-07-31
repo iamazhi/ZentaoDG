@@ -70,7 +70,7 @@
 
 // Links
 // -------------------------
-@linkColor:             #3b73af;
+@linkColor:             @brightBlue1;
 @linkColorHover:        darken(@linkColor, 15%);
 
 
@@ -120,20 +120,20 @@
 @btnBackgroundHighlight:            darken(@white, 10%);
 @btnBorder:                         #ccc;
 
-@btnPrimaryBackground:              @linkColor;
-@btnPrimaryBackgroundHighlight:     spin(@btnPrimaryBackground, 20%);
+@btnPrimaryBackground:              @brightBlue2;
+@btnPrimaryBackgroundHighlight:     darken(@btnPrimaryBackground,15%);
 
-@btnInfoBackground:                 #5bc0de;
-@btnInfoBackgroundHighlight:        #2f96b4;
+@btnInfoBackground:                 @halfBlueGray;
+@btnInfoBackgroundHighlight:        darken(@halfBlueGray,15%);
 
-@btnSuccessBackground:              #62c462;
-@btnSuccessBackgroundHighlight:     #51a351;
+@btnSuccessBackground:              lighten(@green,10%);
+@btnSuccessBackgroundHighlight:     @green;
 
-@btnWarningBackground:              lighten(@orange, 15%);
-@btnWarningBackgroundHighlight:     @orange;
+@btnWarningBackground:              darken(@yellow, 10%);
+@btnWarningBackgroundHighlight:     darken(@yellow, 20%);
 
-@btnDangerBackground:               #ee5f5b;
-@btnDangerBackgroundHighlight:      #bd362f;
+@btnDangerBackground:               lighten(@warmRed,5%);
+@btnDangerBackgroundHighlight:      darken(@warmRed, 5%);
 
 @btnInverseBackground:              #444;
 @btnInverseBackgroundHighlight:     @grayDarker;
