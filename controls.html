@@ -88,6 +88,7 @@
 			<div class="span3 docs-sidebar">
 				<ul class="nav nav-list docs-sidenav">
 					<li><a href="#buttons"><i class="icon-chevron-right"></i> 按钮</a></li>
+					<li><a href="#tables"><i class="icon-chevron-right"></i> 表格</a></li>
 					<li><a href="#forms"><i class="icon-chevron-right"></i> 表单</a></li>
 					<li><a href="#detail"><i class="icon-chevron-right"></i> 详细</a></li>
 					<li><a href="#discusses"><i class="icon-comments"></i> 讨论</a></li>
@@ -332,6 +333,266 @@
 				      <td>备用的暗灰色按钮，不依赖于语义和用途</td>
 				    </tr>
 					</table>
+				</section>
+				<section id="tables" class="page-section">
+					<div class="page-header">
+						<h2>表格</h2>
+					</div>
+					<p>表格对展示大量数据合适不过。</p>
+					<h3>表格的组成部分</h3>
+					<table class="table">
+						<tr>
+							<th class="span2">名称</th>
+							<th>描述</th>
+						</tr>
+						<tr>
+							<td>表头</td>
+							<td>一般表格的第一行作为表头，用于描述表中每一列数据名称。为区别于表格其他行，表头具备不同的样式，例如字体加粗等。在垂直显示一组数据的表格中，表头也可能是垂直的第一列，而不是行。</td>
+						</tr>
+						<tr>
+							<td>内容</td>
+							<td>一般内容会在单元格内靠左对齐，对于数字可能靠右对齐比较好。在一些表格中，内容可以按单元格选择或者按行选择，选中的部分会以不同的样式区分。为了使得行与行便于区分，通常也会使得行交替使用不同的背景色。图片或其他控件也可以应用单元格中。</td>
+						</tr>
+						<tr>
+							<td>表尾</td>
+							<td>表位放置与表末尾提供与表相关补充数据或操作，不过并不常见。</td>
+						</tr>
+					</table>
+					<h3>表格的语法</h3>
+					<table class="table table-bordered table-striped">
+            <colgroup>
+              <col class="span1">
+              <col class="span7">
+            </colgroup>
+            <thead>
+              <tr>
+                <th>标签</th>
+                <th>描述</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td>
+                  <code>&lt;table&gt;</code>
+                </td>
+                <td>
+                  包裹以表格形式展示数据的元素
+                </td>
+              </tr>
+              <tr>
+                <td>
+                  <code>&lt;thead&gt;</code>
+                </td>
+                <td>
+                  包含表头(<code>&lt;tr&gt;</code>) 的容器
+                </td>
+              </tr>
+              <tr>
+                <td>
+                  <code>&lt;tbody&gt;</code>
+                </td>
+                <td>
+                  包含表格内容(<code>&lt;tr&gt;</code>)的容器
+                </td>
+              </tr>
+              <tr>
+                <td>
+                  <code>&lt;tr&gt;</code>
+                </td>
+                <td>
+                  单元格 (<code>&lt;td&gt;</code> 或 <code>&lt;th&gt;</code>) 容器
+                </td>
+              </tr>
+              <tr>
+                <td>
+                  <code>&lt;td&gt;</code>
+                </td>
+                <td>
+                  默认的单元格
+                </td>
+              </tr>
+              <tr>
+                <td>
+                  <code>&lt;th&gt;</code>
+                </td>
+                <td>
+                  每列(或行，依赖于放置的位置)所对应的的label 
+                </td>
+              </tr>
+              <tr>
+                <td>
+                  <code>&lt;caption&gt;</code>
+                </td>
+                <td>
+                  用于对表的描述或总结，对屏幕阅读器特别有用
+                </td>
+              </tr>
+            </tbody>
+          </table>
+					<h3>一些例子</h3>
+					<h4>隔行交替样式的表</h4>
+          <table class="table table-striped">
+            <thead>
+              <tr>
+                <th>#</th>
+                <th>First Name</th>
+                <th>Last Name</th>
+                <th>Username</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td>1</td>
+                <td>Mark</td>
+                <td>Otto</td>
+                <td>@mdo</td>
+              </tr>
+              <tr>
+                <td>2</td>
+                <td>Jacob</td>
+                <td>Thornton</td>
+                <td>@fat</td>
+              </tr>
+              <tr>
+                <td>3</td>
+                <td>Larry</td>
+                <td>the Bird</td>
+                <td>@twitter</td>
+              </tr>
+            </tbody>
+          </table>
+          <h4>显示所有边框的表</h4>
+          <table class="table table-bordered">
+            <thead>
+              <tr>
+                <th>#</th>
+                <th>First Name</th>
+                <th>Last Name</th>
+                <th>Username</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td rowspan="2">1</td>
+                <td>Mark</td>
+                <td>Otto</td>
+                <td>@mdo</td>
+              </tr>
+              <tr>
+                <td>Mark</td>
+                <td>Otto</td>
+                <td>@TwBootstrap</td>
+              </tr>
+              <tr>
+                <td>2</td>
+                <td>Jacob</td>
+                <td>Thornton</td>
+                <td>@fat</td>
+              </tr>
+              <tr>
+                <td>3</td>
+                <td colspan="2">Larry the Bird</td>
+                <td>@twitter</td>
+              </tr>
+            </tbody>
+          </table>
+          <h4>响应鼠标悬停的表</h4>
+          <table class="table table-hover">
+            <thead>
+              <tr>
+                <th>#</th>
+                <th>First Name</th>
+                <th>Last Name</th>
+                <th>Username</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td>1</td>
+                <td>Mark</td>
+                <td>Otto</td>
+                <td>@mdo</td>
+              </tr>
+              <tr>
+                <td>2</td>
+                <td>Jacob</td>
+                <td>Thornton</td>
+                <td>@fat</td>
+              </tr>
+              <tr>
+                <td>3</td>
+                <td colspan="2">Larry the Bird</td>
+                <td>@twitter</td>
+              </tr>
+            </tbody>
+          </table>
+					<h4>更加紧凑的表</h4>
+					<table class="table table-condensed">
+            <thead>
+              <tr>
+                <th>#</th>
+                <th>First Name</th>
+                <th>Last Name</th>
+                <th>Username</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td>1</td>
+                <td>Mark</td>
+                <td>Otto</td>
+                <td>@mdo</td>
+              </tr>
+              <tr>
+                <td>2</td>
+                <td>Jacob</td>
+                <td>Thornton</td>
+                <td>@fat</td>
+              </tr>
+              <tr>
+                <td>3</td>
+                <td colspan="2">Larry the Bird</td>
+                <td>@twitter</td>
+              </tr>
+            </tbody>
+          </table>
+          <h4>给表添加更多背景色</h4>
+          <table class="table">
+            <thead>
+              <tr>
+                <th>#</th>
+                <th>描述</th>
+                <th>Payment Taken</th>
+                <th>Status</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr class="success">
+                <td>1</td>
+                <td>表示成功或积极的行为。</td>
+                <td>01/04/2012</td>
+                <td>Approved</td>
+              </tr>
+              <tr class="error">
+                <td>2</td>
+                <td>表示一个危险或存有潜在危险的行为。</td>
+                <td>02/04/2012</td>
+                <td>Declined</td>
+              </tr>
+              <tr class="warning">
+                <td>3</td>
+                <td>表示警告，可能需要注意。</td>
+                <td>03/04/2012</td>
+                <td>Pending</td>
+              </tr>
+              <tr class="info">
+                <td>4</td>
+                <td>作为一个默认样式的一个替代样式。</td>
+                <td>04/04/2012</td>
+                <td>Call in to confirm</td>
+              </tr>
+            </tbody>
+          </table>
 				</section>
 				<section id="forms" class="page-section">
 					<div class="page-header"><h2>表单</h2></div>	
