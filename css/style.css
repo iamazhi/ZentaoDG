@@ -81,10 +81,9 @@ q:after{
 .subhead{
 	padding: 25px;
 }
-h1.round-sign{
+.signs .round-sign{
 	display: block;
 	color: #fff;
-	background-color: #444;
 	width: 120px;
 	height: 120px;
 	line-height: 120px;
@@ -92,6 +91,7 @@ h1.round-sign{
 	-moz-border-radius: 60px;
 	-webkit-border-radius: 60px;
 	border-radius: 60px;
+	font-size: 36px;
 }
 .signs h4{
 	margin-top: 20px;
