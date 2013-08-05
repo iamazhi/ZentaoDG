@@ -92,7 +92,7 @@
 					<li><a href="#buttons"><i class="icon-chevron-right"></i> 按钮</a></li>
 					<li><a href="#tables"><i class="icon-chevron-right"></i> 表格</a></li>
 					<li><a href="#forms"><i class="icon-chevron-right"></i> 表单</a></li>
-					<li><a href="#detail"><i class="icon-chevron-right"></i> 详细</a></li>
+					<li><a href="#toolbar"><i class="icon-chevron-right"></i> 工具栏</a></li>
 					<li><a href="#discusses"><i class="icon-comments"></i> 讨论</a></li>
 				</ul>
 			</div>
@@ -739,8 +739,43 @@
 						</form>
 					</div>
 				</section>
-				<section id="detail" class="page-section">
-					<div class="page-header"><h2>详细</h2></div>
+				<section id="toolbar" class="page-section">
+					<div class="page-header"><h2>工具栏</h2></div>
+					<p>工具栏是一组按钮，为用户提供一系列操作的快捷方式。使用不同优先级的按钮来区分重点操作和一般操作。</p>
+					<p>下面为一个典型的工具栏：</p>
+					<div class="example-layout">
+						<div class="btn-toolbar">
+							<div class="btn-group">
+								<button class="btn btn-primary icon-edit"> 发布文章</button>
+							</div>
+              <div class="btn-group">
+              	<button class="btn">文章</button>
+                <button class="btn">评论</button>
+								<button class="btn dropdown-toggle" data-toggle="dropdown"><i class="icon-cog"></i> <span class="caret"></span></button>
+                <ul class="dropdown-menu">
+                  <li><a href="#">Action</a></li>
+                  <li><a href="#">Another action</a></li>
+                  <li><a href="#">Something else here</a></li>
+                  <li class="divider"></li>
+                  <li><a href="#">Separated link</a></li>
+                </ul>
+              </div>
+              <div class="btn-group">
+                <button class="btn">论坛</button>
+                <button class="btn">统计</button>
+              </div>
+              <div class="btn-group pull-right">
+								<button class="btn dropdown-toggle" data-toggle="dropdown"><i class="icon-cog"></i> <span class="caret"></span></button>
+                <ul class="dropdown-menu">
+                  <li><a href="#">Action</a></li>
+                  <li><a href="#">Another action</a></li>
+                  <li><a href="#">Something else here</a></li>
+                  <li class="divider"></li>
+                  <li><a href="#">Separated link</a></li>
+                </ul>
+	            </div>
+						</div>
+					</div>
 				</section>
 			</div>
 		</div>
