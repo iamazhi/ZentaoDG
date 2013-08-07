@@ -88,7 +88,7 @@
 					<li><a href="#iconography"><i class="icon-chevron-right"></i> 图标</a></li>
 					<li><a href="#avatars"><i class="icon-chevron-right"></i> 头像</a></li>
 					<li><a href="#language"><i class="icon-chevron-right"></i> 语言表述</a></li>
-					<li><a href="#prettify"><i class="icon-chevron-right"></i> 代码高亮</a></li>
+					<li><a href="#code"><i class="icon-chevron-right"></i> 代码</a></li>
 					<li><a href="#shortcus"><i class="icon-chevron-right"></i> 键盘快捷键</a></li>
 					<li><a href="#appicon"><i class="icon-chevron-right"></i> 应用图标</a></li>
 					<li><a href="#ogp"><i class="icon-chevron-right"></i> Open Graph Protocol</a></li>
@@ -1176,8 +1176,17 @@
 					<h4>有用的错误消息</h4>
 					<p>如重要都应该在出错时反馈给用户，编写准确而有用的错误消息就非常重要。错误消息应该让用户明白发生了生活，如何解决或者提供其他的选择。</p>
 				</section>
-				<section id="prettify" class="page-section">
-					<div class="page-header"><h2>代码高亮</h2></div>
+				<section id="code" class="page-section">
+					<div class="page-header"><h2>代码</h2></div>
+					<p>根据需要有时需要在页面呈现程序代码，甚至html代码本身。大部分代码都对换行及缩进要求比较高，正确清晰的展示代码就显得非常重要。</p>
+					<h3>行内代码</h3>
+					<p>通过<code>&lt;code&gt;</code>标签内嵌一小段代码。</p>
+					<h3>基本代码块</h3>
+          <p>使用<code>&lt;pre&gt;</code>展示多行代码。为了能够正确展示，务必将代码中的任何尖括号做转义。</p>
+					<div class="example-layout">
+						<pre>&lt;p&gt;Sample text here...&lt;/p&gt;</pre>
+					</div>
+					<h3>代码高亮</h3>
 					<p>代码高亮是通过根据代码语言语法给代码中的单词、字符标记为不同颜色来显示的方法。代码高亮能大大提高代码的查阅体验。在web界面加上代码高亮非常容易，在产品中如需要向用户展现代码应该使用代码高亮。</p>
 					<p>这里推荐的方案是<a href="https://code.google.com/p/google-code-prettify/" target="_blank">Google Code Prettify</a>实现代码高亮。</p>
 					<p>下面是一个php文件的示例：</p>
