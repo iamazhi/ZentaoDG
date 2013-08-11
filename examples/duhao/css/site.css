@@ -1,0 +1,148 @@
+body{
+	background-color: #f2f2f2;
+	color: #262223;
+}
+a{
+	color: #735c6b;
+	-webkit-transition: all .6s;
+	-moz-transition: all .6s;
+	-o-transition: all .6s;
+	transition: all .6s;
+}
+a:hover{
+	color: #845d77;
+	-webkit-transition: all .6s;
+	-moz-transition: all .6s;
+	-o-transition: all .6s;
+	transition: all .6s;
+}
+
+
+#navbar .navbar-inner{
+	border-bottom: 2px #735c6b solid;
+	background: #fff;
+	height: 70px;
+}
+#navbar .brand{
+	display: inline-block;
+	text-indent: -9999em;
+	width: 240px;
+	padding: 0;
+	height: 70px;
+	background:url('../img/logo.png') no-repeat center;
+}
+#navbar .nav li{
+	margin: 20px 0;
+}
+#navbar .nav li a{
+	font-size: 16px;
+	color: #262223;
+	-webkit-transition: all .6s;
+	-moz-transition: all .6s;
+	-o-transition: all .6s;
+	transition: all .6s;
+	font-weight: normal;
+}
+#navbar .nav li a:hover{
+	background-color: #E5E5E5;
+	-webkit-transition: all .6s;
+	-moz-transition: all .6s;
+	-o-transition: all .6s;
+	transition: all .6s;
+}
+#navbar .nav li.active a{
+	box-shadow: none;
+	font-weight: bold;
+	color: #735c6b;
+}
+
+
+
+/* CUSTOMIZE THE CAROUSEL
+-------------------------------------------------- */
+
+/* Carousel base class */
+.carousel {
+  margin-bottom: 40px;
+  color: #fff;
+}
+
+.carousel .container {
+  position: relative;
+  z-index: 9;
+}
+
+.carousel-control {
+	top: 50%;
+  height: 80px;
+  margin-top: 0;
+  font-size: 120px;
+  text-shadow: 0 1px 1px rgba(0,0,0,.4);
+  background-color: transparent;
+  border: 0;
+  z-index: 10;
+}
+
+.carousel .item {
+  height: 550px;
+}
+.carousel img {
+  position: absolute;
+  top: 0;
+  left: 0;
+  min-width: 100%;
+  height: 550px;
+}
+
+.carousel-caption {
+  background-color: transparent;
+  position: static;
+  max-width: 550px;
+  padding: 0 20px;
+  margin-top: 150px;
+}
+.carousel-caption h1,
+.carousel-caption .lead {
+  margin: 0;
+  line-height: 1.25;
+  color: #fff;
+  text-shadow: 0 1px 1px rgba(0,0,0,.4);
+}
+.carousel-caption h1{
+	font-size: 72px;
+}
+.carousel-caption .btn {
+  margin-top: 10px;
+}
+.btn-large {
+	line-height: 30px;
+	font-size: 16px;
+}
+.btn-primary{
+	background: #735c6b;
+	border-color:#624f5b;
+}
+.btn-primary:hover{
+	background:#845d77;
+	border-color:#735c6b;
+}
+
+.forums{
+  margin-top: 20px;
+}
+.forums .thumbnail{
+	padding: 20px;
+	background-color: #fff;
+	box-shadow: none;
+}
+.forums .thumbnail h4{
+	margin-top: 0;
+	padding-bottom: 5px;
+	border-bottom: 1px solid #eee;
+}
+.forums .thumbnail .content{
+	height: 180px;
+}
+.forums .icons-ul li{
+	line-height: 2em;
+}
