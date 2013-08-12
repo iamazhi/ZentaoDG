@@ -1,6 +1,7 @@
 body{
 	background-color: #f2f2f2;
 	color: #262223;
+	padding-top: 70px;
 }
 a{
 	color: #735c6b;
@@ -145,4 +146,14 @@ a:hover{
 }
 .forums .icons-ul li{
 	line-height: 2em;
+}
+
+footer{
+	margin-top: 20px;
+}
+
+.content{
+	margin-top: 20px;
+	background-color: #fff;
+	padding:20px;
 }
