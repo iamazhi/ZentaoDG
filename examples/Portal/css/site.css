@@ -34,6 +34,21 @@ body{
 	text-align: center;
 	border-left: 1px solid rgba(255, 255, 255, 0.75);
 	border-right: 1px solid rgba(0, 0, 0, 0.1);
+	-webkit-transition: all .5s;
+	-moz-transition: all .5s;
+	-o-transition: all .5s;
+	transition: all .5s;
+}
+.navbar-primary .nav li.active a{
+	color: #333;
+}
+.navbar-primary .nav li a:hover{
+	background-color: #FEFEFE;
+	-webkit-transition: all .5s;
+	-moz-transition: all .5s;
+	-o-transition: all .5s;
+	transition: all .5s;
+	color: #333;
 }
 .navbar-primary .nav li:first-child a {
 	border-left: 0;
