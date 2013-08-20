@@ -1,0 +1,82 @@
+/*!
+ * Bootstrap v2.3.2
+ *
+ * Copyright 2012 Twitter, Inc
+ * Licensed under the Apache License v2.0
+ * http://www.apache.org/licenses/LICENSE-2.0
+ *
+ * Designed and built with all the love in the world @twitter by @mdo and @fat.
+ *
+ * Over writen for Zentao by Catouse
+ */
+
+// Core variables and mixins
+ @import "variables.less"; // Modify this for custom colors, font-sizes, etc
+// override variables
+@import "variables.zentao.less";
+
+@import "mixins.less";
+@import "mixins.zentao.less"; // override mixins.less
+
+// CSS Reset
+@import "reset.less";
+
+// Grid system and page structure
+@import "scaffolding.less";
+@import "grid.less";
+@import "layouts.less";
+
+// Base CSS
+@import "type.less";
+@import "type.zentao.less";//override type.less
+@import "code.less";
+@import "forms.less";
+@import "forms.zentao.less";
+@import "tables.less";
+@import "tables.zentao.less";
+
+// Components: common
+// @import "sprites.less";//使用FontAwesome代替图标
+@import "dropdowns.less";
+@import "wells.less";
+@import "component-animations.less";
+@import "close.less";
+
+// Components: Buttons & Alerts
+@import "buttons.less";
+@import "buttons.zentao.less"; // override button.less
+@import "button-groups.less";
+@import "alerts.less"; // Note: alerts share common CSS with buttons and thus have styles in buttons.less
+
+// Components: Nav
+@import "navs.less";
+@import "navs.zentao.less";
+@import "navbar.less";
+// override navar.less
+@import "navbar.zentao.less";
+@import "breadcrumbs.less";
+@import "breadcrumbs.zentao.less";//override breadcrumbs.less
+@import "pagination.less";
+@import "pager.less";
+@import "page-header-primary.zentao.less";
+
+// Components: Popovers
+@import "modals.less";
+@import "tooltip.less";
+@import "popovers.less";
+
+// Components: Misc
+@import "thumbnails.less";
+@import "media.less";
+@import "labels-badges.less";
+@import "progress-bars.less";
+@import "accordion.less";
+@import "carousel.less";
+@import "hero-unit.less";
+@import "avatar.zentao.less";
+@import "gadget.zentao.less";
+
+// Utility classes
+@import "utilities.less"; // Has to be last to override when necessary
+
+@import "card.zentao.less";
