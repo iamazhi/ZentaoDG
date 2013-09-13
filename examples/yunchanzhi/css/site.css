@@ -15,7 +15,7 @@ body{
 
 /* Brand style. */
 .navbar-brand{
-	padding: 0;
+	padding: 0 0 0 15px;
 }
 .navbar-brand img{
 	width: auto;
