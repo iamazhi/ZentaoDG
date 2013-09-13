@@ -5,6 +5,9 @@ body{
 {
   font-weight: normal;
 }
+.section{
+	margin-bottom: 20px;
+}
 
 /*
 	Header style.
@@ -62,57 +65,6 @@ body{
 }
 .navbar-lg .navbar-brand img{
 	height: 80px;
-}
-
-
-/*
-  Jumbotron Style.
- ================ */
-.jumbotron{
-	height: 400px;
-	background: #3b67fc url('../img/jumbotron_bg.jpg') center no-repeat;
-}
-.jumbotron h1{
-	color: #fff;
-	text-shadow: 0 1px 3px rgba(0, 0, 0, 0.4), 0 0 30px rgba(0, 0, 0, 0.075);
-	text-align: center;
-	line-height: 2em;
-	font-size: 54px;
-}
-.jumbotron .input-group{
-	padding:0 15%;
-}
-
-/*
-  Features.
-================ */
-.feature{
-	text-align: center;
-	margin-top: 20px;
-}
-.feature .sign i{
-	font-size: 180px;
-}
-.feature .sign i.icon-certificate{
-	position: relative;
-	width: 154px;
-} 
-.feature .sign i.icon-certificate h2{
-	color: #fff;
-	width: 100px;
-	left: 27px;
-	position: absolute;
-	padding: 8px 0;
-	top: 30px;
-	border-bottom: 2px solid #fff;
-}
-.feature .sign i.icon-certificate h5{
-	color: #fff;
-	width: 100px;
-	position: absolute;
-	padding: 8px 0;
-	left: 27px;
-	top: 90px;
 }
 
 /*
