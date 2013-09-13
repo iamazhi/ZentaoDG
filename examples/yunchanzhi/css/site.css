@@ -50,12 +50,59 @@ body{
 /*
   Jumbotron Style
  ================ */
- .jumbotron{
- 	height: 400px;
- 	background: #3b67fc url('../img/jumbotron_bg.png') center no-repeat;
- }
- .jumbotron h1{
- 	color: #fff;
- 	text-shadow: 0 1px 3px rgba(0, 0, 0, 0.4), 0 0 30px rgba(0, 0, 0, 0.075);
- 	text-align: center;
- }
+.jumbotron{
+	height: 400px;
+	background: #3b67fc url('../img/jumbotron_bg.png') center no-repeat;
+}
+.jumbotron h1{
+	color: #fff;
+	text-shadow: 0 1px 3px rgba(0, 0, 0, 0.4), 0 0 30px rgba(0, 0, 0, 0.075);
+	text-align: center;
+	line-height: 2em;
+	font-size: 54px;
+}
+.jumbotron .input-group{
+	padding:0 15%;
+}
+
+/*
+  Features
+================ */
+.feature{
+	text-align: center;
+	margin-top: 20px;
+}
+.feature .sign i{
+	font-size: 180px;
+}
+.feature .sign i.icon-certificate{
+	position: relative;
+
+} 
+.feature .sign i.icon-certificate h2{
+	color: #fff;
+	width: 60%;
+	margin: 20% 20%;
+	position: absolute;
+	padding: 8px 0;
+	top: 10px;
+	border-bottom: 2px solid #fff;
+}
+.feature .sign i.icon-certificate h5{
+	color: #fff;
+	width: 100%;
+	margin-top: 55%;
+	position: absolute;
+	padding: 8px 0;
+	top: 10px;
+}
+
+/*
+  Footer
+================ */
+footer{
+	text-align: center;
+	border-top: 1px solid #eee;
+	margin-top: 50px;
+	padding: 20px 0;
+}
