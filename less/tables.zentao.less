@@ -2,9 +2,22 @@
 	th,
   td{
 		border-top: none;
-		border-bottom: 1px solid @tableBorder;
+		border-bottom: 1px solid @table-border-color;
   }
   th {
     color:@mediumGray;
+  }
+}
+
+.table-comfortable {
+  thead,
+  tbody,
+  tfoot {
+    > tr {
+      > th,
+      > td {
+        padding: @table-comfortable-cell-padding;
+      }
+    }
   }
 }
