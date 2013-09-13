@@ -52,7 +52,7 @@ body{
  ================ */
 .jumbotron{
 	height: 400px;
-	background: #3b67fc url('../img/jumbotron_bg.png') center no-repeat;
+	background: #3b67fc url('../img/jumbotron_bg.jpg') center no-repeat;
 }
 .jumbotron h1{
 	color: #fff;
