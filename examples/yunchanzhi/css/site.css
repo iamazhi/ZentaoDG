@@ -37,6 +37,7 @@ body{
 	font-weight: bold;
 	padding: 10px 15px;
 	margin: 20px 0;
+	font-size: 20px;
 }
 .navbar .nav li.active>a{
 	color: #0358DE;
@@ -77,7 +78,6 @@ body{
 }
 .feature .sign i.icon-certificate{
 	position: relative;
-
 } 
 .feature .sign i.icon-certificate h2{
 	color: #fff;
