@@ -94,7 +94,7 @@
 						<td>
 							<div class="dropdown">
 								<a href="#" role="button" data-toggle="dropdown" data-target="#" target="_blank">demo1.sitename.com <span class="caret"></span></a>
-								&nbsp;<i data-toggle="tooltip" title="您的域名解析不正确。" class="tip icon-exclamation-sign icon-large" style="color:#ff3333"></i>
+								&nbsp;<i data-toggle="popover" data-content="您的域名好像并没用解析到我们的服务器。<br/><a href='http://chanzhi.chanzhi.net' target='_blank'><i class='icon-question-sign icon-large'></i> 了解如何进行域名解析</a>" data-original-title="<strong class='text-danger'>域名解析错误</strong>" class="tip icon-exclamation-sign icon-large text-danger"></i>
 							  <ul class="dropdown-menu" role="menu" aria-labelledby="dLabel">
 							  	<li><a href="http://www.chanzhi.org" target="_blank">http://demo1.sitename.com <span class="label label-danger">解析错误</span></a></li>
 							  	<li><a href="http://chanzhi.chanzhi.net" target="_blank">http://demo1.chanzhi.net <span class="label label-info">临时域名</span></a></li>
@@ -114,7 +114,7 @@
 						<td>
 							<div class="dropdown">
 								<a href="#" role="button" data-toggle="dropdown" data-target="#" target="_blank">www.example.com <span class="caret"></span></a>
-								&nbsp;<i data-toggle="tooltip" title="您的域名解析不正确。" class="tip icon-exclamation-sign icon-large" style="color:#ff3333"></i>
+								&nbsp;<i data-toggle="popover" data-content="您的域名好像并没用解析到我们的服务器。<br/><a href='http://chanzhi.chanzhi.net' target='_blank'><i class='icon-question-sign icon-large'></i> 了解如何进行域名解析</a>" data-original-title="<strong class='text-danger'>域名解析错误</strong>" class="tip icon-exclamation-sign icon-large text-danger"></i>
 							  <ul class="dropdown-menu" role="menu" aria-labelledby="dLabel">
 							  	<li><a href="http://www.chanzhi.org" target="_blank">http://www.example.com <span class="label label-danger">解析错误</span></a></li>
 							  	<li><a href="http://chanzhi.chanzhi.net" target="_blank">http://example.chanzhi.net <span class="label label-info">临时域名</span></a></li>
@@ -185,7 +185,7 @@
 
   <script>
 	  $(function () {
-	  	$(".tip").tooltip();
+	  	$(".tip").popover({container: 'body',html:true});
 	  });
   </script>
 </body>
