@@ -16,10 +16,10 @@
 			margin-bottom: 0;
 		}
 		#createSite .modal-body{
-			padding-left: 20%;
+			padding-left: 15%;
 		}
 		#createSite .modal-body input{
-			width: 60%;
+			width: 70%;
 		}
 	</style>
 </head>
@@ -54,19 +54,34 @@
 	</header>
 
 	<section class="content">
-		<div class="alert alert-danger alert-block">
+		<div id="authAlert" class="alert alert-danger alert-block">
 			<div class="container">
 				<div class="row">
 					<div class="col-md-1">
-						<i class="icon-warning-sign icon-4x pull-right"></i>
+						<i class="icon-warning-sign icon-4x pull-right hideOnDismiss"></i>
+					</div>
+					<div class="col-md-11">
+						<div class="hideOnDismiss">
+							<h4>提示</h4>
+							<p>您还没有通过用户身份验证，3天后所有站点将会停止访问。</p>
+							<p>为保证您的网站正常使用，请及时提交身份验证申请。</p>							
+						</div>
+						<p>
+							<a href="##" class="btn btn-success" data-toggle="modal" data-target="#auth">提交身份验证申请</a>&nbsp;&nbsp;<button id="dismissAuthAlert" class="btn btn-link hideOnDismiss alert-link">暂不提交</button>
+						</p>
+					</div>
+				</div>
+			</div>
+		</div>
+		<div id="authSuccess" class="hide alert alert-info alert-block">
+			<div class="container">
+				<div class="row">
+					<div class="col-md-1">
+						<i class="icon-info-sign icon-4x pull-right"></i>
 					</div>
 					<div class="col-md-11">
 						<h4>提示</h4>
-						<p>您还没有通过用户身份验证，3天后所有站点将会停止访问。</p>
-						<p>为保证您的网站正常使用，请及时提交身份验证申请。</p>
-						<p>
-							<a href="##" class="btn btn-success">去提交身份验证申请</a>&nbsp;&nbsp;<button href="##" class="btn btn-link">暂不提交</button>
-						</p>
+						<p>您的用户身份验证申请正在审核中。</p>
 					</div>
 				</div>
 			</div>
@@ -176,9 +191,49 @@
 		        <button type="submit" class="btn btn-primary btn-wider">确认</button>
 		      </div>
 	      </form>
-	    </div><!-- /.modal-content -->
-	  </div><!-- /.modal-dialog -->
-	</div><!-- /.modal -->
+	    </div>
+	  </div>
+	</div>
+
+	<div class="modal fade"  id="auth">
+	  <div class="modal-dialog">
+	    <div class="modal-content">
+	      <div class="modal-header">
+	        <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+	        <h4 class="modal-title">提交用户身份验证申请</h4>
+	      </div>
+
+	      <form id="authForm" class="form-horizontal" role="form" action="auth.html">
+		      <div class="modal-body">
+		      	<div class="form-group">
+					    <label class="col-sm-3 control-label" for="company">公司名称</label>
+					    <input class="col-sm-8" type="text" id="company" placeholder="">
+					  </div>
+					  <div class="form-group">
+					    <label class="col-sm-3 control-label"  for="fullname">姓名</label>
+					    <input class="col-sm-8" type="text" id="fullname" placeholder="">
+					  </div>
+					  <div class="form-group">
+					    <label class="col-sm-3 control-label"  for="email">邮箱</label>
+					    <input class="col-sm-8" type="email" id="email" placeholder="user@sitename.com">
+					  </div>
+					  <div class="form-group">
+					    <label class="col-sm-3 control-label"  for="phone">电话</label>
+					    <input class="col-sm-8" type="text" id="phone" placeholder="">
+					  </div>
+					  <div class="form-group">
+					    <label class="col-sm-3 control-label"  for="qq">QQ</label>
+					    <input class="col-sm-8" type="text" id="qq" placeholder="">
+					  </div>
+		      </div>
+		      <div class="modal-footer text-center">
+		        <button type="button" class="btn btn-default" data-dismiss="modal">关闭</button>
+		        <button type="submit" class="btn btn-primary btn-wider">确认</button>
+		      </div>
+	      </form>
+	    </div>
+	  </div>
+	</div>
 
 	<!-- Scripts
   ---------------------------------->
@@ -189,6 +244,22 @@
   <script>
 	  $(function () {
 	  	$(".tip").popover({container: 'body',html:true});
+
+	  	// 处理用户点击暂不处理
+	  	$("#dismissAuthAlert").click(function() 
+	  	{
+	  		$(".hideOnDismiss").slideUp();
+	  		$("#authAlert .btn-success").addClass('pull-right');
+	  	});
+
+	  	// 处理用户验证申请表单Ajax提交成功后
+	  	$("#authForm").submit(function() 
+	  	{
+	  		$("#auth").modal('hide'); // 处理了form提交请求后，请移除该行。
+	  		$("#authAlert").slideUp("fast");
+	  		$("#authSuccess").hide().removeClass("hide").slideDown();
+	  		return false; // 处理了form提交请求后，请移除该行。
+	  	});
 	  });
   </script>
 </body>
