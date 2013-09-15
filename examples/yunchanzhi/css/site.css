@@ -16,6 +16,7 @@ body{
 /* Brand style. */
 .navbar-brand{
 	padding: 0 0 0 15px;
+	margin-right: 20px;
 }
 .navbar-brand img{
 	width: auto;
@@ -45,6 +46,11 @@ body{
 }
 .navbar .nav li.active>a{
 	color: #0358DE;
+}
+.navbar .subnavbar.nav li>a{
+	font-weight: normal;
+	font-style: 14px;
+	padding: 10px;
 }
 #account-info{
 	margin-left: 30px;
