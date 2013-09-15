@@ -257,7 +257,9 @@
 	  	{
 	  		$("#auth").modal('hide'); // 处理了form提交请求后，请移除该行。
 	  		$("#authAlert").slideUp("fast");
-	  		$("#authSuccess").hide().removeClass("hide").slideDown();
+	  		$("#authSuccess").hide().removeClass("hide").slideDown(function () {
+	  			setTimeout('$("#authSuccess").slideUp()',5000);
+	  		});
 	  		return false; // 处理了form提交请求后，请移除该行。
 	  	});
 	  });
