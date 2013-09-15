@@ -21,6 +21,9 @@
 		#createSite .modal-body input{
 			width: 70%;
 		}
+		.tab-pane{
+			padding: 10px;
+		}
 	</style>
 </head>
 <body>
@@ -240,6 +243,56 @@
 		        <button type="submit" class="btn btn-primary btn-wider">确认</button>
 		      </div>
 	      </form>
+	    </div>
+	  </div>
+	</div>
+
+	<div class="modal fade"  id="fixDomain">
+	  <div class="modal-dialog">
+	    <div class="modal-content">
+	      <div class="modal-header">
+	        <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+	        <h4 class="modal-title">解决域名问题</h4>
+	      </div>
+	      <div class="modal-body">
+	      	<div class="alert alert-warning alert-block">
+	      		<h4>提示</h4>
+	      		<p>您的域名 <strong>www.example.com</strong> 域名解析配置不正确，导致网站无法通过该域名进行访问。请依照以下指示修复该问题。</p>
+	      	</div>
+	      	<br/>
+		      <ul class="nav nav-tabs">
+					  <li class="active"><a href="#howDomain" data-toggle="tab">如何进行域名解析</a></li>
+					  <li><a href="#changeDomain" data-toggle="tab">更换一个域名</a></li>
+					</ul>
+					<div class="tab-content">
+					  <div class="tab-pane active" id="howDomain">
+					  	<h4>第一步</h4>
+					  	<p>第一步的说明</p>
+					  	<h4>第二步</h4>
+					  	<p>第二步的说明</p>
+					  	<h4>第三步</h4>
+					  	<p>第三步的说明</p>
+					  	<p>最后的说明</p>
+					  </div>
+					  <div class="tab-pane" id="changeDomain">
+					  	<form role="form" action="create.html">
+					  		<div class="row">
+					  			<div class="col-md-1"></div>
+					  			<div class="col-md-10">
+							  		<div class="form-group">
+									    <label for="newsitedomain">新的域名</label>
+									    <input type="text" id="newsitedomain" placeholder="www.sitename.com">
+									  </div>
+									  <button type="submit" class="btn btn-primary">确认更换为此域名</button>						  				
+					  			</div>		  			
+					  		</div>
+					  	</form>
+					  </div>
+					</div>
+	      </div>
+	      <div class="modal-footer text-center">
+	        <button type="button" class="btn btn-default btn-wider" data-dismiss="modal">关闭</button>
+	      </div>
 	    </div>
 	  </div>
 	</div>
