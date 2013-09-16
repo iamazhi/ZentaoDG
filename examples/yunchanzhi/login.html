@@ -1,0 +1,110 @@
+<!doctype html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>云蝉知</title>
+	<link rel="stylesheet" href="../../css/font-awesome.min.css">
+  <link rel="stylesheet" href="../../css/bootstrap.zentao.css">
+  <link rel="stylesheet" href="css/site.css">
+	<!--[if lt IE 9]>
+	<script src='../../js/html5shiv.min.js?v=' type='text/javascript'></script>
+	<script src='../../js/respond.min.js?v=' type='text/javascript'></script>
+	<![endif]-->
+
+	<style>
+		body{
+			padding-top: 120px;
+		}
+		.panel{
+			width: 400px;
+			margin: 5% auto;
+			-webkit-box-shadow: 0 1px 6px rgba(0, 0, 0, 0.15);
+			box-shadow: 0 1px 6px rgba(0, 0, 0, 0.15);
+		}
+		.panel-body{
+			padding-left: 10%;
+			min-height: 350px;
+		}
+		.form-group input{
+			min-width: 240px;
+		}
+		.form-group label a{
+			font-weight: normal;
+		}
+	</style>
+</head>
+<body>
+	<header>
+		<nav class="navbar navbar-default navbar-fixed-top navbar-lg">
+			<div class="container">
+				<div class="navbar-header">
+          <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+          </button>
+          <a class="navbar-brand" href="index.html">
+          	<img src="img/logo.png" alt="云蝉知">
+          </a>
+        </div>
+        <div class="navbar-collapse collapse">
+          <ul class="nav navbar-nav navbar-right">
+            <li><a href="#">特性</a></li>
+            <li><a href="#about">案例</a></li>
+            <li><a href="http://www.chanzhi.org" target="_blank">开源蝉知</a></li>
+            <li><a href="#contact">论坛</a></li>
+						<li id="account-info"><a class="btn btn-success" href="login.html"><i class="icon icon-signin"></i> 登录</a></li>
+          </ul>
+        </div>
+			</div>
+		</nav>
+	</header>
+
+	<div class="container">
+		<section id="login">
+			<div class="panel panel-default">
+			  <div class="panel-heading">
+			  	<h3>登录</h3>
+			  </div>
+			  <div class="panel-body">
+			    <form role="form" action="login.html">
+					  <div class="form-group">
+					    <label for="useraccount">帐号</label>
+					    <input type="text" id="useraccount" placeholder="用户名/电子邮件/手机号">
+					  </div>
+					  <div class="form-group">
+					    <label for="password">密码</label>
+					    <input type="password" id="password" placeholder="密码">
+					  </div>
+					  <div class="checkbox">
+					    <label>
+					      <input type="checkbox"> 记住密码
+					    </label>
+					  </div>
+					  <button type="submit" class="btn btn-primary btn-wider">登录</button>
+					  <div class="form-group">
+					  	<br/>
+					    <label for="userweibologin">或者使用合作帐号登录</label>
+					    <div>
+					    	<a class="btn btn-danger btn-wider" href="weibo.html"><i class="icon-weibo"></i> 新浪微博</a>
+					    </div>
+					  </div>
+					</form>
+			  </div>
+			</div>
+		</section>
+	</div>
+
+	<footer>
+		<div class="container">
+			<p>Copyright here.</p>
+		</div>
+	</footer>
+
+	<!-- Scripts
+  ---------------------------------->
+  <script src="../../js/jquery-1.9.1.min.js"></script>
+  <script src="../../js/bootstrap.min.js"></script>
+  <script src="js/script.js"></script>
+</body>
+</html>
