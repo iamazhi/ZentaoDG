@@ -16,12 +16,19 @@
 			padding-top: 100px;
 		}
 
+		/* Navbar Shadow. */
+		.navbar{
+			-moz-box-shadow:0px 2px 6px rgba(0,0,0,0.3); -webkit-box-shadow:0px 2px 6px rgba(0,0,0,0.3); box-shadow:0px 2px 6px rgba(0,0,0,0.3);
+		}
+
 		/*
 		  Jumbotron Style.
 		 ================ */
 		.jumbotron{
+			width: 100%;
 			height: 400px;
 			background: #3b67fc url('img/jumbotron_bg.jpg') center no-repeat;
+			-webkit-transition: all .3s;-o-transition: all .3s;-moz-transition: all .3s;transition: all .3s;
 		}
 		.jumbotron h1{
 			color: #fff;
@@ -35,6 +42,22 @@
 		}
 		#domain:focus{
 			-moz-box-shadow:0px 0px 12px rgba(255,255,255,0.5); -webkit-box-shadow:0px 0px 12px rgba(255,255,255,0.5); box-shadow:0px 0px 12px rgba(255,255,255,0.5);
+		}
+
+		.jumbotron.mini{
+			position: fixed;
+			top: 100px;
+			padding: 15px 0;
+			height: 100px;
+			-webkit-transition: all .3s;-o-transition: all .3s;-moz-transition: all .3s;transition: all .3s;
+			z-index: 1000;
+			-moz-box-shadow:0px 0px 12px rgba(255,255,255,0.5); -webkit-box-shadow:0px 0px 12px rgba(255,255,255,0.5); box-shadow:0px 0px 12px rgba(255,255,255,0.5);
+		}
+		.jumbotron.mini h1{
+			display: none;
+		}
+		body.mini-jumbotron{
+			padding-top: 400px;
 		}
 
 		/*
@@ -97,7 +120,7 @@
 		</nav>
 	</header>
 
-	<section class="jumbotron">
+	<section class="jumbotron" id="jumbotron">
     <div class="container">
     	<h1>输入公司域名，60秒开始互联网营销</h1>
     	<form class="form-inline" action="account.html">
@@ -154,6 +177,28 @@
   ---------------------------------->
   <script src="../../js/jquery-1.9.1.min.js"></script>
   <script src="../../js/bootstrap.min.js"></script>
-  <script src="js/script.js"></script>
+
+	<script>
+		$(function () 
+		{
+			checkScrollTop();
+
+			$(window).scroll(checkScrollTop);
+
+			function checkScrollTop () 
+			{
+				if($("body").scrollTop()>150)
+				{
+					$("#jumbotron").addClass('mini');
+					$("body").addClass('mini-jumbotron');
+				}
+				else
+				{
+					$("#jumbotron").removeClass('mini');
+					$("body").removeClass('mini-jumbotron');
+				}
+			}
+		});
+	</script>
 </body>
 </html>

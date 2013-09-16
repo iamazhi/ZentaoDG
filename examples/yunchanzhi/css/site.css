@@ -67,7 +67,6 @@ body{
 .navbar-lg{
 	height: 100px;
 	line-height: 80px;
-	-moz-box-shadow:0px 2px 6px rgba(0,0,0,0.3); -webkit-box-shadow:0px 2px 6px rgba(0,0,0,0.3); box-shadow:0px 2px 6px rgba(0,0,0,0.3);
 }
 .navbar-lg .nav li>a{
 	font-size: 20px;
