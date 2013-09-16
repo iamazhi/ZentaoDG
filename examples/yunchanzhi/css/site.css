@@ -52,6 +52,13 @@ body{
 	font-style: 14px;
 	padding: 10px;
 }
+.navbar .nav li>a.btn{
+	padding:6px 12px;
+	font-size: 14px;
+}
+.navbar .nav li>a.btn-success{
+	color: #fff;
+}
 #account-info{
 	margin-left: 30px;
 }
