@@ -1,15 +1,15 @@
 .btn{
-	font-weight: bold;
-	&.btn-wider{
-		min-width: 100px;
-	}
+  font-weight: bold;
+  &.btn-wider{
+    min-width: 100px;
+  }
 }
 .btn-inverse{
-	.button-variant(@btn-inverse-color; @btn-inverse-bg; @btn-inverse-border);
+  .button-variant(@btn-inverse-color; @btn-inverse-bg; @btn-inverse-border);
 }
 
 .btn-lgx {
-	font-family: @headings-font-family;
+  font-family: @headings-font-family;
   // line-height: ensure even-numbered height of button next to large input
   .button-size(@padding-large-vertical*1.5; @padding-large-horizontal*1.5; @font-size-large*1.5; @line-height-large; @border-radius-large);
 }

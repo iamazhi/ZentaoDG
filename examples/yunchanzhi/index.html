@@ -1,110 +1,110 @@
 <!doctype html>
 <html lang="en">
 <head>
-	<meta charset="UTF-8">
-	<title>云蝉知</title>
-	<link rel="stylesheet" href="../../css/font-awesome.min.css">
+  <meta charset="UTF-8">
+  <title>云蝉知</title>
+  <link rel="stylesheet" href="../../css/font-awesome.min.css">
   <link rel="stylesheet" href="../../css/bootstrap.zentao.css">
   <link rel="stylesheet" href="css/site.css">
-	<!--[if lt IE 9]>
-	<script src='../../js/html5shiv.min.js?v=' type='text/javascript'></script>
-	<script src='../../js/respond.min.js?v=' type='text/javascript'></script>
-	<![endif]-->
+  <!--[if lt IE 9]>
+  <script src='../../js/html5shiv.min.js?v=' type='text/javascript'></script>
+  <script src='../../js/respond.min.js?v=' type='text/javascript'></script>
+  <![endif]-->
 
-	<style>
-		body{
-			padding-top: 100px;
-		}
+  <style>
+    body{
+      padding-top: 100px;
+    }
 
-		/* Navbar Shadow. */
-		.navbar{
-			-moz-box-shadow:0px 2px 6px rgba(0,0,0,0.3); -webkit-box-shadow:0px 2px 6px rgba(0,0,0,0.3); box-shadow:0px 2px 6px rgba(0,0,0,0.3);
-		}
+    /* Navbar Shadow. */
+    .navbar{
+      -moz-box-shadow:0px 2px 6px rgba(0,0,0,0.3); -webkit-box-shadow:0px 2px 6px rgba(0,0,0,0.3); box-shadow:0px 2px 6px rgba(0,0,0,0.3);
+    }
 
-		/*
-		  Jumbotron Style.
-		 ================ */
-		.jumbotron{
-			width: 100%;
-			height: 400px;
-			background: #3b67fc url('img/jumbotron_bg.jpg') center no-repeat;
-			-webkit-transition: all .3s;-o-transition: all .3s;-moz-transition: all .3s;transition: all .3s;
-		}
-		.jumbotron h1{
-			color: #fff;
-			text-shadow: 0 1px 3px rgba(0, 0, 0, 0.4), 0 0 30px rgba(0, 0, 0, 0.075);
-			text-align: center;
-			line-height: 2em;
-			font-size: 54px;
-		}
-		.input-group{
-			padding:0 15%;
-		}
-		#domain:focus{
-			-moz-box-shadow:0px 0px 12px rgba(255,255,255,0.5); -webkit-box-shadow:0px 0px 12px rgba(255,255,255,0.5); box-shadow:0px 0px 12px rgba(255,255,255,0.5);
-		}
+    /*
+      Jumbotron Style.
+     ================ */
+    .jumbotron{
+      width: 100%;
+      height: 400px;
+      background: #3b67fc url('img/jumbotron_bg.jpg') center no-repeat;
+      -webkit-transition: all .3s;-o-transition: all .3s;-moz-transition: all .3s;transition: all .3s;
+    }
+    .jumbotron h1{
+      color: #fff;
+      text-shadow: 0 1px 3px rgba(0, 0, 0, 0.4), 0 0 30px rgba(0, 0, 0, 0.075);
+      text-align: center;
+      line-height: 2em;
+      font-size: 54px;
+    }
+    .input-group{
+      padding:0 15%;
+    }
+    #domain:focus{
+      -moz-box-shadow:0px 0px 12px rgba(255,255,255,0.5); -webkit-box-shadow:0px 0px 12px rgba(255,255,255,0.5); box-shadow:0px 0px 12px rgba(255,255,255,0.5);
+    }
 
-		.jumbotron.mini{
-			position: fixed;
-			top: 100px;
-			padding: 15px 0;
-			height: 100px;
-			-webkit-transition: all .3s;-o-transition: all .3s;-moz-transition: all .3s;transition: all .3s;
-			z-index: 1000;
-			-moz-box-shadow:0px 0px 12px rgba(255,255,255,0.5); -webkit-box-shadow:0px 0px 12px rgba(255,255,255,0.5); box-shadow:0px 0px 12px rgba(255,255,255,0.5);
-		}
-		.jumbotron.mini h1{
-			display: none;
-		}
-		body.mini-jumbotron{
-			padding-top: 400px;
-		}
+    .jumbotron.mini{
+      position: fixed;
+      top: 100px;
+      padding: 15px 0;
+      height: 100px;
+      -webkit-transition: all .3s;-o-transition: all .3s;-moz-transition: all .3s;transition: all .3s;
+      z-index: 1000;
+      -moz-box-shadow:0px 0px 12px rgba(255,255,255,0.5); -webkit-box-shadow:0px 0px 12px rgba(255,255,255,0.5); box-shadow:0px 0px 12px rgba(255,255,255,0.5);
+    }
+    .jumbotron.mini h1{
+      display: none;
+    }
+    body.mini-jumbotron{
+      padding-top: 400px;
+    }
 
-		/*
-		  Features.
-		================ */
-		.feature{
-			text-align: center;
-			margin-top: 20px;
-		}
-		.feature .sign i{
-			font-size: 180px;
-		}
-		.feature .sign i.icon-certificate{
-			position: relative;
-			width: 154px;
-		} 
-		.feature .sign i.icon-certificate h2{
-			color: #fff;
-			width: 100px;
-			left: 27px;
-			position: absolute;
-			padding: 8px 0;
-			top: 30px;
-			border-bottom: 2px solid #fff;
-		}
-		.feature .sign i.icon-certificate h5{
-			color: #fff;
-			width: 100px;
-			position: absolute;
-			padding: 8px 0;
-			left: 27px;
-			top: 90px;
-		}
-	</style>
+    /*
+      Features.
+    ================ */
+    .feature{
+      text-align: center;
+      margin-top: 20px;
+    }
+    .feature .sign i{
+      font-size: 180px;
+    }
+    .feature .sign i.icon-certificate{
+      position: relative;
+      width: 154px;
+    } 
+    .feature .sign i.icon-certificate h2{
+      color: #fff;
+      width: 100px;
+      left: 27px;
+      position: absolute;
+      padding: 8px 0;
+      top: 30px;
+      border-bottom: 2px solid #fff;
+    }
+    .feature .sign i.icon-certificate h5{
+      color: #fff;
+      width: 100px;
+      position: absolute;
+      padding: 8px 0;
+      left: 27px;
+      top: 90px;
+    }
+  </style>
 </head>
 <body>
-	<header>
-		<nav class="navbar navbar-default navbar-fixed-top navbar-lg">
-			<div class="container">
-				<div class="navbar-header">
+  <header>
+    <nav class="navbar navbar-default navbar-fixed-top navbar-lg">
+      <div class="container">
+        <div class="navbar-header">
           <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
             <span class="icon-bar"></span>
             <span class="icon-bar"></span>
             <span class="icon-bar"></span>
           </button>
           <a class="navbar-brand" href="index.html">
-          	<img src="img/logo.png" alt="云蝉知">
+            <img src="img/logo.png" alt="云蝉知">
           </a>
         </div>
         <div class="navbar-collapse collapse">
@@ -113,92 +113,92 @@
             <li><a href="#about">案例</a></li>
             <li><a href="http://www.chanzhi.org" target="_blank">开源蝉知</a></li>
             <li><a href="#contact">论坛</a></li>
-						<li id="account-info"><a class="btn btn-success" href="login.html"><i class="icon icon-signin"></i> 登录</a></li>
+            <li id="account-info"><a class="btn btn-success" href="login.html"><i class="icon icon-signin"></i> 登录</a></li>
           </ul>
         </div>
-			</div>
-		</nav>
-	</header>
+      </div>
+    </nav>
+  </header>
 
-	<section class="jumbotron" id="jumbotron">
+  <section class="jumbotron" id="jumbotron">
     <div class="container">
-    	<h1>输入公司域名，60秒开始互联网营销</h1>
-    	<form class="form-inline" action="account.html">
-	    	<div class="input-group">
-				  <input id="domain" type="text" class="form-control input-lgx" placeholder="www.sitename.com">
-				  <span class="input-group-btn">
-				  	<button type="submit" class="btn btn-success btn-lgx">立即开启门户 <i class="icon-magic"></i></button>
-      		</span>
-				</div>
-    	</form>
+      <h1>输入公司域名，60秒开始互联网营销</h1>
+      <form class="form-inline" action="account.html">
+        <div class="input-group">
+          <input id="domain" type="text" class="form-control input-lgx" placeholder="www.sitename.com">
+          <span class="input-group-btn">
+            <button type="submit" class="btn btn-success btn-lgx">立即开启门户 <i class="icon-magic"></i></button>
+          </span>
+        </div>
+      </form>
     </div>
-	</section>
+  </section>
 
-	<section class="features">
-		<div class="container">
-			<div class="row">
-				<div class="col-md-4">
-					<div class="feature">
-						<div class="sign"><i class="icon-flag-checkered" style="color:#4d90fe"></i></div>
-						<h3>专注企业营销</h3>
-						<p>蝉知专注于企业营销</p>
-					</div>
-				</div>
-			  <div class="col-md-4">
-			  	<div class="feature">
-			  		<div class="sign"><i class="icon-coffee" style="color:#d17219"></i></div>
-			  		<h3>免费 免备案 免维护</h3>
-			  		<p>由蝉知官方团队打造的“免费、免备案、免维护”的在线托管服务平台</p>
-			  	</div>
-			  </div>
-			  <div class="col-md-4">
-			  	<div class="feature">
-			  		<div class="sign">
-			  			<i class="icon-certificate" style="color:#67ba01">
-			  				<h2>FREE</h2>
-			  				<h5><strong>open</strong> source</h5>
-			  			</i>
-			  		</div>
-			  		<h3>基于开源 永久免费</h3>
-			  		<p>基于 <a href="http://www.chanzhi.org" target="_blank">蝉知开源项目 <i class="icon-external-link"></i></a> ，企业永久免费使用</p>
-			  	</div>
-			  </div>
-			</div>
-		</div>
-	</section>
+  <section class="features">
+    <div class="container">
+      <div class="row">
+        <div class="col-md-4">
+          <div class="feature">
+            <div class="sign"><i class="icon-flag-checkered" style="color:#4d90fe"></i></div>
+            <h3>专注企业营销</h3>
+            <p>蝉知专注于企业营销</p>
+          </div>
+        </div>
+        <div class="col-md-4">
+          <div class="feature">
+            <div class="sign"><i class="icon-coffee" style="color:#d17219"></i></div>
+            <h3>免费 免备案 免维护</h3>
+            <p>由蝉知官方团队打造的“免费、免备案、免维护”的在线托管服务平台</p>
+          </div>
+        </div>
+        <div class="col-md-4">
+          <div class="feature">
+            <div class="sign">
+              <i class="icon-certificate" style="color:#67ba01">
+                <h2>FREE</h2>
+                <h5><strong>open</strong> source</h5>
+              </i>
+            </div>
+            <h3>基于开源 永久免费</h3>
+            <p>基于 <a href="http://www.chanzhi.org" target="_blank">蝉知开源项目 <i class="icon-external-link"></i></a> ，企业永久免费使用</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
 
-	<footer>
-		<div class="container">
-			<p>Copyright here.</p>
-		</div>
-	</footer>
+  <footer>
+    <div class="container">
+      <p>Copyright here.</p>
+    </div>
+  </footer>
 
-	<!-- Scripts
+  <!-- Scripts
   ---------------------------------->
   <script src="../../js/jquery-1.9.1.min.js"></script>
   <script src="../../js/bootstrap.min.js"></script>
 
-	<script>
-		$(function () 
-		{
-			checkScrollTop();
+  <script>
+    $(function () 
+    {
+      checkScrollTop();
 
-			$(window).scroll(checkScrollTop);
+      $(window).scroll(checkScrollTop);
 
-			function checkScrollTop () 
-			{
-				if($("body").scrollTop()>150)
-				{
-					$("#jumbotron").addClass('mini');
-					$("body").addClass('mini-jumbotron');
-				}
-				else
-				{
-					$("#jumbotron").removeClass('mini');
-					$("body").removeClass('mini-jumbotron');
-				}
-			}
-		});
-	</script>
+      function checkScrollTop () 
+      {
+        if($("body").scrollTop()>150)
+        {
+          $("#jumbotron").addClass('mini');
+          $("body").addClass('mini-jumbotron');
+        }
+        else
+        {
+          $("#jumbotron").removeClass('mini');
+          $("body").removeClass('mini-jumbotron');
+        }
+      }
+    });
+  </script>
 </body>
 </html>

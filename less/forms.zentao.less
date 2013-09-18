@@ -30,14 +30,14 @@ label {
   margin-bottom: 5px;
   font-weight: bold;
   position: relative;
-	.required{
-		color: @red;
-		display: inline-block;
-		position: absolute;
-		top: 3px;
-		left: 100%;
-		font-size: larger;
-	}
+  .required{
+    color: @red;
+    display: inline-block;
+    position: absolute;
+    top: 3px;
+    left: 100%;
+    font-size: larger;
+  }
 }
 
 
@@ -141,7 +141,7 @@ input[type="url"],
 input[type="search"],
 input[type="tel"],
 input[type="color"]{
-	.placeholder();
+  .placeholder();
    display: block;
   // width: 100%;
   height: @input-height-base; // Make inputs at least the height of their button counterpart (base line-height + padding + border)
@@ -170,13 +170,13 @@ input[type="color"]{
     background-color: @input-bg-disabled;
   }
 
-	&.input-sm {
-	  .input-size(@input-height-small; @padding-small-vertical; @padding-small-horizontal; @font-size-small; @line-height-small; @border-radius-small);
-	}
+  &.input-sm {
+    .input-size(@input-height-small; @padding-small-vertical; @padding-small-horizontal; @font-size-small; @line-height-small; @border-radius-small);
+  }
 
-	&.input-lg {
-	  .input-size(@input-height-large; @padding-large-vertical; @padding-large-horizontal; @font-size-large; @line-height-large; @border-radius-large);
-	}
+  &.input-lg {
+    .input-size(@input-height-large; @padding-large-vertical; @padding-large-horizontal; @font-size-large; @line-height-large; @border-radius-large);
+  }
 
   &.input-lgx {
     .input-size(@input-height-large*1.5; @padding-large-vertical*1.5; @padding-large-horizontal*1.5; @font-size-large*1.5; @line-height-large; @border-radius-large);
@@ -343,24 +343,24 @@ input[type="checkbox"],
     // In navbar-form, allow folks to *not* use `.form-group`
     // .form-control
     select,
-		textarea,
-		input[type="text"],
-		input[type="password"],
-		input[type="datetime"],
-		input[type="datetime-local"],
-		input[type="date"],
-		input[type="month"],
-		input[type="time"],
-		input[type="week"],
-		input[type="number"],
-		input[type="email"],
-		input[type="url"],
-		input[type="search"],
-		input[type="tel"],
-		input[type="color"] {
+    textarea,
+    input[type="text"],
+    input[type="password"],
+    input[type="datetime"],
+    input[type="datetime-local"],
+    input[type="date"],
+    input[type="month"],
+    input[type="time"],
+    input[type="week"],
+    input[type="number"],
+    input[type="email"],
+    input[type="url"],
+    input[type="search"],
+    input[type="tel"],
+    input[type="color"] {
       display: inline-block;
-    	margin-bottom: 0;
-    	vertical-align: middle;
+      margin-bottom: 0;
+      vertical-align: middle;
     }
 
     // Remove default margin on radios/checkboxes that were used for stacking, and

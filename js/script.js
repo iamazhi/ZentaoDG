@@ -1,7 +1,7 @@
 $(function (argument) {
-	var $window = $(window)
+  var $window = $(window)
 
-	  // make code pretty
+    // make code pretty
     window.prettyPrint && prettyPrint();
 
     // side bar

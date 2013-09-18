@@ -1,66 +1,66 @@
 body{
-	background-color: #f2f2f2;
-	color: #262223;
-	padding-top: 70px;
+  background-color: #f2f2f2;
+  color: #262223;
+  padding-top: 70px;
 }
 a{
-	color: #735c6b;
-	-webkit-transition: all .6s;
-	-moz-transition: all .6s;
-	-o-transition: all .6s;
-	transition: all .6s;
+  color: #735c6b;
+  -webkit-transition: all .6s;
+  -moz-transition: all .6s;
+  -o-transition: all .6s;
+  transition: all .6s;
 }
 a:hover{
-	color: #845d77;
-	-webkit-transition: all .6s;
-	-moz-transition: all .6s;
-	-o-transition: all .6s;
-	transition: all .6s;
+  color: #845d77;
+  -webkit-transition: all .6s;
+  -moz-transition: all .6s;
+  -o-transition: all .6s;
+  transition: all .6s;
 }
 
 
 #navbar .navbar-inner{
-	border-bottom: 2px #735c6b solid;
-	background: #fff;
-	height: 70px;
+  border-bottom: 2px #735c6b solid;
+  background: #fff;
+  height: 70px;
 }
 #navbar .brand{
-	display: inline-block;
-	text-indent: -9999em;
-	width: 240px;
-	padding: 0;
-	height: 70px;
-	background:url('../img/logo.png') no-repeat center;
+  display: inline-block;
+  text-indent: -9999em;
+  width: 240px;
+  padding: 0;
+  height: 70px;
+  background:url('../img/logo.png') no-repeat center;
 }
 #navbar .nav li{
-	margin: 20px 0;
+  margin: 20px 0;
 }
 #navbar .nav li a{
-	font-size: 16px;
-	color: #262223;
-	-webkit-transition: all .6s;
-	-moz-transition: all .6s;
-	-o-transition: all .6s;
-	transition: all .6s;
-	font-weight: normal;
+  font-size: 16px;
+  color: #262223;
+  -webkit-transition: all .6s;
+  -moz-transition: all .6s;
+  -o-transition: all .6s;
+  transition: all .6s;
+  font-weight: normal;
 }
 #navbar .nav li a:hover{
-	background-color: #E5E5E5;
-	-webkit-transition: all .6s;
-	-moz-transition: all .6s;
-	-o-transition: all .6s;
-	transition: all .6s;
+  background-color: #E5E5E5;
+  -webkit-transition: all .6s;
+  -moz-transition: all .6s;
+  -o-transition: all .6s;
+  transition: all .6s;
 }
 #navbar .nav li.active a{
-	box-shadow: none;
-	font-weight: bold;
-	color: #735c6b;
+  box-shadow: none;
+  font-weight: bold;
+  color: #735c6b;
 }
 #navbar .btn-navbar{
-	margin-top: 20px;
+  margin-top: 20px;
 }
 #navbar .nav-collapse{
-	background-color: #fff;
+  background-color: #fff;
 }
 
 
@@ -115,50 +115,50 @@ a:hover{
   text-shadow: 0 1px 1px rgba(0,0,0,.4);
 }
 .carousel-caption h1{
-	font-size: 72px;
+  font-size: 72px;
 }
 .carousel-caption .btn {
   margin-top: 10px;
 }
 .btn-large {
-	line-height: 30px;
-	font-size: 16px;
+  line-height: 30px;
+  font-size: 16px;
 }
 .btn-primary{
-	background: #735c6b;
-	border-color:#624f5b;
+  background: #735c6b;
+  border-color:#624f5b;
 }
 .btn-primary:hover{
-	background:#845d77;
-	border-color:#735c6b;
+  background:#845d77;
+  border-color:#735c6b;
 }
 
 .forums{
   margin-top: 20px;
 }
 .forums .thumbnail{
-	padding: 20px;
-	background-color: #fff;
-	box-shadow: none;
+  padding: 20px;
+  background-color: #fff;
+  box-shadow: none;
 }
 .forums .thumbnail h4{
-	margin-top: 0;
-	padding-bottom: 5px;
-	border-bottom: 1px solid #eee;
+  margin-top: 0;
+  padding-bottom: 5px;
+  border-bottom: 1px solid #eee;
 }
 .forums .thumbnail .content{
-	height: 180px;
+  height: 180px;
 }
 .forums .icons-ul li{
-	line-height: 2em;
+  line-height: 2em;
 }
 
 footer{
-	margin-top: 20px;
+  margin-top: 20px;
 }
 
 .content{
-	margin-top: 20px;
-	background-color: #fff;
-	padding:20px;
+  margin-top: 20px;
+  background-color: #fff;
+  padding:20px;
 }

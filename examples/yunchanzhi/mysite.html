@@ -1,101 +1,101 @@
 <!doctype html>
 <html lang="en">
 <head>
-	<meta charset="UTF-8">
-	<title>我的站点</title>
-	<link rel="stylesheet" href="../../css/font-awesome.min.css">
+  <meta charset="UTF-8">
+  <title>我的站点</title>
+  <link rel="stylesheet" href="../../css/font-awesome.min.css">
   <link rel="stylesheet" href="../../css/bootstrap.zentao.css">
   <link rel="stylesheet" href="css/site.css">
-	<!--[if lt IE 9]>
-	<script src='../../js/html5shiv.min.js?v=' type='text/javascript'></script>
-	<script src='../../js/respond.min.js?v=' type='text/javascript'></script>
-	<![endif]-->
+  <!--[if lt IE 9]>
+  <script src='../../js/html5shiv.min.js?v=' type='text/javascript'></script>
+  <script src='../../js/respond.min.js?v=' type='text/javascript'></script>
+  <![endif]-->
 
-	<style>
-		.alert{
-			margin-bottom: 0;
-		}
-		#createSite .modal-body{
-			padding-left: 15%;
-		}
-		#createSite .modal-body input{
-			width: 70%;
-		}
-		.tab-pane{
-			padding: 10px;
-		}
-	</style>
+  <style>
+    .alert{
+      margin-bottom: 0;
+    }
+    #createSite .modal-body{
+      padding-left: 15%;
+    }
+    #createSite .modal-body input{
+      width: 70%;
+    }
+    .tab-pane{
+      padding: 10px;
+    }
+  </style>
 </head>
 <body>
-	<header>
-		<nav class="navbar navbar-default navbar-fixed-top">
-			<div class="container">
-				<div class="navbar-header">
+  <header>
+    <nav class="navbar navbar-default navbar-fixed-top">
+      <div class="container">
+        <div class="navbar-header">
           <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
             <span class="icon-bar"></span>
             <span class="icon-bar"></span>
             <span class="icon-bar"></span>
           </button>
           <a class="navbar-brand" href="index.html">
-          	<img src="img/logo.png" alt="云蝉知">
+            <img src="img/logo.png" alt="云蝉知">
           </a>
         </div>
         <div class="navbar-collapse collapse">
           <ul class="nav navbar-nav">
-          	<li><a href="http://www.chanzhi.org" target="_blank">我的站点</a></li>
+            <li><a href="http://www.chanzhi.org" target="_blank">我的站点</a></li>
             <li><a href="http://www.chanzhi.org" target="_blank">开源蝉知</a></li>
             <li><a href="#">论坛</a></li>
             <li><a href="#">帮助</a></li>
           </ul>
           <ul class="nav navbar-nav navbar-right subnavbar">
-          	<li><a href="##"><i class="icon-user"></i> 孙悟空</a></li>
-          	<li><a href="##"><i class="icon-signout"></i> 注销</a></li>
+            <li><a href="##"><i class="icon-user"></i> 孙悟空</a></li>
+            <li><a href="##"><i class="icon-signout"></i> 注销</a></li>
           </ul>
         </div>
-			</div>
-		</nav>
-	</header>
+      </div>
+    </nav>
+  </header>
 
-	<section class="content">
-		<div id="authAlert" class="alert alert-danger alert-block">
-			<div class="container">
-				<div class="row">
-					<div class="col-md-1">
-						<i class="icon-warning-sign icon-4x pull-right hideOnDismiss"></i>
-					</div>
-					<div class="col-md-11">
-						<div class="hideOnDismiss">
-							<h4>提示</h4>
-							<p>您还没有通过用户身份验证，3天后所有站点将会停止访问。</p>
-							<p>为保证您的网站正常使用，请及时提交身份验证申请。</p>							
-						</div>
-						<p>
-							<a href="##" class="btn btn-success" data-toggle="modal" data-target="#auth">提交身份验证申请</a>&nbsp;&nbsp;<button id="dismissAuthAlert" class="btn btn-link hideOnDismiss alert-link">暂不提交</button>
-						</p>
-					</div>
-				</div>
-			</div>
-		</div>
-		<div id="authSuccess" class="hide alert alert-info alert-block">
-			<div class="container">
-				<div class="row">
-					<div class="col-md-1">
-						<i class="icon-info-sign icon-4x pull-right"></i>
-					</div>
-					<div class="col-md-11">
-						<h4>提示</h4>
-						<p>您的用户身份验证申请正在审核中。</p>
-					</div>
-				</div>
-			</div>
-		</div>
-		<div class="page-header app-header">
-			<div class="container">
-				<h1><i class="icon-list-ul"></i> 我的站点 &nbsp;<small>共 3 个站点</small></h1>
-			</div>
-		</div>
-		<div class="container">
-			<table class="table table-striped table-comfortable">
+  <section class="content">
+    <div id="authAlert" class="alert alert-danger alert-block">
+      <div class="container">
+        <div class="row">
+          <div class="col-md-1">
+            <i class="icon-warning-sign icon-4x pull-right hideOnDismiss"></i>
+          </div>
+          <div class="col-md-11">
+            <div class="hideOnDismiss">
+              <h4>提示</h4>
+              <p>您还没有通过用户身份验证，3天后所有站点将会停止访问。</p>
+              <p>为保证您的网站正常使用，请及时提交身份验证申请。</p>              
+            </div>
+            <p>
+              <a href="##" class="btn btn-success" data-toggle="modal" data-target="#auth">提交身份验证申请</a>&nbsp;&nbsp;<button id="dismissAuthAlert" class="btn btn-link hideOnDismiss alert-link">暂不提交</button>
+            </p>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div id="authSuccess" class="hide alert alert-info alert-block">
+      <div class="container">
+        <div class="row">
+          <div class="col-md-1">
+            <i class="icon-info-sign icon-4x pull-right"></i>
+          </div>
+          <div class="col-md-11">
+            <h4>提示</h4>
+            <p>您的用户身份验证申请正在审核中。</p>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="page-header app-header">
+      <div class="container">
+        <h1><i class="icon-list-ul"></i> 我的站点 &nbsp;<small>共 3 个站点</small></h1>
+      </div>
+    </div>
+    <div class="container">
+      <table class="table table-striped table-comfortable">
         <thead>
           <tr>
             <th>#</th>
@@ -108,222 +108,222 @@
           </tr>
         </thead>
         <tbody>
-					<tr>
-						<td>1</td>
-						<td><span class="label label-success">正常</span></td>
-						<td><strong>测试站点</strong></td>
-						<td>
-							<div class="dropdown">
-								<a href="#" role="button" data-toggle="dropdown" data-target="#" target="_blank">demo1.sitename.com <span class="caret"></span></a>
-								&nbsp;<i data-toggle="popover" data-content="您的域名好像并没用解析到我们的服务器。<br/><br/><button target='_blank' class='btn btn-info' data-toggle='modal' data-target='#fixDomain'><i class='icon-wrench icon-large'></i> 解决问题</button>" data-original-title="<strong class='text-danger'>域名解析错误</strong>" class="tip icon-exclamation-sign icon-large text-danger"></i>
-							  <ul class="dropdown-menu" role="menu" aria-labelledby="dLabel">
-							  	<li><a href="http://chanzhi.chanzhi.net" target="_blank">访问临时域名 demo1.chanzhi.net</a></li>
-							  	<li role="presentation" class="divider"></li>
-							  	<li><a href="http://chanzhi.chanzhi.net" target="_blank"><i class="icon-question-sign icon-large"></i>&nbsp; 了解如何进行域名解析</a></li>
-							  	<li><a href="http://chanzhi.chanzhi.net" target="_blank"><i class="icon-exchange icon-large"></i>&nbsp; 更换域名</a></li>
-							  </ul>
-							</div>
-						</td>
-						<td>2013年9月13日 17:17</td>
-						<td>191.1.11.32</td>
-						<td><a href="##">管理</a>&nbsp;&nbsp;<a href="#">停用</a></td>
-					</tr>
-					<tr>
-						<td>2</td>
-						<td><span class="label label-warning">试用</span></td>
-						<td><strong>微风凛凛</strong></td>
-						<td>
-							<div class="dropdown">
-								<a href="#" role="button" data-toggle="dropdown" data-target="#" target="_blank">www.example.com <span class="caret"></span></a>
-								&nbsp;<i data-toggle="popover" data-content="您的域名好像并没用解析到我们的服务器。<br/><br/><button target='_blank' class='btn btn-info' data-toggle='modal' data-target='#fixDomain'><i class='icon-wrench icon-large'></i> 解决问题</button>" data-original-title="<strong class='text-danger'>域名解析错误</strong>" class="tip icon-exclamation-sign icon-large text-danger"></i>
-							  <ul class="dropdown-menu" role="menu" aria-labelledby="dLabel">
-							  	<li><a href="http://chanzhi.chanzhi.net" target="_blank">访问临时域名 example.chanzhi.net</a></li>
-							  	<li role="presentation" class="divider"></li>
-							  	<li><a href="http://chanzhi.chanzhi.net" target="_blank"><i class="icon-question-sign icon-large"></i>&nbsp; 了解如何进行域名解析</a></li>
-							  	<li><a href="http://chanzhi.chanzhi.net" target="_blank"><i class="icon-exchange icon-large"></i>&nbsp; 更换域名</a></li>
-							  </ul>
-							</div>
-						</td>
-						<td>2013年9月13日 17:17</td>
-						<td>191.1.11.32</td>
-						<td><a href="##">管理</a></td>
-					</tr>
-					<tr>
-						<td>3</td>
-						<td><span class="label label-danger">停用</span></td>
-						<td><strong>夏天的风</strong></td>
-						<td>
-							<div class="dropdown">
-								<a href="#" role="button" data-toggle="dropdown" data-target="#" target="_blank">www.xtdf.com <span class="caret"></span></a>
-							  <ul class="dropdown-menu" role="menu" aria-labelledby="dLabel">
-							  	<li><a href="http://chanzhi.chanzhi.net" target="_blank"><i class="icon-globe icon-large"></i>&nbsp; 访问站点</a></li>
-							  	<li role="presentation" class="divider"></li>
-							  	<li><a href="http://chanzhi.chanzhi.net" target="_blank"><i class="icon-exchange icon-large"></i>&nbsp; 更换域名</a></li>
-							  </ul>
-							</div>
-						</td>
-						<td>2013年9月13日 17:17</td>
-						<td>191.1.11.32</td>
-						<td><a href="##">管理</a>&nbsp;&nbsp;<a href="#">启用</a></td>
-					</tr>
+          <tr>
+            <td>1</td>
+            <td><span class="label label-success">正常</span></td>
+            <td><strong>测试站点</strong></td>
+            <td>
+              <div class="dropdown">
+                <a href="#" role="button" data-toggle="dropdown" data-target="#" target="_blank">demo1.sitename.com <span class="caret"></span></a>
+                &nbsp;<i data-toggle="popover" data-content="您的域名好像并没用解析到我们的服务器。<br/><br/><button target='_blank' class='btn btn-info' data-toggle='modal' data-target='#fixDomain'><i class='icon-wrench icon-large'></i> 解决问题</button>" data-original-title="<strong class='text-danger'>域名解析错误</strong>" class="tip icon-exclamation-sign icon-large text-danger"></i>
+                <ul class="dropdown-menu" role="menu" aria-labelledby="dLabel">
+                  <li><a href="http://chanzhi.chanzhi.net" target="_blank">访问临时域名 demo1.chanzhi.net</a></li>
+                  <li role="presentation" class="divider"></li>
+                  <li><a href="http://chanzhi.chanzhi.net" target="_blank"><i class="icon-question-sign icon-large"></i>&nbsp; 了解如何进行域名解析</a></li>
+                  <li><a href="http://chanzhi.chanzhi.net" target="_blank"><i class="icon-exchange icon-large"></i>&nbsp; 更换域名</a></li>
+                </ul>
+              </div>
+            </td>
+            <td>2013年9月13日 17:17</td>
+            <td>191.1.11.32</td>
+            <td><a href="##">管理</a>&nbsp;&nbsp;<a href="#">停用</a></td>
+          </tr>
+          <tr>
+            <td>2</td>
+            <td><span class="label label-warning">试用</span></td>
+            <td><strong>微风凛凛</strong></td>
+            <td>
+              <div class="dropdown">
+                <a href="#" role="button" data-toggle="dropdown" data-target="#" target="_blank">www.example.com <span class="caret"></span></a>
+                &nbsp;<i data-toggle="popover" data-content="您的域名好像并没用解析到我们的服务器。<br/><br/><button target='_blank' class='btn btn-info' data-toggle='modal' data-target='#fixDomain'><i class='icon-wrench icon-large'></i> 解决问题</button>" data-original-title="<strong class='text-danger'>域名解析错误</strong>" class="tip icon-exclamation-sign icon-large text-danger"></i>
+                <ul class="dropdown-menu" role="menu" aria-labelledby="dLabel">
+                  <li><a href="http://chanzhi.chanzhi.net" target="_blank">访问临时域名 example.chanzhi.net</a></li>
+                  <li role="presentation" class="divider"></li>
+                  <li><a href="http://chanzhi.chanzhi.net" target="_blank"><i class="icon-question-sign icon-large"></i>&nbsp; 了解如何进行域名解析</a></li>
+                  <li><a href="http://chanzhi.chanzhi.net" target="_blank"><i class="icon-exchange icon-large"></i>&nbsp; 更换域名</a></li>
+                </ul>
+              </div>
+            </td>
+            <td>2013年9月13日 17:17</td>
+            <td>191.1.11.32</td>
+            <td><a href="##">管理</a></td>
+          </tr>
+          <tr>
+            <td>3</td>
+            <td><span class="label label-danger">停用</span></td>
+            <td><strong>夏天的风</strong></td>
+            <td>
+              <div class="dropdown">
+                <a href="#" role="button" data-toggle="dropdown" data-target="#" target="_blank">www.xtdf.com <span class="caret"></span></a>
+                <ul class="dropdown-menu" role="menu" aria-labelledby="dLabel">
+                  <li><a href="http://chanzhi.chanzhi.net" target="_blank"><i class="icon-globe icon-large"></i>&nbsp; 访问站点</a></li>
+                  <li role="presentation" class="divider"></li>
+                  <li><a href="http://chanzhi.chanzhi.net" target="_blank"><i class="icon-exchange icon-large"></i>&nbsp; 更换域名</a></li>
+                </ul>
+              </div>
+            </td>
+            <td>2013年9月13日 17:17</td>
+            <td>191.1.11.32</td>
+            <td><a href="##">管理</a>&nbsp;&nbsp;<a href="#">启用</a></td>
+          </tr>
         </tbody>
       </table>
       <div>
-      	<button class="btn btn-primary" data-toggle="modal" data-target="#createSite"><i class="icon-plus"></i> 创建新的门户</button>
+        <button class="btn btn-primary" data-toggle="modal" data-target="#createSite"><i class="icon-plus"></i> 创建新的门户</button>
       </div>
-		</div>
-	</section>
-	
-	<footer>
-		<div class="container">
-			<p>Copyright here.</p>
-		</div>
-	</footer>
+    </div>
+  </section>
+  
+  <footer>
+    <div class="container">
+      <p>Copyright here.</p>
+    </div>
+  </footer>
 
-	<div class="modal fade"  id="createSite">
-	  <div class="modal-dialog">
-	    <div class="modal-content">
-	      <div class="modal-header">
-	        <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
-	        <h4 class="modal-title">创建新的门户站点</h4>
-	      </div>
-	      <form role="form" action="create.html">
-		      <div class="modal-body">
-					  <div class="form-group">
-					    <label for="sitename">站点名称</label>
-					    <input type="text" id="sitename" placeholder="">
-					  </div>
-					  <div class="form-group">
-					    <label for="sitedomain">域名</label>
-					    <input type="text" id="sitedomain" placeholder="www.sitename.com">
-					  </div>
-		      </div>
-		      <div class="modal-footer">
-		        <button type="button" class="btn btn-default" data-dismiss="modal">关闭</button>
-		        <button type="submit" class="btn btn-primary btn-wider">确认</button>
-		      </div>
-	      </form>
-	    </div>
-	  </div>
-	</div>
+  <div class="modal fade"  id="createSite">
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="modal-header">
+          <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+          <h4 class="modal-title">创建新的门户站点</h4>
+        </div>
+        <form role="form" action="create.html">
+          <div class="modal-body">
+            <div class="form-group">
+              <label for="sitename">站点名称</label>
+              <input type="text" id="sitename" placeholder="">
+            </div>
+            <div class="form-group">
+              <label for="sitedomain">域名</label>
+              <input type="text" id="sitedomain" placeholder="www.sitename.com">
+            </div>
+          </div>
+          <div class="modal-footer">
+            <button type="button" class="btn btn-default" data-dismiss="modal">关闭</button>
+            <button type="submit" class="btn btn-primary btn-wider">确认</button>
+          </div>
+        </form>
+      </div>
+    </div>
+  </div>
 
-	<div class="modal fade"  id="auth">
-	  <div class="modal-dialog">
-	    <div class="modal-content">
-	      <div class="modal-header">
-	        <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
-	        <h4 class="modal-title">提交用户身份验证申请</h4>
-	      </div>
+  <div class="modal fade"  id="auth">
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="modal-header">
+          <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+          <h4 class="modal-title">提交用户身份验证申请</h4>
+        </div>
 
-	      <form id="authForm" class="form-horizontal" role="form" action="auth.html">
-		      <div class="modal-body">
-		      	<div class="form-group">
-					    <label class="col-sm-3 control-label" for="company">公司名称</label>
-					    <input class="col-sm-8" type="text" id="company" placeholder="">
-					  </div>
-					  <div class="form-group">
-					    <label class="col-sm-3 control-label"  for="fullname">姓名</label>
-					    <input class="col-sm-8" type="text" id="fullname" placeholder="">
-					  </div>
-					  <div class="form-group">
-					    <label class="col-sm-3 control-label"  for="email">邮箱</label>
-					    <input class="col-sm-8" type="email" id="email" placeholder="user@sitename.com">
-					  </div>
-					  <div class="form-group">
-					    <label class="col-sm-3 control-label"  for="phone">电话</label>
-					    <input class="col-sm-8" type="text" id="phone" placeholder="">
-					  </div>
-					  <div class="form-group">
-					    <label class="col-sm-3 control-label"  for="qq">QQ</label>
-					    <input class="col-sm-8" type="text" id="qq" placeholder="">
-					  </div>
-		      </div>
-		      <div class="modal-footer text-center">
-		        <button type="button" class="btn btn-default" data-dismiss="modal">关闭</button>
-		        <button type="submit" class="btn btn-primary btn-wider">确认</button>
-		      </div>
-	      </form>
-	    </div>
-	  </div>
-	</div>
+        <form id="authForm" class="form-horizontal" role="form" action="auth.html">
+          <div class="modal-body">
+            <div class="form-group">
+              <label class="col-sm-3 control-label" for="company">公司名称</label>
+              <input class="col-sm-8" type="text" id="company" placeholder="">
+            </div>
+            <div class="form-group">
+              <label class="col-sm-3 control-label"  for="fullname">姓名</label>
+              <input class="col-sm-8" type="text" id="fullname" placeholder="">
+            </div>
+            <div class="form-group">
+              <label class="col-sm-3 control-label"  for="email">邮箱</label>
+              <input class="col-sm-8" type="email" id="email" placeholder="user@sitename.com">
+            </div>
+            <div class="form-group">
+              <label class="col-sm-3 control-label"  for="phone">电话</label>
+              <input class="col-sm-8" type="text" id="phone" placeholder="">
+            </div>
+            <div class="form-group">
+              <label class="col-sm-3 control-label"  for="qq">QQ</label>
+              <input class="col-sm-8" type="text" id="qq" placeholder="">
+            </div>
+          </div>
+          <div class="modal-footer text-center">
+            <button type="button" class="btn btn-default" data-dismiss="modal">关闭</button>
+            <button type="submit" class="btn btn-primary btn-wider">确认</button>
+          </div>
+        </form>
+      </div>
+    </div>
+  </div>
 
-	<div class="modal fade"  id="fixDomain">
-	  <div class="modal-dialog">
-	    <div class="modal-content">
-	      <div class="modal-header">
-	        <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
-	        <h4 class="modal-title">解决域名问题</h4>
-	      </div>
-	      <div class="modal-body">
-	      	<div class="alert alert-warning alert-block">
-	      		<h4>提示</h4>
-	      		<p>您的域名 <strong>www.example.com</strong> 域名解析配置不正确，导致网站无法通过该域名进行访问。请依照以下指示修复该问题。</p>
-	      	</div>
-	      	<br/>
-		      <ul class="nav nav-tabs">
-					  <li class="active"><a href="#howDomain" data-toggle="tab">如何进行域名解析</a></li>
-					  <li><a href="#changeDomain" data-toggle="tab">更换一个域名</a></li>
-					</ul>
-					<div class="tab-content">
-					  <div class="tab-pane active" id="howDomain">
-					  	<h4>第一步</h4>
-					  	<p>第一步的说明</p>
-					  	<h4>第二步</h4>
-					  	<p>第二步的说明</p>
-					  	<h4>第三步</h4>
-					  	<p>第三步的说明</p>
-					  	<p>最后的说明</p>
-					  </div>
-					  <div class="tab-pane" id="changeDomain">
-					  	<form role="form" action="create.html">
-					  		<div class="row">
-					  			<div class="col-md-1"></div>
-					  			<div class="col-md-10">
-							  		<div class="form-group">
-									    <label for="newsitedomain">新的域名</label>
-									    <input type="text" id="newsitedomain" placeholder="www.sitename.com">
-									  </div>
-									  <button type="submit" class="btn btn-primary">确认更换为此域名</button>						  				
-					  			</div>		  			
-					  		</div>
-					  	</form>
-					  </div>
-					</div>
-	      </div>
-	      <div class="modal-footer text-center">
-	        <button type="button" class="btn btn-default btn-wider" data-dismiss="modal">关闭</button>
-	      </div>
-	    </div>
-	  </div>
-	</div>
+  <div class="modal fade"  id="fixDomain">
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="modal-header">
+          <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+          <h4 class="modal-title">解决域名问题</h4>
+        </div>
+        <div class="modal-body">
+          <div class="alert alert-warning alert-block">
+            <h4>提示</h4>
+            <p>您的域名 <strong>www.example.com</strong> 域名解析配置不正确，导致网站无法通过该域名进行访问。请依照以下指示修复该问题。</p>
+          </div>
+          <br/>
+          <ul class="nav nav-tabs">
+            <li class="active"><a href="#howDomain" data-toggle="tab">如何进行域名解析</a></li>
+            <li><a href="#changeDomain" data-toggle="tab">更换一个域名</a></li>
+          </ul>
+          <div class="tab-content">
+            <div class="tab-pane active" id="howDomain">
+              <h4>第一步</h4>
+              <p>第一步的说明</p>
+              <h4>第二步</h4>
+              <p>第二步的说明</p>
+              <h4>第三步</h4>
+              <p>第三步的说明</p>
+              <p>最后的说明</p>
+            </div>
+            <div class="tab-pane" id="changeDomain">
+              <form role="form" action="create.html">
+                <div class="row">
+                  <div class="col-md-1"></div>
+                  <div class="col-md-10">
+                    <div class="form-group">
+                      <label for="newsitedomain">新的域名</label>
+                      <input type="text" id="newsitedomain" placeholder="www.sitename.com">
+                    </div>
+                    <button type="submit" class="btn btn-primary">确认更换为此域名</button>                      
+                  </div>            
+                </div>
+              </form>
+            </div>
+          </div>
+        </div>
+        <div class="modal-footer text-center">
+          <button type="button" class="btn btn-default btn-wider" data-dismiss="modal">关闭</button>
+        </div>
+      </div>
+    </div>
+  </div>
 
-	<!-- Scripts
+  <!-- Scripts
   ---------------------------------->
   <script src="../../js/jquery-1.9.1.min.js"></script>
   <script src="../../js/bootstrap.min.js"></script>
 
   <script>
-	  $(function () {
-	  	$(".tip").popover({container: 'body',html:true});
+    $(function () {
+      $(".tip").popover({container: 'body',html:true});
 
-	  	// 处理用户点击暂不处理
-	  	$("#dismissAuthAlert").click(function() 
-	  	{
-	  		$(".hideOnDismiss").slideUp();
-	  		$("#authAlert .btn-success").addClass('pull-right');
-	  	});
+      // 处理用户点击暂不处理
+      $("#dismissAuthAlert").click(function() 
+      {
+        $(".hideOnDismiss").slideUp();
+        $("#authAlert .btn-success").addClass('pull-right');
+      });
 
-	  	// 处理用户验证申请表单Ajax提交成功后
-	  	$("#authForm").submit(function() 
-	  	{
-	  		$("#auth").modal('hide'); // 处理了form提交请求后，请移除该行。
-	  		$("#authAlert").slideUp("fast");
-	  		$("#authSuccess").hide().removeClass("hide").slideDown(function () {
-	  			setTimeout('$("#authSuccess").slideUp()',5000);
-	  		});
-	  		return false; // 处理了form提交请求后，请移除该行。
-	  	});
-	  });
+      // 处理用户验证申请表单Ajax提交成功后
+      $("#authForm").submit(function() 
+      {
+        $("#auth").modal('hide'); // 处理了form提交请求后，请移除该行。
+        $("#authAlert").slideUp("fast");
+        $("#authSuccess").hide().removeClass("hide").slideDown(function () {
+          setTimeout('$("#authSuccess").slideUp()',5000);
+        });
+        return false; // 处理了form提交请求后，请移除该行。
+      });
+    });
   </script>
 </body>
 </html>
