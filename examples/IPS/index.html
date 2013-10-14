@@ -12,6 +12,7 @@
   <title>蝉知企业内部门户</title>
 </head>
 <body>
+
   <!-- Desktop -->
   <div id='desktop'>
     <div id='leftBar' class='dock-left'>
@@ -24,8 +25,8 @@
       <div class='dock-bottom'>
         <div id="apps-actions">
           <ul class="bar-menu">
-            <li><a href="###" class="app-btn app-btn-ajax" title="所有应用"><i class="icon-th-list"></i></a></li>
-            <li><a href="###" class="app-btn app-btn-ajax" title="添加应用"><i class="icon-plus-sign"></i></a></li>
+            <li><a href="###" id="allAppsBtn" title="所有应用"><i class="icon-th-list"></i></a></li>
+            <li><a href="###" id="addAppBtn" class="app-btn" title="添加应用"><i class="icon-plus-sign"></i></a></li>
           </ul>
         </div>
         <div id="avatar" title="查看个人信息">
@@ -48,8 +49,81 @@
         </ul>
       </div>
     </div>
+    <div id="allApps" class="hide">
+      <div class="all-apps-panel">
+        <div class="all-apps-head">
+          <div class="row">
+            <div class="col-md-1">
+              <a href="###" id="closeAllApps"><i class="icon-circle-arrow-left"></i></a>
+            </div>
+            <div class="col-md-3">
+              <h4>
+              <i class="icon-th-list"></i> 所有应用 &nbsp;<small class="muted">共 20 款应用</small></h4>
+            </div>
+            <div class="col-md-4">
+              <div class="input-group">
+                <input type="text" class="form-control-clear form-control">
+                <span class="input-group-btn">
+                  <button class="btn btn-clear" type="button"><i class="icon-search"></i></button>
+                </span>
+              </div>
+            </div>
+            <div class="col-md-4 text-right">
+              <button class="btn btn-clear"><i class="icon-plus"></i> 添加应用</button>
+            </div>
+          </div>        
+        </div>
+        <div class="all-apps-list">
+          <ul class="bar-menu">
+            <li class="active" title="已激活">
+              <a href="###" class="app-btn">
+                <img src="img/app-1.png" alt="">
+                禅道项目管理系统
+              </a>
+            </li>
+            <li>
+              <a href="###" class="app-btn">
+                <img src="img/app-2.png" alt="">
+                蝉知企业门户系统
+              </a>
+            </li>
+            <li>
+              <a href="###" class="app-btn">
+                <img src="img/app-1.png" alt="">
+                禅道项目管理系统
+              </a>
+            </li>
+            <li>
+              <a href="###" class="app-btn">
+                <img src="img/app-1.png" alt="">
+                禅道项目管理系统
+              </a>
+            </li>
+            <li>
+              <a href="###" class="app-btn">
+                <img src="img/app-1.png" alt="">
+                禅道项目管理系统
+              </a>
+            </li>
+            <li>
+              <a href="###" class="app-btn">
+                <img src="img/app-1.png" alt="">
+                禅道项目管理系统
+              </a>
+            </li>
+            <li>
+              <a href="###" class="app-btn">
+                <img src="img/avatar.jpg" alt="">
+                Catouse
+              </a>
+            </li>
+          </ul>
+        </div>        
+      </div>
+
+    </div>
     <div id="deskContainer">
-      <div id="app-1" class="window window-loading" style="width:500px;height:400px;left:130px;top:30px;">
+      <div id="app-1" class="window window-loading" style="width:400px;height:300px;left:130px;top:30px;">
         <div class="window-head">
           <img src="img/app-1.png" alt="">
           <strong>禅道项目管理</strong>
@@ -64,10 +138,10 @@
           <p>请稍后，正在加载...</p>
         </div>
       </div>
-      <div id="app-543fdsgeww43" class="window window-iframe" style="width:600px;height:500px;left:630px;top:30px;">
+      <div id="app-appid" class="window window-iframe" style="width:500px;height:500px;left:560px;top:30px;">
         <div class="window-head">
-          <img src="https://www.google.com.hk/images/google_favicon_128.png" alt="">
-          <strong>Google</strong>
+          <img src="img/app-2.png" alt="">
+          <strong>蝉知企业门户</strong>
           <ul>
             <li><button class="reload-app"><i class="icon-repeat"></i></button></li>
             <li><button class="hide-app"><i class="icon-minus"></i></button></li>
@@ -75,7 +149,7 @@
           </ul>
         </div>
         <div class="window-content">
-          <iframe id="iframe-34323" name="iframe-34323" src="http://baidu.com/" width="600" height="500" frameborder="0" scrolling="auto"></iframe>
+          <iframe id="iframe-34323" name="iframe-34323" src="http://www.chanzhi.net/help-book-chanzhieps.html" width="500" height="500" frameborder="0" scrolling="auto"></iframe>
         </div>
       </div>
     </div>
@@ -84,5 +158,6 @@
   <!-- Scripts -->
   <script src='../../js/jquery-1.9.1.min.js'></script>
   <script src='../../js/bootstrap.min.js'></script>
+  <script src='js/script.js'></script>
 </body>
 </html>
