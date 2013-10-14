@@ -106,9 +106,24 @@ a,a:hover{
   transition: all .3s;-o-transition: all .3s;-moz-transition: all .3s;-webkit-transition: all .3s;
 }
 
-#addAppBtn{
-  position: absolute;
-  bottom: 
+#apps-actions .bar-menu>li{
+  display: block;
+}
+#apps-actions .bar-menu>li a{
+  font-size: 40px;
+  text-align: center;
+}
+
+#apps-menu .bar-menu>li{
+  display: block;
+}
+#apps-menu .bar-menu>li a{
+  text-align: center;
+  padding:10px;
+}
+#apps-menu .bar-menu>li img{
+  width: 52px;
+  height: 52px;
 }
 
 /* bottom bar. */
@@ -132,7 +147,7 @@ a,a:hover{
   font-size: 18px;
   height: 42px;
 }
-#taskbar .bar-menu li{
+#taskbar .bar-menu>li{
   line-height: 32px;
   font-size: 16px;
   height: 42px;
