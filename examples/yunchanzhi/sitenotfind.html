@@ -13,7 +13,23 @@
 
   <style>
     body{
-      padding-top: 100px;
+      padding-top: 120px;
+    }
+    .panel{
+      width: 400px;
+      margin: 5% auto;
+      -webkit-box-shadow: 0 1px 6px rgba(0, 0, 0, 0.15);
+      box-shadow: 0 1px 6px rgba(0, 0, 0, 0.15);
+    }
+    .panel-body{
+      padding: 20px 10%;
+      min-height: 350px;
+    }
+    .form-group input{
+      min-width: 240px;
+    }
+    .form-group label a{
+      font-weight: normal;
     }
   </style>
 </head>
@@ -43,6 +59,24 @@
       </div>
     </nav>
   </header>
+
+  <div class="container">
+    <section id="login">
+      <div class="row">
+        <div class="col-md-12">
+          <div class="panel panel-danger">
+            <div class="panel-heading">
+              <h3><i class="icon-info-sign icon-large"></i> 您访问的站点已被关闭。</h3>
+            </div>
+            <div class="panel-body">
+              <p>站点关闭的原因。</p>
+            </div>
+          </div>
+        </div>
+      </div>
+
+    </section>
+  </div>
 
   <footer>
     <div class="container">
