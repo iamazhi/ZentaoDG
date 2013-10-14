@@ -34,7 +34,7 @@
         </div>        
       </div>
     </div>
-    <div id='bottomBar'>
+    <div id='bottomBar' class='dock-bottom'>
       <div id='systemMenu'>
         <ul class='bar-menu'>
           <li><a href='###' class='app-btn app-btn-ajax' title='系统配置'><i class='icon-cog icon-large'></i></a></li>
@@ -43,9 +43,40 @@
       </div>
       <div id='taskbar'>
         <ul class='bar-menu'>
-          <li class='active'><a href='###' class='app-btn'><i class='icon-list-alt'></i> 蝉知企业门户</a></li>
-          <li><a href='###' class='app-btn'><i class='icon-list-alt'></i> 禅道项目管理</a></li>
+          <li class='active'><button class='app-btn'><i class='icon-list-alt'></i> 蝉知企业门户</button></li>
+          <li><button href='###' class='app-btn'><i class='icon-list-alt'></i> 禅道项目管理</button></li>
         </ul>
+      </div>
+    </div>
+    <div id="deskContainer">
+      <div id="app-1" class="window window-loading" style="width:500px;height:400px;left:130px;top:30px;">
+        <div class="window-head">
+          <img src="img/app-1.png" alt="">
+          <strong>禅道项目管理</strong>
+          <ul>
+            <li><button class="reload-app"><i class="icon-repeat"></i></button></li>
+            <li><button class="hide-app"><i class="icon-minus"></i></button></li>
+            <li><button class="close-app"><i class="icon-remove"></i></button></li>
+          </ul>
+        </div>
+        <div class="window-content">
+          <i class="icon-spinner icon-spin icon-4x"></i>
+          <p>请稍后，正在加载...</p>
+        </div>
+      </div>
+      <div id="app-543fdsgeww43" class="window window-iframe" style="width:600px;height:500px;left:630px;top:30px;">
+        <div class="window-head">
+          <img src="https://www.google.com.hk/images/google_favicon_128.png" alt="">
+          <strong>Google</strong>
+          <ul>
+            <li><button class="reload-app"><i class="icon-repeat"></i></button></li>
+            <li><button class="hide-app"><i class="icon-minus"></i></button></li>
+            <li><button class="close-app"><i class="icon-remove"></i></button></li>
+          </ul>
+        </div>
+        <div class="window-content">
+          <iframe id="iframe-34323" name="iframe-34323" src="http://baidu.com/" width="600" height="500" frameborder="0" scrolling="auto"></iframe>
+        </div>
       </div>
     </div>
   </div>
