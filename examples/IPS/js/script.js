@@ -3,13 +3,22 @@ var config =
     animateSpeed     : 'fast',  // 动画速度
     movingWindow     : null,    // 当前正在移动的窗口
     activeWindow     : null,    // 当前激活的窗口
-    appIconRoot      : '',      // 应用图标库目录地址
+    appIconRoot      : 'img/',      // 应用图标库目录地址
+    windowHeadHeight : 38,      // 应用窗口标题栏高度
+    defaultWindowPos : {x : 110, y : 20},
+    getNextDefaultWinPos : function() 
+        {
+           this.defaultWindowPos = {x : this.defaultWindowPos.x + 20, y : this.defaultWindowPos.y + 20};
+           return this.defaultWindowPos;
+        },
     windowIdSeed     : 0,
     // 获取下一个新建窗口编号
     getNewWindowId   : function() { return this.windowIdSeed++; },
     windowZIndexSeed : 0,
     // 获取下一个新建窗口z-index
-    getNewZIndex   : function() { return this.windowZIndexSeed++; }
+    getNewZIndex   : function() { return this.windowZIndexSeed++; },
+    // window模版
+    windowHtmlTemp : ''
 };
 
 $(function()
@@ -38,6 +47,27 @@ function showAllApps()
     $('#allAppsBtn').addClass('active');
     $('#deskContainer').fadeOut(config.animateSpeed);
     $('#allApps').fadeIn(config.animateSpeed).addClass('show');
+}
+
+// == 窗口对象 ==
+// 构造函数
+function Windowx(appid, url, title, type, display, size, position)
+{
+    this.id       = config.getNewWindowId();
+    this.zindex   = config.getNewZIndex();
+    this.appid    = appid;
+    this.url      = url;
+    this.title    = title ? title : '';
+    this.type     = type ? type : 'iframe';
+    this.display  = display ? display : 'normal';
+    this.size     = size ? size : {width:500,height:438};
+    this.position = position ? position : config.getNextDefaultWinPos();
+    this.iconimg  = config.appIconRoot + 'app-' + this.appid + '.png';
+
+    this.toHtml   = function()
+    {
+        // todo: 根据模版生成窗口html
+    };
 }
 
 // == 窗口事件 ==
@@ -89,3 +119,28 @@ function activeWindow(query)
 
     config.activeWindow = win.addClass('window-active').css('z-index',win.css('z-index')+10000);
 }
+
+// == 辅助 ==
+// 字符串格式化
+String.prototype.format = function(args) {
+    var result = this;
+    if (arguments.length > 0) {
+        var reg;
+        if (arguments.length == 1 && typeof(args) == "object") {
+            for (var key in args) {
+                if (args[key] != undefined) {
+                    reg = new RegExp("({" + key + "})", "g");
+                    result = result.replace(reg, args[key]);
+                }
+            }
+        } else {
+            for (var i = 0; i < arguments.length; i++) {
+                if (arguments[i] != undefined) {
+                    reg = new RegExp("({[" + i + "]})", "g");
+                    result = result.replace(reg, arguments[i]);
+                }
+            }
+        }
+    }
+    return result;
+};
