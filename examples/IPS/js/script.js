@@ -5,11 +5,8 @@ $(function()
     $("#allAppsBtn").click(toggleAllApps);
     $("#closeAllApps").click(hideAllApps);
 
-    $(".movable").each(function(handle)
-    {
-        initWindowMovable($(this));
-    });
-    releaseWindowMoveHandle();
+    initWindowMovable();
+    initWindowActivable();
 });
 
 function toggleAllApps()
@@ -32,35 +29,30 @@ function showAllApps()
 }
 
 // == 窗口 ==
-// 拖放窗口
-function initWindowMovable(handle)
+// 处理拖放窗口事件
+// 窗口内任何包含类 '.movable' 都可以相应鼠标拖动事件来移动窗口
+function initWindowMovable()
 {
-    var iWindow = handle.closest('.window');
-    var iWindowPos;
-    var mouseOffset;
-    handle.mousedown(function(event)
+    var movingWindow;
+    $(document).on('mousedown','.movable,.window-movable .window-head',function(event){
+        movingWindow = $(this).closest('.window');
+        var mwPos = movingWindow.position();
+        movingWindow.data('mouseOffset', {x:event.pageX-mwPos.left,y:event.pageY-mwPos.top}).addClass("window-moving");
+    }).mousemove(function(event)
     {
-        iWindowPos = iWindow.position();
-        mouseOffset = {x:event.pageX-iWindowPos.left,y:event.pageY-iWindowPos.top}
-        iWindow.addClass("window-moving");
-    });
-    $(document).mousemove(function(event)
-    {
-        if(iWindow.hasClass('window-moving'))
+        if(movingWindow && movingWindow.hasClass('window-moving'))
         {
-            iWindow.css(
+            var offset = movingWindow.data('mouseOffset');
+            movingWindow.css(
             {
-              left: event.pageX-mouseOffset.x,
-              top: event.pageY-mouseOffset.y
+              left: event.pageX-offset.x,
+              top: event.pageY-offset.y
             });
         }
-    });;
-}
-
-function releaseWindowMoveHandle()
-{
-    $(document).mouseup(function()
+    }).mouseup(function()
     {
         $('.window.window-moving').removeClass('window-moving');
     });
 }
+
+

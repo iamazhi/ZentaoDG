@@ -250,9 +250,6 @@ button{
 }
 
 /* window. */
-.movable{
-  cursor: move;
-}
 .window{
   position: absolute;
   background-color: #fff;
@@ -300,6 +297,10 @@ button{
 .window.active .window-head{
   background-color: #e5e6e7;
   color: #333;
+}
+
+.movable,.window-movable .window-head{
+  cursor: move;
 }
 
 .window-content{
