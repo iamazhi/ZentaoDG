@@ -3,9 +3,10 @@ var config =
     animateSpeed     : 'fast',  // 动画速度
     movingWindow     : null,    // 当前正在移动的窗口
     activeWindow     : null,    // 当前激活的窗口
-    appIconRoot      : 'img/',      // 应用图标库目录地址
+    appIconRoot      : 'img/',  // 应用图标库目录地址
     windowHeadHeight : 38,      // 应用窗口标题栏高度
     defaultWindowPos : {x : 110, y : 20},
+    windowIdStrTemp  : 'win-{0}',
     getNextDefaultWinPos : function() 
         {
            this.defaultWindowPos = {x : this.defaultWindowPos.x + 20, y : this.defaultWindowPos.y + 20};
@@ -54,6 +55,7 @@ function showAllApps()
 function Windowx(appid, url, title, type, display, size, position)
 {
     this.id       = config.getNewWindowId();
+    this.idStr    = config.windowIdStrTemp.format(this.id);
     this.zindex   = config.getNewZIndex();
     this.appid    = appid;
     this.url      = url;
@@ -68,6 +70,13 @@ function Windowx(appid, url, title, type, display, size, position)
     {
         // todo: 根据模版生成窗口html
     };
+}
+
+// 第一次显示窗口
+function openWindow(windowx)
+{
+    $("#deskContainer").append(windowx.toHtml());
+    activeWindow(windowx.idStr);
 }
 
 // == 窗口事件 ==
@@ -115,7 +124,7 @@ function activeWindow(query)
     if(config.activeWindow)
         config.activeWindow.removeClass('window-active').css('z-index', config.activeWindow.css('z-index')%10000);
     
-    var win = (query.constructor == Number)?$('#app-' + query):((query.constructor == String)?$('#' + query):query);
+    var win = (query.constructor == Number)?$('#' + config.windowIdStrTemp.format(query)):((query.constructor == String)?$('#' + query):query);
 
     config.activeWindow = win.addClass('window-active').css('z-index',win.css('z-index')+10000);
 }
