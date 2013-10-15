@@ -307,13 +307,10 @@ button{
 
 .window-content{
   height: 100%;
-  margin-bottom: 42px;
   overflow: auto;
 }
 .window-loading .window-content{
-  color: #999;
-  text-align: center;
-  padding: 30px;
+  background: url('../img/loading.gif') no-repeat center 30%;
 }
 
 .window-content article{
@@ -331,6 +328,7 @@ button{
   margin: 10px 0;
 }
 .window-content article h4{
+  font-weight: bold;
   padding: 5px 0;
   border-bottom: 1px solid #ddd;
 }
