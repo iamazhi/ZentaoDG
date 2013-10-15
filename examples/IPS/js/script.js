@@ -5,10 +5,11 @@ var config =
     activeWindow     : null,    // 当前激活的窗口
     appIconRoot      : '',      // 应用图标库目录地址
     windowIdSeed     : 0,
-    getNewWindowId   : function() { return windowIdSeed++; },
+    // 获取下一个新建窗口编号
+    getNewWindowId   : function() { return this.windowIdSeed++; },
     windowZIndexSeed : 0,
-    getNewZIndex   : function() { return windowZIndexSeed++; }
-
+    // 获取下一个新建窗口z-index
+    getNewZIndex   : function() { return this.windowZIndexSeed++; }
 };
 
 $(function()
