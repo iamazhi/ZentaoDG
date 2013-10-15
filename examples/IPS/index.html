@@ -14,7 +14,7 @@
 <body>
 
   <!-- Desktop -->
-  <div id='desktop'>
+  <div id='desktop'  unselectable="on" style="-moz-user-select:none;-webkit-user-select:none;" onselectstart="return false;">
     <div id='leftBar' class='dock-left'>
       <div id='apps-menu'>
         <ul class='bar-menu'>
@@ -174,7 +174,7 @@
             <h5>组成部分</h5>
             <table class="table">
               <tr>
-                <th>名称</th>
+                <th style='width:80px;'>名称</th>
                 <th>CSS类名</th>
                 <th>说明</th>
               </tr>
@@ -267,6 +267,8 @@
                 <td>发生了错误导致应用无法使用。不能与“正在加载状态叠加”。</td>
               </tr>
             </table>
+            <h5>应用窗口示例</h5>
+            <p>请参见本文档html源码。</p>
             <h4>窗口对象</h4>
 
           </article>
