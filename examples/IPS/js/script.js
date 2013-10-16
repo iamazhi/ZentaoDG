@@ -4,12 +4,14 @@ var config =
     movingWindow     : null,    // 当前正在移动的窗口
     activeWindow     : null,    // 当前激活的窗口
     appIconRoot      : 'img/',  // 应用图标库目录地址
-    windowHeadHeight : 38,      // 应用窗口标题栏高度
-    defaultWindowPos : {x : 110, y : 20},
+    windowHeadheight: 38,      // 桌面任务栏栏高度
+    bottomBarHeight  : 42,      // 应用窗口底栏高度
+    desktopPos       : {x: 96, y: 0},
+    defaultWindowPos : {x: 110, y: 20},
     windowIdStrTemp  : 'win-{0}',
     getNextDefaultWinPos : function() 
         {
-           this.defaultWindowPos = {x : this.defaultWindowPos.x + 20, y : this.defaultWindowPos.y + 20};
+           this.defaultWindowPos = {x: this.defaultWindowPos.x + 20, y: this.defaultWindowPos.y + 20};
            return this.defaultWindowPos;
         },
     windowIdSeed     : 0,
@@ -17,9 +19,9 @@ var config =
     getNewWindowId   : function() { return this.windowIdSeed++; },
     windowZIndexSeed : 0,
     // 获取下一个新建窗口z-index
-    getNewZIndex   : function() { return this.windowZIndexSeed++; },
+    getNewZIndex     : function() { return this.windowZIndexSeed++; },
     // window模版
-    windowHtmlTemp : ''
+    windowHtmlTemp   : ''
 };
 
 $(function()
@@ -29,6 +31,7 @@ $(function()
 
     initWindowMovable();
     initWindowActivable();
+    initWindowActions();
 });
 
 function toggleAllApps()
@@ -61,7 +64,7 @@ function Windowx(appid, url, title, type, display, size, position)
     this.url      = url;
     this.title    = title ? title : '';
     this.type     = type ? type : 'iframe';
-    this.display  = display ? display : 'normal';
+    this.display  = display ? display: 'normal';
     this.size     = size ? size : {width:500,height:438};
     this.position = position ? position : config.getNextDefaultWinPos();
     this.iconimg  = config.appIconRoot + 'app-' + this.appid + '.png';
@@ -80,6 +83,72 @@ function openWindow(windowx)
 }
 
 // == 窗口事件 ==
+// 根据窗口标识获取win容器的jQuery对象
+function getWinObj(winQuery)
+{
+    if(winQuery)
+        return (winQuery.constructor == Number)?$('#' + config.windowIdStrTemp.format(winQuery)):((winQuery.constructor == String)?$('#' + winQuery):winQuery);
+    else
+        return config.activeWindow;
+
+}
+
+// 获取桌面尺寸
+function getDesktopSize()
+{
+    var desk = $("#deskContainer");
+    return {width: desk.width() - config.desktopPos.x, height: desk.height() - config.desktopPos.y - config.bottomBarHeight};
+}
+
+// 窗口按钮操作事件
+function initWindowActions()
+{
+    $(document).on('click', '.max-win', function(event)
+    {
+        // console.log(".max-win click");
+        var win = $(this).closest('.window');
+        if(win.hasClass('window-max'))
+        {
+            var orginLoc = win.data('orginLoc');
+            win.removeClass('window-max').css(
+            {
+                left: orginLoc.left,
+                top: orginLoc.top,
+                width: orginLoc.width,
+                height: orginLoc.height
+            });
+            $(this).find('.icon-resize-small').removeClass('icon-resize-small').addClass('icon-resize-full');
+        }
+        else
+        {
+            var dSize = getDesktopSize();
+            win.data('orginLoc', 
+            {
+                left: win.css('left'),
+                top: win.css('top'),
+                width: win.css('width'),
+                height: win.css('height')
+            }).addClass('window-max').css(
+            {
+                left: config.desktopPos.x,
+                top: config.desktopPos.y,
+                width: dSize.width,
+                height: dSize.height
+            });
+            $(this).find('.icon-resize-full').removeClass('icon-resize-full').addClass('icon-resize-small');
+        }
+        handleWinResized(win);
+        event.preventDefault();
+    });
+}
+
+// 处理窗口尺寸被更改调用此方法调整窗口内容尺寸
+function handleWinResized(winQuery)
+{
+    var win  = getWinObj(winQuery);
+    win.find('.window-content').height(win.height() - config.windowHeadheight);
+}
+
 // 处理拖放窗口事件
 // 窗口内任何包含类 '.movable' 都可以相应鼠标拖动事件来移动窗口
 function initWindowMovable()
@@ -88,7 +157,8 @@ function initWindowMovable()
     {
         config.movingWindow = $(this).closest('.window');
         var mwPos = config.movingWindow.position();
-        config.movingWindow.data('mouseOffset', {x:event.pageX-mwPos.left,y:event.pageY-mwPos.top}).addClass('window-moving');
+        config.movingWindow.data('mouseOffset', {x: event.pageX-mwPos.left, y: event.pageY-mwPos.top}).addClass('window-moving');
+        event.preventDefault();
     }).mousemove(function(event)
     {
         if(config.movingWindow && config.movingWindow.hasClass('window-moving'))
@@ -96,8 +166,8 @@ function initWindowMovable()
             var offset = config.movingWindow.data('mouseOffset');
             config.movingWindow.css(
             {
-              left: event.pageX-offset.x,
-              top: event.pageY-offset.y
+                left : event.pageX-offset.x,
+                top : event.pageY-offset.y
             });
         }
     }).mouseup(function()
@@ -124,7 +194,7 @@ function activeWindow(query)
     if(config.activeWindow)
         config.activeWindow.removeClass('window-active').css('z-index', config.activeWindow.css('z-index')%10000);
     
-    var win = (query.constructor == Number)?$('#' + config.windowIdStrTemp.format(query)):((query.constructor == String)?$('#' + query):query);
+    var win = getWinObj(query);
 
     config.activeWindow = win.addClass('window-active').css('z-index',win.css('z-index')+10000);
 }
