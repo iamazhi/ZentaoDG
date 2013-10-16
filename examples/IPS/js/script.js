@@ -342,7 +342,7 @@ function loadIframeWindow(win, app)
     var frame = $('#' + fName);
     if(frame.length > 0)
     {
-        document.frames(fName).location.reload()
+        document.getElementById(fName).src = app.url; 
     }
     else
     {
