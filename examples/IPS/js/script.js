@@ -23,41 +23,78 @@ var config =
     // 获取下一个新建窗口z-index
     getNewZIndex     : function() { return this.windowZIndexSeed++; },
     // window模版
-    windowHtmlTemp   : ''
+    windowHtmlTemp   : '',
+    leftBarShortcutHtmlTemp : '<li><a href="javascript:;" class="app-btn" title="{title}" data-appid="{appid}"><img src="{iconimg}" alt=""></a></li>',
+    appsLib           : null
 };
 
 $(function()
 {
-    $('#allAppsBtn').click(toggleAllApps);
-    $('#closeAllApps').click(hideAllApps);
+    initAppsLib();
+    initLeftBar();
 
     initWindowMovable();
     initWindowActivable();
     initWindowActions();
+
+    initOther();
 });
 
-function toggleAllApps()
+// == 应用库 ==
+// 初始化应用库列表
+function initAppsLib()
 {
-    if($('#allApps').hasClass('show')) hideAllApps(); else showAllApps();
+    var lib = new Array();
+
+    lib['0'] = new App('0', 'guidelines.html', '窗口应用开发指南', 'html', '了解如何进行窗口应用开发');
+    lib['1'] = new App('1', 'http://pms.zentao.net/', '禅道项目管理', 'iframe', '禅道项目管理系统');
+    lib['2'] = new App('2', 'http://chanzhi.net/', '云蝉知', 'iframe', '一分钟开启互联网营销');
+
+    config.appsLib = lib;
 }
 
-function hideAllApps()
+// == 应用快捷图标　==
+// 初始化左侧栏图标
+function initLeftBar()
 {
-    $('#allAppsBtn').removeClass('active');
-    $('#allApps').fadeOut(config.animateSpeed).removeClass('show');
-    $('#deskContainer').fadeIn(config.animateSpeed);
+    var lib = config.appsLib;
+    var leftMenu = $('#apps-menu .bar-menu');
+    for(var index in lib)
+    {
+        var app = lib[index];
+        leftMenu.append(app.toLeftBarShortcutHtml());
+    }
 }
 
-function showAllApps()
+function initOther()
 {
-    $('#allAppsBtn').addClass('active');
-    $('#deskContainer').fadeOut(config.animateSpeed);
-    $('#allApps').fadeIn(config.animateSpeed).addClass('show');
+    $('#allAppsBtn').click(toggleAllApps);
+    $('#closeAllApps').click(hideAllApps);
+
+    function toggleAllApps()
+    {
+        if($('#allApps').hasClass('show')) hideAllApps(); else showAllApps();
+    }
+
+    function hideAllApps()
+    {
+        $('#allAppsBtn').removeClass('active');
+        $('#allApps').fadeOut(config.animateSpeed).removeClass('show');
+        $('#deskContainer').fadeIn(config.animateSpeed);
+    }
+
+    function showAllApps()
+    {
+        $('#allAppsBtn').addClass('active');
+        $('#deskContainer').fadeOut(config.animateSpeed);
+        $('#allApps').fadeIn(config.animateSpeed).addClass('show');
+    }
 }
 
-// == 窗口对象 ==
+// == 应用窗口对象 ==
 // 构造函数
-function Windowx(appid, url, title, type, display, size, position)
+// 参数说明请参见开发指南
+function App(appid, url, title, type,　description, display, size, position, imgicon)
 {
     this.id       = config.getNewWindowId();
     this.idStr    = config.windowIdStrTemp.format(this.id);
@@ -66,23 +103,29 @@ function Windowx(appid, url, title, type, display, size, position)
     this.url      = url;
     this.title    = title ? title : '';
     this.type     = type ? type : 'iframe';
+    this.description = description ? description : '';
     this.display  = display ? display: 'normal';
     this.size     = size ? size : {width:500,height:438};
     this.position = position ? position : config.getNextDefaultWinPos();
-    this.iconimg  = config.appIconRoot + 'app-' + this.appid + '.png';
+    this.iconimg  = imgicon ? imgicon : config.appIconRoot + 'app-' + this.appid + '.png';
 
-    this.toHtml   = function()
+    this.toWindowHtml   = function()
     {
         // todo: 根据模版生成窗口html
+    };
+
+    this.toLeftBarShortcutHtml = function()
+    {
+        return config.leftBarShortcutHtmlTemp.format(this);
     };
 }
 
 // 第一次显示窗口
-function openWindow(windowx)
+function openWindow(app)
 {
-    $("#deskContainer").append(windowx.toHtml());
-    handleWinResized(windowx.idStr);
-    activeWindow(windowx.idStr);
+    $("#deskContainer").append(app.toWindowHtml());
+    handleWinResized(app.idStr);
+    activeWindow(app.idStr);
 }
 
 // == 窗口事件 ==
@@ -135,6 +178,7 @@ function initWindowActions()
     });
 }
 
+// 显示或最小化窗口
 function toggleShowWindow(winQuery)
 {
     var win = getWinObj(winQuery);
@@ -148,6 +192,7 @@ function toggleShowWindow(winQuery)
     }
 }
 
+//　最小化窗口
 function hideWindow(winQuery)
 {
     var win = getWinObj(winQuery);
@@ -158,6 +203,7 @@ function hideWindow(winQuery)
     }
 }
 
+//　显示窗口
 function showWindow(winQuery)
 {
     var win = getWinObj(winQuery);
