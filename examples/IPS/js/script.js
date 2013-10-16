@@ -3,8 +3,9 @@ var config =
     animateSpeed     : 'fast',  // 动画速度
     movingWindow     : null,    // 当前正在移动的窗口
     activeWindow     : null,    // 当前激活的窗口
+    lastActiveWindow : null,    //　上次激活的窗口
     appIconRoot      : 'img/',  // 应用图标库目录地址
-    windowHeadheight: 38,      // 桌面任务栏栏高度
+    windowHeadheight: 38,      　// 桌面任务栏栏高度
     bottomBarHeight  : 42,      // 应用窗口底栏高度
     desktopPos       : {x: 96, y: 0},
     defaultWindowPos : {x: 110, y: 20},
@@ -129,14 +130,42 @@ function initWindowActions()
         event.preventDefault();
     }).on('click', '.min-win', function(event) // min-win
     {
-        toggleDisplayWindow($(this).closest('.window'));
+        toggleShowWindow($(this).closest('.window'));
         event.preventDefault();
     });
 }
 
-function toggleDisplayWindow(winQuery)
+function toggleShowWindow(winQuery)
 {
+    var win = getWinObj(winQuery);
+    if(win.hasClass('window-min'))
+    {
+        showWindow(win);
+    }
+    else
+    {
+        hideWindow(win);
+    }
+}
 
+function hideWindow(winQuery)
+{
+    var win = getWinObj(winQuery);
+    if(!win.hasClass('window-min'))
+    {
+        win.fadeOut(config.animateSpeed).addClass('window-min');
+        activeWindow(config.lastActiveWindow);
+    }
+}
+
+function showWindow(winQuery)
+{
+    var win = getWinObj(winQuery);
+    if(win.hasClass('window-min'))
+    {
+        win.fadeIn(config.animateSpeed).removeClass('window-min');
+    }
+    activeWindow(win);
 }
 
 // 关闭应用窗口
@@ -146,8 +175,8 @@ function closeWindow(winQuery)
     if(win.hasClass('window-safeclose') && (!confirm(config.safeCloseTip.format(win.find('.window-head strong').text()))))
         return;
 
-    win.remove();
-
+    win.fadeOut(function(){ win.remove(); });
+    activeWindow(config.lastActiveWindow);
     // todo: 此处加入销毁应用窗口的其他操作
 }
 
@@ -246,10 +275,15 @@ function initWindowActivable()
 // 参数query：应用窗口id编号，应用窗口id属性，jQuery包装的窗口对象
 function activeWindow(query)
 {
-    if(config.activeWindow)
-        config.activeWindow.removeClass('window-active').css('z-index', config.activeWindow.css('z-index')%10000);
-    
     var win = getWinObj(query);
+
+    if(win.hasClass('window-active')) return;
+
+    if(config.activeWindow)
+    {
+        config.lastActiveWindow = config.activeWindow;
+        config.activeWindow.removeClass('window-active').css('z-index', config.activeWindow.css('z-index')%10000);
+    }
 
     config.activeWindow = win.addClass('window-active').css('z-index',win.css('z-index')+10000);
 }
