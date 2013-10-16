@@ -9,8 +9,9 @@ var config =
     bottomBarHeight  : 42,      // 应用窗口底栏高度
     desktopPos       : {x: 96, y: 0},
     defaultWindowPos : {x: 110, y: 20},
-    windowIdStrTemp  : 'win-{0}',
+    windowIdStrTemplate  : 'win-{0}',
     safeCloseTip     : '确认要关闭　【{0}】 吗？',
+    appNotFindTip    : '应用没有找到！',
     getNextDefaultWinPos : function() 
         {
            this.defaultWindowPos = {x: this.defaultWindowPos.x + 20, y: this.defaultWindowPos.y + 20};
@@ -23,8 +24,8 @@ var config =
     // 获取下一个新建窗口z-index
     getNewZIndex     : function() { return this.windowZIndexSeed++; },
     // window模版
-    windowHtmlTemp   : '',
-    leftBarShortcutHtmlTemp : '<li><a href="javascript:;" class="app-btn" title="{title}" data-appid="{appid}"><img src="{iconimg}" alt=""></a></li>',
+    windowHtmlTemplate   : '',
+    leftBarShortcutHtmlTemplate : '<li><a href="javascript:;" class="app-btn" title="{title}" data-appid="{appid}"><img src="{iconimg}" alt=""></a></li>',
     appsLib           : null
 };
 
@@ -32,6 +33,7 @@ $(function()
 {
     initAppsLib();
     initLeftBar();
+    initShortcusEvents();
 
     initWindowMovable();
     initWindowActivable();
@@ -49,6 +51,15 @@ function initAppsLib()
     lib['0'] = new App('0', 'guidelines.html', '窗口应用开发指南', 'html', '了解如何进行窗口应用开发');
     lib['1'] = new App('1', 'http://pms.zentao.net/', '禅道项目管理', 'iframe', '禅道项目管理系统');
     lib['2'] = new App('2', 'http://chanzhi.net/', '云蝉知', 'iframe', '一分钟开启互联网营销');
+    lib['3'] = new App('3', 'http://baidu.com/', 'Google', 'iframe', '', null, null, null, 'https://www.google.com.hk/images/google_favicon_128.png');
+    lib['4'] = new App('4', 'http://getbootstrap.com/', 'Bootstrap', 'iframe', '', null, null, null, 'http://getbootstrap.com/assets/ico/apple-touch-icon-144-precomposed.png');
+    lib['5'] = new App('5', 'http://xirang.5upm.com/', '蝉知pms', 'iframe', '', null, null, null, 'img/app-1.png');
+    lib['6'] = new App('6', 'http://tinypng.org/', 'TinyPng', 'iframe', '', null, null, null, 'http://tinypng.org/images/apple-touch-icon.png');
+    lib['7'] = new App('7', 'https://github.com', 'Github', 'iframe', '', null, null, null, 'https://github.com/apple-touch-icon-144.png');
+    lib['8'] = new App('8', 'https://github.com/Catouse', 'Catouse', 'iframe', '', null, null, null, 'img/avatar.jpg');
+    lib['9'] = new App('9', 'https://mail.google.com', 'Gmail', 'iframe', '', null, null, null, 'img/app-9.png');
+    lib['10'] = new App('10', 'http://translate.google.cn/#', 'Translate', 'iframe', '', null, null, null, 'img/app-10.png');
+    lib['11'] = new App('5', 'http://chanzhi.org', '开源蝉知', 'iframe', '', null, null, null, 'img/app-2.png');
 
     config.appsLib = lib;
 }
@@ -64,6 +75,23 @@ function initLeftBar()
         var app = lib[index];
         leftMenu.append(app.toLeftBarShortcutHtml());
     }
+}
+
+function initShortcusEvents()
+{
+    $(document).on('click', '.app-btn', function(event)
+    {
+        var app = config.appsLib[$(this).attr('data-appid')];
+        if(app)
+        {
+            openWindow(app);
+        }
+        else
+        {
+            alert(config.appNotFindTip);
+        }
+        event.preventDefault();
+    });
 }
 
 function initOther()
@@ -97,7 +125,7 @@ function initOther()
 function App(appid, url, title, type,　description, display, size, position, imgicon)
 {
     this.id       = config.getNewWindowId();
-    this.idStr    = config.windowIdStrTemp.format(this.id);
+    this.idStr    = config.windowIdStrTemplate.format(this.id);
     this.zindex   = config.getNewZIndex();
     this.appid    = appid;
     this.url      = url;
@@ -116,16 +144,25 @@ function App(appid, url, title, type,　description, display, size, position, im
 
     this.toLeftBarShortcutHtml = function()
     {
-        return config.leftBarShortcutHtmlTemp.format(this);
+        return config.leftBarShortcutHtmlTemplate.format(this);
     };
 }
 
-// 第一次显示窗口
+// 显示应用窗口
+// 如果应用窗口没有打开则创建一个应用窗口
 function openWindow(app)
 {
-    $("#deskContainer").append(app.toWindowHtml());
-    handleWinResized(app.idStr);
-    activeWindow(app.idStr);
+    var appWin = $('#' + app.idStr);
+    if(appWin.length<1)
+    {
+        $("#deskContainer").append(app.toWindowHtml());
+        handleWinResized(app.idStr);
+        activeWindow(app.idStr);
+    }
+    else
+    {
+      activeWindow(appWin);
+    }
 }
 
 // == 窗口事件 ==
@@ -140,7 +177,7 @@ function getWinObj(winQuery)
         }
         else
         {
-            return (winQuery.constructor == Number)?$('#' + config.windowIdStrTemp.format(winQuery)):((winQuery.constructor == String)?$('#' + winQuery):$(winQuery));
+            return (winQuery.constructor == Number)?$('#' + config.windowIdStrTemplate.format(winQuery)):((winQuery.constructor == String)?$('#' + winQuery):$(winQuery));
         }
     }
     else
