@@ -9,6 +9,7 @@ var config =
     desktopPos       : {x: 96, y: 0},
     defaultWindowPos : {x: 110, y: 20},
     windowIdStrTemp  : 'win-{0}',
+    safeCloseTip     : '确认要关闭　【{0}】 吗？',
     getNextDefaultWinPos : function() 
         {
            this.defaultWindowPos = {x: this.defaultWindowPos.x + 20, y: this.defaultWindowPos.y + 20};
@@ -122,14 +123,27 @@ function initWindowActions()
     // close-win
     $(document).on('click', '.close-win', function(event)
     {
-        var win = $(this).closest('.window');
-        
+        closeWindow($(this).closest('.window'));
         event.preventDefault();
     });
 }
 
+// 关闭应用窗口
+function closeWindow(winQuery)
+{
+    var win = getWinObj(winQuery);
+    if(win.hasClass('window-safeclose') && (!confirm(config.safeCloseTip.format(win.find('.window-head strong').text()))))
+    {
+        return;
+    }
+
+    win.remove();
+
+    // todo: 此处加入销毁应用窗口的其他操作
+}
+
 // 切换窗口最大化状态和普通状态
-function toggleMaxSizeWindow(inwQuery)
+function toggleMaxSizeWindow(winQuery)
 {
     var win = getWinObj(winQuery);
     if(win.hasClass('window-max'))

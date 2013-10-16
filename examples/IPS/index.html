@@ -149,7 +149,7 @@
           <iframe id='iframe-34323' name='iframe-34323' src='http://www.chanzhi.net/help-book-chanzhieps.html' width='500' height='500' frameborder='0' scrolling='auto'></iframe>
         </div>
       </div>
-      <div id='win-1342222' class='window window-active' style='width:800px;left:640px;top:140px;z-index:103;height:638px;'>
+      <div id='win-1342222' class='window window-active window-safeclose' style='width:800px;left:640px;top:140px;z-index:103;height:638px;'>
         <div class='window-head movable'>
           <img src='img/app-2.png' alt=''>
           <strong>窗口应用开发指南</strong>
@@ -350,6 +350,12 @@
                 <td>窗口层级</td>
                 <td>该值运行时自动计算</td>
                 <td>无需指定</td>
+              </tr>
+              <tr>
+                <td>safeclose</td>
+                <td>安全关闭</td>
+                <td><code>true</code>|<code>false</code>(默认)</td>
+                <td>当该值为true时，窗口关闭之前会弹出提示。</td>
               </tr>
               <tr>
                 <td><em>iconimg</em></td>
