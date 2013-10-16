@@ -280,13 +280,25 @@ button{
 }
 .window-head ul li{
   display: inline-block;
+  width: 22px;
+  height: 18px;
+  line-height: 1em;
 }
 .window-head ul li button{
-  padding: 0 4px;
+  padding: 5px 6px;
   color: #777;
+  border: 1px solid transparent;
+  -moz-border-radius:4px; -webkit-border-radius:4px; border-radius:4px;
 }
 .window-head ul li button:hover{
+  border-color: #ddd;
+  background-color: #fafafa;
   color: #333;
+}
+.window-head ul li button.close-win:hover{
+  border-color: #da2b2b;
+  background-color: #ff3333;
+  color: #fff;
 }
 
 .window-active{
@@ -310,6 +322,9 @@ button{
 
 .movable,.window-movable .window-head{
   cursor: move;
+}
+.window-max .movable,.window-movable.window-max .window-head{
+  cursor: default;
 }
 
 .window-content{

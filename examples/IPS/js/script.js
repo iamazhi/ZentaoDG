@@ -118,14 +118,24 @@ function initWindowActions()
     {
         toggleMaxSizeWindow($(this).closest('.window'));
         event.preventDefault();
-    });
-
-    // close-win
-    $(document).on('click', '.close-win', function(event)
+    }).on('dblclick', '.window-head', function(event) // double click for max-win
+    {
+        toggleMaxSizeWindow($(this).closest('.window'));
+        event.preventDefault();
+    }).on('click', '.close-win', function(event) // close-win
     {
         closeWindow($(this).closest('.window'));
         event.preventDefault();
+    }).on('click', '.min-win', function(event) // min-win
+    {
+        toggleDisplayWindow($(this).closest('.window'));
+        event.preventDefault();
     });
+}
+
+function toggleDisplayWindow(winQuery)
+{
+
 }
 
 // 关闭应用窗口
@@ -188,11 +198,26 @@ function initWindowMovable()
 {
     $(document).on('mousedown', '.movable,.window-movable .window-head', function(event)
     {
-        config.movingWindow = $(this).closest('.window');
+        var win = $(this).closest('.window:not(.window-max)');
+        if(win.length<1)
+        {
+            return;
+        }
+        config.movingWindow = win;
         var mwPos = config.movingWindow.position();
         config.movingWindow.data('mouseOffset', {x: event.pageX-mwPos.left, y: event.pageY-mwPos.top}).addClass('window-moving');
+        $(document).bind('mousemove',mouseMove).bind('mouseup',mouseUp)
         event.preventDefault();
-    }).mousemove(function(event)
+    });
+
+    function mouseUp()
+    {
+        $('.window.window-moving').removeClass('window-moving');
+        config.movingWindow = null;
+        $(document).unbind('mousemove', mouseMove).unbind('mouseup', mouseUp)
+    }
+
+    function mouseMove(event)
     {
         if(config.movingWindow && config.movingWindow.hasClass('window-moving'))
         {
@@ -203,11 +228,7 @@ function initWindowMovable()
                 top : event.pageY-offset.y
             });
         }
-    }).mouseup(function()
-    {
-        $('.window.window-moving').removeClass('window-moving');
-        config.movingWindow = null;
-    });
+    }
 }
 
 // 处理窗口自动激活
