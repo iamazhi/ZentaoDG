@@ -80,6 +80,7 @@ function Windowx(appid, url, title, type, display, size, position)
 function openWindow(windowx)
 {
     $("#deskContainer").append(windowx.toHtml());
+    handleWinResized(windowx.idStr);
     activeWindow(windowx.idStr);
 }
 
