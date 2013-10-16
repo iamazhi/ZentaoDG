@@ -87,7 +87,16 @@ function openWindow(windowx)
 function getWinObj(winQuery)
 {
     if(winQuery)
-        return (winQuery.constructor == Number)?$('#' + config.windowIdStrTemp.format(winQuery)):((winQuery.constructor == String)?$('#' + winQuery):winQuery);
+    {
+        if(winQuery instanceof jQuery)
+        {
+            return winQuery;
+        }
+        else
+        {
+            return (winQuery.constructor == Number)?$('#' + config.windowIdStrTemp.format(winQuery)):((winQuery.constructor == String)?$('#' + winQuery):$(winQuery));          
+        }
+    }
     else
         return config.activeWindow;
 
@@ -103,41 +112,55 @@ function getDesktopSize()
 // 窗口按钮操作事件
 function initWindowActions()
 {
+    // max-win
     $(document).on('click', '.max-win', function(event)
     {
-        // console.log(".max-win click");
-        var win = $(this).closest('.window');
-        if(win.hasClass('window-max'))
-        {
-            var orginLoc = win.data('orginLoc');
-            win.removeClass('window-max').css(
-            {
-                left: orginLoc.left,
-                top: orginLoc.top,
-                width: orginLoc.width,
-                height: orginLoc.height
-            }).find('.icon-resize-small').removeClass('icon-resize-small').addClass('icon-resize-full');
-        }
-        else
-        {
-            var dSize = getDesktopSize();
-            win.data('orginLoc', 
-            {
-                left: win.css('left'),
-                top: win.css('top'),
-                width: win.css('width'),
-                height: win.css('height')
-            }).addClass('window-max').css(
-            {
-                left: config.desktopPos.x,
-                top: config.desktopPos.y,
-                width: dSize.width,
-                height: dSize.height
-            }).find('.icon-resize-full').removeClass('icon-resize-full').addClass('icon-resize-small');
-        }
-        handleWinResized(win);
+        toggleMaxSizeWindow($(this).closest('.window'));
         event.preventDefault();
     });
+
+    // close-win
+    $(document).on('click', '.close-win', function(event)
+    {
+        var win = $(this).closest('.window');
+        
+        event.preventDefault();
+    });
+}
+
+// 切换窗口最大化状态和普通状态
+function toggleMaxSizeWindow(inwQuery)
+{
+    var win = getWinObj(winQuery);
+    if(win.hasClass('window-max'))
+    {
+        var orginLoc = win.data('orginLoc');
+        win.removeClass('window-max').css(
+        {
+            left: orginLoc.left,
+            top: orginLoc.top,
+            width: orginLoc.width,
+            height: orginLoc.height
+        }).find('.icon-resize-small').removeClass('icon-resize-small').addClass('icon-resize-full');
+    }
+    else
+    {
+        var dSize = getDesktopSize();
+        win.data('orginLoc', 
+        {
+            left: win.css('left'),
+            top: win.css('top'),
+            width: win.css('width'),
+            height: win.css('height')
+        }).addClass('window-max').css(
+        {
+            left: config.desktopPos.x,
+            top: config.desktopPos.y,
+            width: dSize.width,
+            height: dSize.height
+        }).find('.icon-resize-full').removeClass('icon-resize-full').addClass('icon-resize-small');
+    }
+    handleWinResized(win);  
 }
 
 // 处理窗口尺寸被更改调用此方法调整窗口内容尺寸
