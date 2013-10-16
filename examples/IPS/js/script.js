@@ -116,8 +116,7 @@ function initWindowActions()
                 top: orginLoc.top,
                 width: orginLoc.width,
                 height: orginLoc.height
-            });
-            $(this).find('.icon-resize-small').removeClass('icon-resize-small').addClass('icon-resize-full');
+            }).find('.icon-resize-small').removeClass('icon-resize-small').addClass('icon-resize-full');
         }
         else
         {
@@ -134,8 +133,7 @@ function initWindowActions()
                 top: config.desktopPos.y,
                 width: dSize.width,
                 height: dSize.height
-            });
-            $(this).find('.icon-resize-full').removeClass('icon-resize-full').addClass('icon-resize-small');
+            }).find('.icon-resize-full').removeClass('icon-resize-full').addClass('icon-resize-small');
         }
         handleWinResized(win);
         event.preventDefault();
