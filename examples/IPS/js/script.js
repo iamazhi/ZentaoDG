@@ -24,7 +24,7 @@ var config =
     // 获取下一个新建窗口z-index
     getNewZIndex     : function() { return this.windowZIndexSeed++; },
     // window模版
-    windowHtmlTemplate   : "<div id='{idstr}' class='window window-loading movable' style='width:{width}px;height:{height}px;left:{left}px;top:{top}px;z-index:{zindex};'><div class='window-head'><img src='{iconimg}' alt=''><strong>禅道项目管理</strong><ul><li><button class='reload-win'><i class='icon-repeat'></i></button></li><li><button class='min-win'><i class='icon-minus'></i></button></li><li><button class='max-win'><i class='icon-resize-full'></i></button></li><li><button class='close-win'><i class='icon-remove'></i></button></li></ul></div><div class='window-content'></div></div>",
+    windowHtmlTemplate   : "<div id='{idstr}' class='window window-loading movable' style='width:{width}px;height:{height}px;left:{left}px;top:{top}px;z-index:{zindex};'><div class='window-head'><img src='{iconimg}' alt=''><strong>{title}</strong><ul><li><button class='reload-win'><i class='icon-repeat'></i></button></li><li><button class='min-win'><i class='icon-minus'></i></button></li><li><button class='max-win'><i class='icon-resize-full'></i></button></li><li><button class='close-win'><i class='icon-remove'></i></button></li></ul></div><div class='window-content'></div></div>",
     leftBarShortcutHtmlTemplate : '<li><a href="javascript:;" class="app-btn" title="{title}" data-appid="{appid}"><img src="{iconimg}" alt=""></a></li>',
     appsLib           : null
 };
@@ -180,7 +180,7 @@ function openWindow(app)
     }
     else
     {
-        activeWindow(appWin);
+        showWindow(appWin);
     }
 }
 
