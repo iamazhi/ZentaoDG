@@ -95,7 +95,7 @@ function getWinObj(winQuery)
         }
         else
         {
-            return (winQuery.constructor == Number)?$('#' + config.windowIdStrTemp.format(winQuery)):((winQuery.constructor == String)?$('#' + winQuery):$(winQuery));          
+            return (winQuery.constructor == Number)?$('#' + config.windowIdStrTemp.format(winQuery)):((winQuery.constructor == String)?$('#' + winQuery):$(winQuery));
         }
     }
     else
@@ -133,9 +133,7 @@ function closeWindow(winQuery)
 {
     var win = getWinObj(winQuery);
     if(win.hasClass('window-safeclose') && (!confirm(config.safeCloseTip.format(win.find('.window-head strong').text()))))
-    {
         return;
-    }
 
     win.remove();
 
@@ -174,7 +172,7 @@ function toggleMaxSizeWindow(winQuery)
             height: dSize.height
         }).find('.icon-resize-full').removeClass('icon-resize-full').addClass('icon-resize-small');
     }
-    handleWinResized(win);  
+    handleWinResized(win);
 }
 
 // 处理窗口尺寸被更改调用此方法调整窗口内容尺寸
