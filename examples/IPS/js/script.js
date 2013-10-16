@@ -9,9 +9,11 @@ var config =
     bottomBarHeight  : 42,      // 应用窗口底栏高度
     desktopPos       : {x: 96, y: 0},
     defaultWindowPos : {x: 110, y: 20},
+    defaultWindowSize: {width:700,height:538},
     windowidstrTemplate  : 'win-{0}',
     safeCloseTip     : '确认要关闭　【{0}】 吗？',
     appNotFindTip    : '应用没有找到！',
+    busyTip          : '应用正忙，请稍候...',
     getNextDefaultWinPos : function() 
         {
            this.defaultWindowPos = {x: this.defaultWindowPos.x + 30, y: this.defaultWindowPos.y + 30};
@@ -24,7 +26,8 @@ var config =
     // 获取下一个新建窗口z-index
     getNewZIndex     : function() { return this.windowZIndexSeed++; },
     // window模版
-    windowHtmlTemplate   : "<div id='{idstr}' class='window window-loading movable' style='width:{width}px;height:{height}px;left:{left}px;top:{top}px;z-index:{zindex};'><div class='window-head'><img src='{iconimg}' alt=''><strong>{title}</strong><ul><li><button class='reload-win'><i class='icon-repeat'></i></button></li><li><button class='min-win'><i class='icon-minus'></i></button></li><li><button class='max-win'><i class='icon-resize-full'></i></button></li><li><button class='close-win'><i class='icon-remove'></i></button></li></ul></div><div class='window-content'></div></div>",
+    windowHtmlTemplate   : "<div id='{idstr}' class='window window-movable' style='width:{width}px;height:{height}px;left:{left}px;top:{top}px;z-index:{zindex};' data-appid='{appid}'><div class='window-head'><img src='{iconimg}' alt=''><strong>{title}</strong><ul><li><button class='reload-win'><i class='icon-repeat'></i></button></li><li><button class='min-win'><i class='icon-minus'></i></button></li><li><button class='max-win'><i class='icon-resize-full'></i></button></li><li><button class='close-win'><i class='icon-remove'></i></button></li></ul></div><div class='window-content'></div></div>",
+    frameHtmlTemplate    : "<iframe id='iframe-{idstr}' name='iframe-{idstr}' src='{url}' frameborder='no' allowtransparency='true' scrolling='auto' hidefocus='' style='width: 100%; height: 100%; left: 0px;'></iframe>",
     leftBarShortcutHtmlTemplate : '<li><a href="javascript:;" class="app-btn" title="{title}" data-appid="{appid}"><img src="{iconimg}" alt=""></a></li>',
     appsLib           : null
 };
@@ -132,7 +135,7 @@ function App(appid, url, title, type,　description, display, size, position, im
     this.type     = type ? type : 'iframe';
     this.description = description ? description : '';
     this.display  = display ? display: 'normal';
-    this.size     = size ? size : {width:500,height:438};
+    this.size     = size ? size : config.defaultWindowSize;
     this.position = position ? position : null;
     this.iconimg  = imgicon ? imgicon : config.appIconRoot + 'app-' + this.appid + '.png';
     
@@ -167,22 +170,23 @@ function App(appid, url, title, type,　description, display, size, position, im
 // 如果应用窗口没有打开则创建一个应用窗口
 function openWindow(app)
 {
-    console.log(app.idstr);
     var appWin = $('#' + app.idstr);
     if(appWin.length<1)
     {
-        console.log('create');
         // 此处判断应用类型如果为新标签页中打开...
 
         $("#deskContainer").append(app.toWindowHtml());
         handleWinResized(app.idstr);
         activeWindow(app.idstr);
+
+        reloadWindow(app.idstr);
     }
     else
     {
         showWindow(appWin);
     }
 }
+
 
 // == 窗口事件 ==
 // 根据窗口标识获取win容器的jQuery对象
@@ -219,18 +223,27 @@ function initWindowActions()
     {
         toggleMaxSizeWindow($(this).closest('.window'));
         event.preventDefault();
+        event.stopPropagation()
     }).on('dblclick', '.window-head', function(event) // double click for max-win
     {
         toggleMaxSizeWindow($(this).closest('.window'));
         event.preventDefault();
+        event.stopPropagation()
     }).on('click', '.close-win', function(event) // close-win
     {
         closeWindow($(this).closest('.window'));
         event.preventDefault();
+        event.stopPropagation()
     }).on('click', '.min-win', function(event) // min-win
     {
         toggleShowWindow($(this).closest('.window'));
         event.preventDefault();
+        event.stopPropagation()
+    }).on('click', '.reload-win', function(event)
+    {
+        reloadWindow($(this).closest('.window'));
+        event.preventDefault();
+        event.stopPropagation()
     });
 }
 
@@ -268,6 +281,78 @@ function showWindow(winQuery)
         win.fadeIn(config.animateSpeed).removeClass('window-min');
     }
     activeWindow(win);
+}
+
+// 重新加载窗口内容
+function reloadWindow(winQuery)
+{
+    var win = getWinObj(winQuery);
+    if(!win.hasClass('window-loading'))
+    {
+        win.addClass('window-loading').removeClass('window-error').find('.reload-win i').addClass('icon-spin');
+        var app = config.appsLib[win.attr('data-appid')];
+
+        var result = true;
+        switch(app.type)
+        {
+            case 'iframe':
+                result = loadIframeWindow(win, app);
+                break;
+            case 'html':
+                result = loadHtmlWindow(win, app);
+                break;
+        }
+    }
+    else
+    {
+        alert(config.busyTip);
+    }
+}
+
+function loadHtmlWindow(win, app)
+{
+    var result = true;
+    var content = win.find('.window-content').html('');
+    $.ajax(
+    {
+        url: app.url,
+        dataType: 'html',
+    })
+    .done(function(data)
+    {
+        content.html(data);
+    })
+    .fail(function()
+    {
+        win.addClass('window-error');
+        result = false;
+    })
+    .always(function()
+    {
+        win.removeClass('window-loading');
+        win.find('.reload-win i').removeClass('icon-spin');
+    });
+    return result;
+}
+
+// 加载iFrameWindow内容
+function loadIframeWindow(win, app)
+{
+    var fName = 'iframe-' + app.idstr;
+    var frame = $('#' + fName);
+    if(frame.length > 0)
+    {
+        document.frames(fName).location.reload()
+    }
+    else
+    {
+        win.find('.window-content').html(config.frameHtmlTemplate.format(app));
+    }
+    $('#' + fName).load(function(){
+        win.removeClass('window-loading');
+        win.find('.reload-win i').removeClass('icon-spin');
+    });
+    return true;
 }
 
 // 关闭应用窗口
