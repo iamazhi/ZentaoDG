@@ -9,12 +9,12 @@ var config =
     bottomBarHeight  : 42,      // 应用窗口底栏高度
     desktopPos       : {x: 96, y: 0},
     defaultWindowPos : {x: 110, y: 20},
-    windowIdStrTemplate  : 'win-{0}',
+    windowidstrTemplate  : 'win-{0}',
     safeCloseTip     : '确认要关闭　【{0}】 吗？',
     appNotFindTip    : '应用没有找到！',
     getNextDefaultWinPos : function() 
         {
-           this.defaultWindowPos = {x: this.defaultWindowPos.x + 20, y: this.defaultWindowPos.y + 20};
+           this.defaultWindowPos = {x: this.defaultWindowPos.x + 30, y: this.defaultWindowPos.y + 30};
            return this.defaultWindowPos;
         },
     windowIdSeed     : 0,
@@ -24,7 +24,7 @@ var config =
     // 获取下一个新建窗口z-index
     getNewZIndex     : function() { return this.windowZIndexSeed++; },
     // window模版
-    windowHtmlTemplate   : '',
+    windowHtmlTemplate   : "<div id='{idstr}' class='window window-loading movable' style='width:{width}px;height:{height}px;left:{left}px;top:{top}px;z-index:{zindex};'><div class='window-head'><img src='{iconimg}' alt=''><strong>禅道项目管理</strong><ul><li><button class='reload-win'><i class='icon-repeat'></i></button></li><li><button class='min-win'><i class='icon-minus'></i></button></li><li><button class='max-win'><i class='icon-resize-full'></i></button></li><li><button class='close-win'><i class='icon-remove'></i></button></li></ul></div><div class='window-content'></div></div>",
     leftBarShortcutHtmlTemplate : '<li><a href="javascript:;" class="app-btn" title="{title}" data-appid="{appid}"><img src="{iconimg}" alt=""></a></li>',
     appsLib           : null
 };
@@ -125,8 +125,7 @@ function initOther()
 function App(appid, url, title, type,　description, display, size, position, imgicon)
 {
     this.id       = config.getNewWindowId();
-    this.idStr    = config.windowIdStrTemplate.format(this.id);
-    this.zindex   = config.getNewZIndex();
+    this.idstr    = config.windowidstrTemplate.format(this.id);
     this.appid    = appid;
     this.url      = url;
     this.title    = title ? title : '';
@@ -134,34 +133,54 @@ function App(appid, url, title, type,　description, display, size, position, im
     this.description = description ? description : '';
     this.display  = display ? display: 'normal';
     this.size     = size ? size : {width:500,height:438};
-    this.position = position ? position : config.getNextDefaultWinPos();
+    this.position = position ? position : null;
     this.iconimg  = imgicon ? imgicon : config.appIconRoot + 'app-' + this.appid + '.png';
+    
 
     this.toWindowHtml   = function()
     {
-        // todo: 根据模版生成窗口html
+        this.initWindow();
+
+        return config.windowHtmlTemplate.format(this);
     };
 
     this.toLeftBarShortcutHtml = function()
     {
         return config.leftBarShortcutHtmlTemplate.format(this);
     };
+
+
+    this.initWindow = function()
+    {
+        this.zindex = config.getNewZIndex();
+        if(!this.position)
+            this.position = config.getNextDefaultWinPos();
+
+        this.left     = this.position.x;
+        this.top      = this.position.y;
+        this.width    = this.size.width;
+        this.height   = this.size.height;
+    }
 }
 
 // 显示应用窗口
 // 如果应用窗口没有打开则创建一个应用窗口
 function openWindow(app)
 {
-    var appWin = $('#' + app.idStr);
+    console.log(app.idstr);
+    var appWin = $('#' + app.idstr);
     if(appWin.length<1)
     {
+        console.log('create');
+        // 此处判断应用类型如果为新标签页中打开...
+
         $("#deskContainer").append(app.toWindowHtml());
-        handleWinResized(app.idStr);
-        activeWindow(app.idStr);
+        handleWinResized(app.idstr);
+        activeWindow(app.idstr);
     }
     else
     {
-      activeWindow(appWin);
+        activeWindow(appWin);
     }
 }
 
@@ -177,7 +196,7 @@ function getWinObj(winQuery)
         }
         else
         {
-            return (winQuery.constructor == Number)?$('#' + config.windowIdStrTemplate.format(winQuery)):((winQuery.constructor == String)?$('#' + winQuery):$(winQuery));
+            return (winQuery.constructor == Number)?$('#' + config.windowidstrTemplate.format(winQuery)):((winQuery.constructor == String)?$('#' + winQuery):$(winQuery));
         }
     }
     else
@@ -258,7 +277,7 @@ function closeWindow(winQuery)
     if(win.hasClass('window-safeclose') && (!confirm(config.safeCloseTip.format(win.find('.window-head strong').text()))))
         return;
 
-    win.fadeOut(function(){ win.remove(); });
+    win.fadeOut(config.animateSpeed, function(){ win.remove(); });
     activeWindow(config.lastActiveWindow);
     // todo: 此处加入销毁应用窗口的其他操作
 }
