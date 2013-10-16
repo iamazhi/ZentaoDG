@@ -139,7 +139,7 @@ function App(appid, url, title, type,　description, display, size, position, im
 
     this.toWindowHtml   = function()
     {
-        this.initWindow();
+        this.init();
 
         return config.windowHtmlTemplate.format(this);
     };
@@ -150,7 +150,7 @@ function App(appid, url, title, type,　description, display, size, position, im
     };
 
 
-    this.initWindow = function()
+    this.init = function()
     {
         this.zindex = config.getNewZIndex();
         if(!this.position)
