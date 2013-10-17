@@ -89,8 +89,6 @@ button{
   background-color: rgba(255,255,255,0.20)
 }
 
-
-
 /* left bar. */
 #leftBar{
   width: 96px;
@@ -331,8 +329,6 @@ button{
   background-color: rgba(0, 0, 0, 0);
 }
 
-
-
 /* all apps menu.*/
 .window-fullscreen{
   color: #eee;
@@ -381,12 +377,10 @@ button{
   font-size: 16px;
   text-overflow:ellipsis;
 }
-#allAppsList li a.open
-{
+#allAppsList li a.open{
   background-color:rgba(255,255,255,0.1);
 }
-#allAppsList li a.open:hover,#allAppsList li a.active:hover
-{
+#allAppsList li a.open:hover,#allAppsList li a.active:hover{
   background-color:rgba(255,255,255,0.24);
 }
 
