@@ -124,16 +124,10 @@
       <th colspan="4"><strong>属性</strong></th>
     </tr>
     <tr>
-      <td><strong>appid</strong></td>
+      <td><strong>id</strong></td>
       <td>应用编号</td>
       <td>唯一的字符串</td>
       <td>每一个应用程序对应的唯一编号，通常由服务器提供。</td>
-    </tr>
-    <tr>
-      <td>id</td>
-      <td>窗口编号</td>
-      <td>全局唯一的数字，运行时动态分配</td>
-      <td>每一个应用窗口对应的编号。</td>
     </tr>
     <tr>
       <td>title</td>
@@ -144,8 +138,13 @@
     <tr>
       <td>type</td>
       <td>应用类型</td>
-      <td><code>'html'</code>|<code>'iframe'</code>(默认)|<code>'json'</code></td>
-      <td>应用类型</td>
+      <td><code>'html'</code>|<code>'iframe'</code>(默认)|<code>'json'</code>|<code>'blank'</code></td>
+      <td><ul>
+        <li><code>'html'</code>：通过ajax请求html内容</li>
+        <li><code>'iframe'</code>：创建iframe标签加载应用内容</li>
+        <li><code>'json'</code>：通过ajax请求json数据经过格式化为html显示</li>
+        <li><code>'blank'</code>：打开浏览器新的标签页显示应用</li>
+      </ul></td>
     </tr>
     <tr>
       <td><strong>url</strong></td>
@@ -209,16 +208,40 @@
       <td><em>iconimg</em></td>
       <td>应用图标图片</td>
       <td>该值运行时自动计算</td>
-      <td>无需指定</td>
+      <td>无需指定。</td>
+    </tr>
+    <tr>
+      <td>systemapp</td>
+      <td>标记为系统级应用</td>
+      <td><code>false</code>(默认)|<code>true</code></td>
+      <td>当值为<code>true</code>时则不在菜单栏显示快捷方式图标。</td>
     </tr>
     <tr>
       <th colspan="4"><strong>方法</strong></th>
     </tr>
     <tr>
-      <td>toHtml()</td>
+      <td><code>init()</code></td>
+      <td>初始化应用数据</td>
+      <td>私有方法</td>
+      <td>由系统自动调用</td>
+    </tr>
+    <tr>
+      <td><code>toHtml()</code></td>
+      <td>输出html</td>
+      <td>公开方法</td>
       <td>输出窗口的初始html</td>
-      <td></td>
-      <td></td>
+    </tr>
+    <tr>
+      <td><code>toLeftBarShortcutHtml()</code></td>
+      <td>输出html</td>
+      <td>公开方法</td>
+      <td>输出左栏应用快捷方式图标html文本</td>
+    </tr>
+    <tr>
+      <td><code>toTaskBarShortcutHtml()</code></td>
+      <td>输出html</td>
+      <td>公开方法</td>
+      <td>输出任务栏快捷方式图标html文本</td>
     </tr>
   </table>
 
