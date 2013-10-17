@@ -30,6 +30,7 @@ var config =
     windowHtmlTemplate   : "<div id='{idstr}' class='window {cssclass}' style='width:{width}px;height:{height}px;left:{left}px;top:{top}px;z-index:{zindex};' data-id='{id}'><div class='window-head'><img src='{iconimg}' alt=''><strong title='{description}'>{title}</strong><ul><li><button class='reload-win'><i class='icon-repeat'></i></button></li><li><button class='min-win'><i class='icon-minus'></i></button></li><li><button class='max-win'><i class='icon-resize-full'></i></button></li><li><button class='close-win'><i class='icon-remove'></i></button></li></ul></div><div class='window-content'></div></div>",
     frameHtmlTemplate    : "<iframe id='iframe-{idstr}' name='iframe-{idstr}' src='{url}' frameborder='no' allowtransparency='true' scrolling='auto' hidefocus='' style='width: 100%; height: 100%; left: 0px;'></iframe>",
     leftBarShortcutHtmlTemplate : '<li><a href="javascript:;" class="app-btn" title="{title}:{description}" data-id="{id}"><img src="{iconimg}" alt=""></a></li>',
+    taskBarShortcutHtmlTemplate : '<li><a href="javascript:;" class="app-btn" title="{title}:{description}" data-id="{id}"><img src="{iconimg}" alt=""></a></li>',
     appsLib           : null
 };
 
@@ -57,7 +58,7 @@ function initAppsLib()
     lib['store'] = new App('store', 'store.html', '应用商店', 'html', '浏览更多应用并安装', 'max', null, null, null, true);
     lib['themes'] = new App('themes', 'themes.html', '主题', 'html', '更换主题', 'fixed', null, null, null, true);
 
-    lib['0'] = new App('0', 'guidelines.html', '窗口应用开发指南', 'html', '了解如何进行窗口应用开发');
+    lib['0'] = new App('0', 'guidelines.html', '窗口应用开发指南', 'html', '了解如何进行窗口应用开发', null, {width:900, height: 600});
     lib['1'] = new App('1', 'http://pms.zentao.net/', '禅道项目管理', 'iframe', '禅道项目管理系统');
     lib['2'] = new App('2', 'http://chanzhi.net/', '云蝉知', 'iframe', '一分钟开启互联网营销');
     lib['3'] = new App('3', 'http://baidu.com/', 'Google', 'iframe', '', null, null, null, 'https://www.google.com.hk/images/google_favicon_128.png');
@@ -160,6 +161,10 @@ function App(id, url, title, type,　description, display, size, position, imgic
             return config.leftBarShortcutHtmlTemplate.format(this);
     };
 
+    this.toTaskBarShortcutHtml = function()
+    {
+        return config.taskBarShortcutHtmlTemplate.format(this);
+    };
 
     this.init = function()
     {
