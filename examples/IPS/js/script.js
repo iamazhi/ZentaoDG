@@ -27,9 +27,9 @@ var config =
     // 获取下一个新建窗口z-index
     getNewZIndex     : function() { return this.windowZIndexSeed++; },
     // window模版
-    windowHtmlTemplate   : "<div id='{idstr}' class='window {cssclass}' style='width:{width}px;height:{height}px;left:{left}px;top:{top}px;z-index:{zindex};' data-id='{id}'><div class='window-head'><img src='{iconimg}' alt=''><strong>{title}</strong><ul><li><button class='reload-win'><i class='icon-repeat'></i></button></li><li><button class='min-win'><i class='icon-minus'></i></button></li><li><button class='max-win'><i class='icon-resize-full'></i></button></li><li><button class='close-win'><i class='icon-remove'></i></button></li></ul></div><div class='window-content'></div></div>",
+    windowHtmlTemplate   : "<div id='{idstr}' class='window {cssclass}' style='width:{width}px;height:{height}px;left:{left}px;top:{top}px;z-index:{zindex};' data-id='{id}'><div class='window-head'><img src='{iconimg}' alt=''><strong title='{description}'>{title}</strong><ul><li><button class='reload-win'><i class='icon-repeat'></i></button></li><li><button class='min-win'><i class='icon-minus'></i></button></li><li><button class='max-win'><i class='icon-resize-full'></i></button></li><li><button class='close-win'><i class='icon-remove'></i></button></li></ul></div><div class='window-content'></div></div>",
     frameHtmlTemplate    : "<iframe id='iframe-{idstr}' name='iframe-{idstr}' src='{url}' frameborder='no' allowtransparency='true' scrolling='auto' hidefocus='' style='width: 100%; height: 100%; left: 0px;'></iframe>",
-    leftBarShortcutHtmlTemplate : '<li><a href="javascript:;" class="app-btn" title="{title}" data-id="{id}"><img src="{iconimg}" alt=""></a></li>',
+    leftBarShortcutHtmlTemplate : '<li><a href="javascript:;" class="app-btn" title="{title}:{description}" data-id="{id}"><img src="{iconimg}" alt=""></a></li>',
     appsLib           : null
 };
 
@@ -163,6 +163,16 @@ function App(id, url, title, type,　description, display, size, position, imgic
 
     this.init = function()
     {
+        switch(this.type)
+        {
+            case 'iframe':
+                this.cssclass += ' window-iframe';
+                break;
+            case 'json':
+                this.cssclass += ' window-json';
+                break;
+        }
+
         switch(this.display)
         {
             case 'normal':
