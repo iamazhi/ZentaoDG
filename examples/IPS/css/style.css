@@ -182,7 +182,17 @@ button{
   line-height: 32px;
   font-size: 16px;
   height: 42px;
-  background-color: rgba(0,0,0,0.20)
+  background-color: rgba(0,0,0,0.20);
+  margin-right:4px;
+  overflow: hidden;
+  white-space: nowrap;
+  -o-transition: width 1s;-moz-transition: width 1s;-webkit-transition: width 1s;transition: width 1s;
+}
+#taskbar .bar-menu>li>a>img{
+  width: 20px;
+  height: 20px;
+  margin-right: 5px;
+  margin-top: -2px;
 }
 
 

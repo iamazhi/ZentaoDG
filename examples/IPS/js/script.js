@@ -29,8 +29,9 @@ var config =
     // window模版
     windowHtmlTemplate   : "<div id='{idstr}' class='window {cssclass}' style='width:{width}px;height:{height}px;left:{left}px;top:{top}px;z-index:{zindex};' data-id='{id}'><div class='window-head'><img src='{iconimg}' alt=''><strong title='{description}'>{title}</strong><ul><li><button class='reload-win'><i class='icon-repeat'></i></button></li><li><button class='min-win'><i class='icon-minus'></i></button></li><li><button class='max-win'><i class='icon-resize-full'></i></button></li><li><button class='close-win'><i class='icon-remove'></i></button></li></ul></div><div class='window-content'></div></div>",
     frameHtmlTemplate    : "<iframe id='iframe-{idstr}' name='iframe-{idstr}' src='{url}' frameborder='no' allowtransparency='true' scrolling='auto' hidefocus='' style='width: 100%; height: 100%; left: 0px;'></iframe>",
-    leftBarShortcutHtmlTemplate : '<li><a href="javascript:;" class="app-btn" title="{title}:{description}" data-id="{id}"><img src="{iconimg}" alt=""></a></li>',
-    taskBarShortcutHtmlTemplate : '<li><a href="javascript:;" class="app-btn" title="{title}:{description}" data-id="{id}"><img src="{iconimg}" alt=""></a></li>',
+    leftBarShortcutHtmlTemplate : '<li id="s-menu-{id}"><a href="javascript:;" class="app-btn" title="{title}:{description}" data-id="{id}"><img src="{iconimg}" alt=""></a></li>',
+    taskBarShortcutHtmlTemplate : '<li id="s-task-{id}"><a href="javascript:;" class="app-btn" title="{title}:{description}" data-id="{id}"><img src="{iconimg}" alt="">{title}</a></li>',
+    // taskBarShortcutHtmlTemplate : '<li id="s-task-{id}"><a href="javascript:;" class="app-btn" title="{title}:{description}" data-id="{id}"><i class="icon-list-alt"></i> {title}</a></li>',
     appsLib           : null
 };
 
@@ -65,9 +66,9 @@ function initAppsLib()
     lib['4'] = new App('4', 'http://getbootstrap.com/', 'Bootstrap', 'iframe', '', null, null, null, 'http://getbootstrap.com/assets/ico/apple-touch-icon-144-precomposed.png');
     lib['5'] = new App('5', 'http://xirang.5upm.com/', '蝉知pms', 'iframe', '', null, null, null, 'img/app-1.png');
     lib['6'] = new App('6', 'http://tinypng.org/', 'TinyPng', 'iframe', '', null, null, null, 'http://tinypng.org/images/apple-touch-icon.png');
-    lib['7'] = new App('7', 'https://github.com', 'Github', 'iframe', '', null, null, null, 'https://github.com/apple-touch-icon-144.png');
+    lib['7'] = new App('7', 'https://github.com', 'Github', 'blank', '', null, null, null, 'https://github.com/apple-touch-icon-144.png');
     lib['8'] = new App('8', 'https://github.com/Catouse', 'Catouse', 'iframe', '', null, null, null, 'img/avatar.jpg');
-    lib['9'] = new App('9', 'https://mail.google.com', 'Gmail', 'iframe', '', null, null, null, 'img/app-9.png');
+    lib['9'] = new App('9', 'https://mail.google.com', 'Gmail', 'blank', '', null, null, null, 'img/app-9.png');
     lib['10'] = new App('10', 'http://translate.google.cn/#', 'Translate', 'iframe', '', null, null, null, 'img/app-10.png');
     lib['11'] = new App('5', 'http://chanzhi.org', '开源蝉知', 'iframe', '', null, null, null, 'img/app-2.png');
 
@@ -217,12 +218,15 @@ function openWindow(app)
     var appWin = $('#' + app.idstr);
     if(appWin.length<1)
     {
-        // 此处判断应用类型如果为新标签页中打开...
+        if(app.type == 'blank')
+        {
+            window.open(app.url);
+            return;
+        }
 
-        $("#deskContainer").append(app.toWindowHtml());
+        createAppWindow(app);
         handleWinResized(app.idstr);
         activeWindow(app.idstr);
-
         reloadWindow(app.idstr);
     }
     else
@@ -233,6 +237,13 @@ function openWindow(app)
 
 
 // == 窗口事件 ==
+// 在dom中创建应用窗口
+function createAppWindow(app)
+{
+    $('#deskContainer').append(app.toWindowHtml());
+    $('#taskbar .bar-menu').append(app.toTaskBarShortcutHtml());
+}
+
 // 根据窗口标识获取win容器的jQuery对象
 function getWinObj(winQuery)
 {
