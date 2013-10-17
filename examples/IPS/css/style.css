@@ -75,10 +75,10 @@ button{
   color: #7e7e7e;
   color: rgba(255,255,255,0.5);
 }
-.bar-menu>li.active>a,.bar-menu>li.active>button,.bar-menu>li>a.active{
+.bar-menu>li.active>a,.bar-menu>li.active>button,.bar-menu>li>a.active,.bar-menu>li>button.active{
   color: #ccc;
   color: rgba(255,255,255,0.85);
-  background-color: rgba(255,255,255,0.10)
+  background-color: rgba(255,255,255,0.20)
 }
 
 .bar-menu>li>a:hover,.bar-menu>li>button:hover{
@@ -178,14 +178,16 @@ button{
   font-size: 18px;
   height: 42px;
 }
-#taskbar .bar-menu>li{
+#taskbar .bar-menu li{
   line-height: 32px;
   font-size: 16px;
+  min-width: 120px;
+  max-width: 300px;
   height: 42px;
-  background-color: rgba(0,0,0,0.20);
   margin-right:4px;
   overflow: hidden;
   white-space: nowrap;
+  background-color: rgba(0,0,0,0.20);  
   -o-transition: width 1s;-moz-transition: width 1s;-webkit-transition: width 1s;transition: width 1s;
 }
 #taskbar .bar-menu>li>a>img{
@@ -194,7 +196,6 @@ button{
   margin-right: 5px;
   margin-top: -2px;
 }
-
 
 /* desk container. */
 #deskContainer{

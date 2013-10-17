@@ -1,6 +1,6 @@
 var config = 
 {
-    animateSpeed     : 'fast',  // 动画速度
+    animateSpeed     : 200,  // 动画速度
     movingWindow     : null,    // 当前正在移动的窗口
     activeWindow     : null,    // 当前激活的窗口
     lastActiveWindow : null,    //　上次激活的窗口
@@ -88,6 +88,7 @@ function initLeftBar()
     }
 }
 
+// 初始化快捷图标事件
 function initShortcusEvents()
 {
     $(document).on('click', '.app-btn', function(event)
@@ -229,9 +230,13 @@ function openWindow(app)
         activeWindow(app.idstr);
         reloadWindow(app.idstr);
     }
-    else
+    else if(appWin.hasClass('window-active'))
     {
         toggleShowWindow(appWin);
+    }
+    else
+    {
+        showWindow(appWin);
     }
 }
 
@@ -242,6 +247,7 @@ function createAppWindow(app)
 {
     $('#deskContainer').append(app.toWindowHtml());
     $('#taskbar .bar-menu').append(app.toTaskBarShortcutHtml());
+    $('.app-btn[data-id="'+app.id+'"]').addClass('open');
 }
 
 // 根据窗口标识获取win容器的jQuery对象
@@ -417,7 +423,12 @@ function closeWindow(winQuery)
     if(win.hasClass('window-safeclose') && (!confirm(config.safeCloseTip.format(win.find('.window-head strong').text()))))
         return;
 
-    win.fadeOut(config.animateSpeed, function(){ win.remove(); });
+    win.fadeOut(config.animateSpeed, function(){
+        var id = win.attr('data-id');
+        $('.app-btn[data-id="' + id + '"]').removeClass('open').removeClass('active');
+        $('#s-task-' + id).remove();
+        win.remove(); 
+    });
     activeWindow(config.lastActiveWindow);
     // todo: 此处加入销毁应用窗口的其他操作
 }
@@ -522,6 +533,7 @@ function activeWindow(query)
     var win = getWinObj(query);
 
     if(win.hasClass('window-active')) return;
+    if($('.window[data-id="'+win.attr('data-id')+'"]').length<1) return;
 
     if(config.activeWindow)
     {
@@ -530,6 +542,9 @@ function activeWindow(query)
     }
 
     config.activeWindow = win.addClass('window-active').css('z-index',parseInt(win.css('z-index'))+10000);
+
+    $('.app-btn').removeClass('active');
+    $('.app-btn[data-id="'+win.attr('data-id')+'"]').addClass('active');
 }
 
 // 调整界面元素尺寸
@@ -572,13 +587,11 @@ function resizeAppsMenu()
     var menu = $('#apps-menu');
     var iconHeight = menu.find('li').height();
     var menuHeight = config.desktopSize.height - $('#leftBar .dock-bottom').height();
-    console.log('iconHeight:'+iconHeight+',menuHeight:'+menuHeight);
     while(menuHeight%iconHeight!=0)
     {
         menuHeight--;
     }
     menu.height(menuHeight);
-    console.log('iconHeight:'+iconHeight+',menuHeight:'+menuHeight);
 }
 
 // == 辅助 ==
