@@ -138,9 +138,15 @@ button{
   font-size: 40px;
   text-align: center;
 }
-
+#apps-menu{
+  position: absolute;
+  overflow: hidden;
+  bottom: 268px;
+  top: 0;
+  overflow: no-display;
+}
 #apps-menu .bar-menu>li{
-  display: block;
+  display: inline-block;
 }
 #apps-menu .bar-menu>li a{
   text-align: center;
@@ -347,6 +353,7 @@ button{
   white-space: nowrap;
   padding: 15px 20px;
   font-size: 16px;
+  text-overflow:ellipsis;
 }
 .window-fullscreen .all-apps-list li img{
   width: 48px;
