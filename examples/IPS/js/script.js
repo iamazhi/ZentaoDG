@@ -222,7 +222,7 @@ function openWindow(app)
     }
     else
     {
-        showWindow(appWin);
+        toggleShowWindow(appWin);
     }
 }
 
