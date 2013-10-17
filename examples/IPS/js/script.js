@@ -31,7 +31,8 @@ var config =
     windowHtmlTemplate   : "<div id='{idstr}' class='window {cssclass}' style='width:{width}px;height:{height}px;left:{left}px;top:{top}px;z-index:{zindex};' data-id='{id}'><div class='window-head'><img src='{iconimg}' alt=''><strong title='{description}'>{title}</strong><ul><li><button class='reload-win'><i class='icon-repeat'></i></button></li><li><button class='min-win'><i class='icon-minus'></i></button></li><li><button class='max-win'><i class='icon-resize-full'></i></button></li><li><button class='close-win'><i class='icon-remove'></i></button></li></ul></div><div class='window-content'></div></div>",
     frameHtmlTemplate    : "<iframe id='iframe-{idstr}' name='iframe-{idstr}' src='{url}' frameborder='no' allowtransparency='true' scrolling='auto' hidefocus='' style='width: 100%; height: 100%; left: 0px;'></iframe>",
     leftBarShortcutHtmlTemplate : '<li id="s-menu-{id}"><a href="javascript:;" class="app-btn" title="{title}:{description}" data-id="{id}"><img src="{iconimg}" alt=""></a></li>',
-    taskBarShortcutHtmlTemplate : '<li id="s-task-{id}"><a href="javascript:;" class="app-btn" title="{title}:{description}" data-id="{id}"><img src="{iconimg}" alt="">{title}</a></li>',
+    taskBarShortcutHtmlTemplate : '<li id="s-task-{id}"><a href="javascript:;" class="app-btn" title="{description}" data-id="{id}"><img src="{iconimg}" alt="">{title}</a></li>',
+    appListShortcutHtmlTemplate : '<li id="s-applist-{id}"><a href="javascript:;" class="app-btn" title="{description}" data-id="{id}"><img src="{iconimg}" alt="">{title}</a></li>',
     // taskBarShortcutHtmlTemplate : '<li id="s-task-{id}"><a href="javascript:;" class="app-btn" title="{title}:{description}" data-id="{id}"><i class="icon-list-alt"></i> {title}</a></li>',
     appsLib           : null
 };
@@ -39,7 +40,7 @@ var config =
 $(function()
 {
     initAppsLib();
-    initLeftBar();
+    initShortcuts();
     initShortcusEvents();
 
     initWindowMovable();
@@ -81,14 +82,16 @@ function initAppsLib()
 
 // == 应用快捷图标　==
 // 初始化左侧栏图标
-function initLeftBar()
+function initShortcuts()
 {
     var lib = config.appsLib;
     var leftMenu = $('#apps-menu .bar-menu');
+    var allAppsList = $("#allAppsList .bar-menu");
     for(var index in lib)
     {
         var app = lib[index];
         leftMenu.append(app.toLeftBarShortcutHtml());
+        allAppsList.append(app.toAppListShortcutHtml());
     }
 }
 
@@ -157,6 +160,11 @@ function App(id, url, title, type,　description, display, size, position, imgic
     {
         return config.taskBarShortcutHtmlTemplate.format(this);
     };
+
+    this.toAppListShortcutHtml = function()
+    {
+        return config.appListShortcutHtmlTemplate.format(this);
+    }
 
     this.init = function()
     {

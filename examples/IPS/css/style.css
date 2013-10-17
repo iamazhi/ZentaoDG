@@ -81,7 +81,8 @@ button{
   background-color: rgba(255,255,255,0.20)
 }
 
-.bar-menu>li>a:hover,.bar-menu>li>button:hover{
+.bar-menu>li>a:hover,.bar-menu>li>button:hover,
+.bar-menu>li>a.open:hover,.bar-menu>li>a.active:hover{
   text-decoration: none;
   color: #aaa;
   color: rgba(255,255,255,0.9);
@@ -359,40 +360,57 @@ button{
   border-bottom: 1px solid #555;
   border-color:rgba(255,255,255,0.2);
 }
-.window-fullscreen .all-apps-list{
+
+#allAppsList{
   padding: 20px 40px;
 }
-.window-fullscreen .all-apps-list ul{
+#allAppsList ul{
   margin: 0;
   padding: 0;
 }
-.window-fullscreen .all-apps-list li{
-  width: 19%;
+#allAppsList li{
+  width: 18%;
+  margin-right: 1%;
   min-width: 250px;
   position: relative;
 }
-.window-fullscreen .all-apps-list li a{
+#allAppsList li a{
   overflow: hidden;
   white-space: nowrap;
   padding: 15px 20px;
   font-size: 16px;
   text-overflow:ellipsis;
 }
-.window-fullscreen .all-apps-list li img{
+#allAppsList li a.open
+{
+  background-color:rgba(255,255,255,0.1);
+}
+#allAppsList li a.open:hover,#allAppsList li a.active:hover
+{
+  background-color:rgba(255,255,255,0.24);
+}
+
+#allAppsList li img{
   width: 48px;
   height: 48px;
   margin-right: 10px;
 }
-.window-fullscreen .all-apps-list li.active:after{
+#allAppsList li a.open:after,#allAppsList li a.active:after{
   content: ' ';
   display: block;
   position: absolute;
-  width: 10px;
-  height: 10px;
-  background-color: red;
+  width: 16px;
+  height: 16px;
+  background-color: #0abb28;
   right: 15px;
-  top: 26px;
+  top: 28px;
+  -moz-border-radius:50%; -webkit-border-radius:50%; border-radius:50%;
 }
+#allAppsList li a.active:after
+{
+  background-color: #ffcf33;
+}
+
 #closeAllApps{
   top: -5px;
   position: absolute;
