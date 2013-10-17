@@ -5,7 +5,7 @@ var config =
     activeWindow     : null,    // 当前激活的窗口
     lastActiveWindow : null,    //　上次激活的窗口
     appIconRoot      : 'img/',  // 应用图标库目录地址
-    windowHeadheight: 38,      　// 桌面任务栏栏高度
+    windowHeadheight: 36,      　// 桌面任务栏栏高度
     bottomBarHeight  : 42,      // 应用窗口底栏高度
     desktopPos       : {x: 96, y: 0},
     defaultWindowPos : {x: 110, y: 20},
