@@ -22,13 +22,13 @@ var config =
     windowIdSeed     : 0,
     // 获取下一个新建窗口编号
     getNewWindowId   : function() { return this.windowIdSeed++; },
-    windowZIndexSeed : 0,
+    windowZIndexSeed : 100,
     // 获取下一个新建窗口z-index
     getNewZIndex     : function() { return this.windowZIndexSeed++; },
     // window模版
-    windowHtmlTemplate   : "<div id='{idstr}' class='window window-movable' style='width:{width}px;height:{height}px;left:{left}px;top:{top}px;z-index:{zindex};' data-appid='{appid}'><div class='window-head'><img src='{iconimg}' alt=''><strong>{title}</strong><ul><li><button class='reload-win'><i class='icon-repeat'></i></button></li><li><button class='min-win'><i class='icon-minus'></i></button></li><li><button class='max-win'><i class='icon-resize-full'></i></button></li><li><button class='close-win'><i class='icon-remove'></i></button></li></ul></div><div class='window-content'></div></div>",
+    windowHtmlTemplate   : "<div id='{idstr}' class='window window-movable' style='width:{width}px;height:{height}px;left:{left}px;top:{top}px;z-index:{zindex};' data-id='{id}'><div class='window-head'><img src='{iconimg}' alt=''><strong>{title}</strong><ul><li><button class='reload-win'><i class='icon-repeat'></i></button></li><li><button class='min-win'><i class='icon-minus'></i></button></li><li><button class='max-win'><i class='icon-resize-full'></i></button></li><li><button class='close-win'><i class='icon-remove'></i></button></li></ul></div><div class='window-content'></div></div>",
     frameHtmlTemplate    : "<iframe id='iframe-{idstr}' name='iframe-{idstr}' src='{url}' frameborder='no' allowtransparency='true' scrolling='auto' hidefocus='' style='width: 100%; height: 100%; left: 0px;'></iframe>",
-    leftBarShortcutHtmlTemplate : '<li><a href="javascript:;" class="app-btn" title="{title}" data-appid="{appid}"><img src="{iconimg}" alt=""></a></li>',
+    leftBarShortcutHtmlTemplate : '<li><a href="javascript:;" class="app-btn" title="{title}" data-id="{id}"><img src="{iconimg}" alt=""></a></li>',
     appsLib           : null
 };
 
@@ -42,7 +42,7 @@ $(function()
     initWindowActivable();
     initWindowActions();
 
-    initOther();
+    // initOther();
 });
 
 // == 应用库 ==
@@ -50,6 +50,10 @@ $(function()
 function initAppsLib()
 {
     var lib = new Array();
+
+    lib['allapps'] = new App('allapps', '', '所有应用', 'none', '查看所有已安装应用', 'fullscreen', null, null, null, true);
+    lib['store'] = new App('store', 'store.html', '应用商店', 'html', '浏览更多应用并安装', 'max', null, null, null, true);
+    lib['themes'] = new App('themes', 'themes.html', '主题', 'html', '更换主题', null, null, null, null, true);
 
     lib['0'] = new App('0', 'guidelines.html', '窗口应用开发指南', 'html', '了解如何进行窗口应用开发');
     lib['1'] = new App('1', 'http://pms.zentao.net/', '禅道项目管理', 'iframe', '禅道项目管理系统');
@@ -84,7 +88,7 @@ function initShortcusEvents()
 {
     $(document).on('click', '.app-btn', function(event)
     {
-        var app = config.appsLib[$(this).attr('data-appid')];
+        var app = config.appsLib[$(this).attr('data-id')];
         if(app)
         {
             openWindow(app);
@@ -125,11 +129,10 @@ function initOther()
 // == 应用窗口对象 ==
 // 构造函数
 // 参数说明请参见开发指南
-function App(appid, url, title, type,　description, display, size, position, imgicon)
+function App(id, url, title, type,　description, display, size, position, imgicon, systemapp)
 {
-    this.id       = config.getNewWindowId();
+    this.id       = id;
     this.idstr    = config.windowidstrTemplate.format(this.id);
-    this.appid    = appid;
     this.url      = url;
     this.title    = title ? title : '';
     this.type     = type ? type : 'iframe';
@@ -137,7 +140,8 @@ function App(appid, url, title, type,　description, display, size, position, im
     this.display  = display ? display: 'normal';
     this.size     = size ? size : config.defaultWindowSize;
     this.position = position ? position : null;
-    this.iconimg  = imgicon ? imgicon : config.appIconRoot + 'app-' + this.appid + '.png';
+    this.iconimg  = imgicon ? imgicon : config.appIconRoot + 'app-' + this.id + '.png';
+    this.systemapp= systemapp ? systemapp : false;
     
 
     this.toWindowHtml   = function()
@@ -149,7 +153,8 @@ function App(appid, url, title, type,　description, display, size, position, im
 
     this.toLeftBarShortcutHtml = function()
     {
-        return config.leftBarShortcutHtmlTemplate.format(this);
+        if(!this.systemapp)
+            return config.leftBarShortcutHtmlTemplate.format(this);
     };
 
 
@@ -290,7 +295,7 @@ function reloadWindow(winQuery)
     if(!win.hasClass('window-loading'))
     {
         win.addClass('window-loading').removeClass('window-error').find('.reload-win i').addClass('icon-spin');
-        var app = config.appsLib[win.attr('data-appid')];
+        var app = config.appsLib[win.attr('data-id')];
 
         var result = true;
         switch(app.type)
@@ -469,10 +474,10 @@ function activeWindow(query)
     if(config.activeWindow)
     {
         config.lastActiveWindow = config.activeWindow;
-        config.activeWindow.removeClass('window-active').css('z-index', config.activeWindow.css('z-index')%10000);
+        config.activeWindow.removeClass('window-active').css('z-index', parseInt(config.activeWindow.css('z-index'))%10000);
     }
 
-    config.activeWindow = win.addClass('window-active').css('z-index',win.css('z-index')+10000);
+    config.activeWindow = win.addClass('window-active').css('z-index',parseInt(win.css('z-index'))+10000);
 }
 
 // == 辅助 ==

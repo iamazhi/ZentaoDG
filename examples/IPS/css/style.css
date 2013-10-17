@@ -178,69 +178,6 @@ button{
   background-color: rgba(0,0,0,0.20)
 }
 
-/* all apps menu.*/
-#allApps{
-  color: #eee;
-  position: absolute;
-  width: 100%;
-  height: 100%;
-  z-index: 4000;
-  background-color: #314400;
-  background-color: rgba(0,0,0,0.7);
-}
-#allApps .all-apps-panel{
-  padding:0 0px 42px 96px;
-}
-#allApps .all-apps-head{
-  padding: 20px 40px;
-  border-bottom: 1px solid #555;
-  border-color:rgba(255,255,255,0.2);
-}
-#allApps .all-apps-list{
-  padding: 20px 40px;
-}
-#allApps .all-apps-list ul{
-  margin: 0;
-  padding: 0;
-}
-#allApps .all-apps-list li{
-  width: 19%;
-  min-width: 250px;
-  position: relative;
-}
-#allApps .all-apps-list li a{
-  overflow: hidden;
-  white-space: nowrap;
-  padding: 15px 20px;
-  font-size: 16px;
-}
-#allApps .all-apps-list li img{
-  width: 48px;
-  height: 48px;
-  margin-right: 10px;
-}
-#allApps .all-apps-list li.active:after{
-  content: ' ';
-  display: block;
-  position: absolute;
-  width: 10px;
-  height: 10px;
-  background-color: red;
-  right: 15px;
-  top: 26px;
-}
-#closeAllApps{
-  top: -5px;
-  position: absolute;
-  font-size: 36px;
-  color: #aaa;
-  color: rgba(255,255,255,0.6);
-}
-#closeAllApps:hover{
-  text-decoration: none;
-  color: #fff;
-  color: rgba(255,255,255,0.9);
-}
 
 /* desk container. */
 #deskContainer{
@@ -371,4 +308,70 @@ button{
   left: -9999px;
   top: 0;
   background-color: rgba(0, 0, 0, 0);
+}
+
+
+
+/* all apps menu.*/
+.window-fullscreen{
+  color: #eee;
+  position: absolute;
+  width: 100% !important;
+  height: 100% !important;
+  z-index: 200000;
+  background-color: #314400;
+  background-color: rgba(0,0,0,0.7);
+}
+.window-fullscreen .all-apps-panel{
+  padding:0 0px 42px 96px;
+}
+.window-fullscreen .all-apps-head{
+  padding: 20px 40px;
+  border-bottom: 1px solid #555;
+  border-color:rgba(255,255,255,0.2);
+}
+.window-fullscreen .all-apps-list{
+  padding: 20px 40px;
+}
+.window-fullscreen .all-apps-list ul{
+  margin: 0;
+  padding: 0;
+}
+.window-fullscreen .all-apps-list li{
+  width: 19%;
+  min-width: 250px;
+  position: relative;
+}
+.window-fullscreen .all-apps-list li a{
+  overflow: hidden;
+  white-space: nowrap;
+  padding: 15px 20px;
+  font-size: 16px;
+}
+.window-fullscreen .all-apps-list li img{
+  width: 48px;
+  height: 48px;
+  margin-right: 10px;
+}
+.window-fullscreen .all-apps-list li.active:after{
+  content: ' ';
+  display: block;
+  position: absolute;
+  width: 10px;
+  height: 10px;
+  background-color: red;
+  right: 15px;
+  top: 26px;
+}
+#closeAllApps{
+  top: -5px;
+  position: absolute;
+  font-size: 36px;
+  color: #aaa;
+  color: rgba(255,255,255,0.6);
+}
+#closeAllApps:hover{
+  text-decoration: none;
+  color: #fff;
+  color: rgba(255,255,255,0.9);
 }
