@@ -26,7 +26,7 @@
             <li><a class='app-btn' data-id='store' href='###' id='addAppBtn' class='app-btn' title='添加应用'><i class='icon-plus-sign'></i></a></li>
           </ul>
         </div>
-        <div id='avatar' title='查看个人信息'>
+        <div id='avatar' title='查看个人信息' class='app-btn' data-id='profile'>
           <img class='avatar-img' src='img/avatar.jpg' alt=''>
           <div class='avatar-name'>Catouse</div>
         </div>        
@@ -35,8 +35,8 @@
     <div id='bottomBar' class='dock-bottom'>
       <div id='systemMenu'>
         <ul class='bar-menu'>
-          <li><a href='###' class='app-btn app-btn-ajax' title='系统配置'><i class='icon-cog icon-large'></i></a></li>
-          <li><a href='###' class='app-btn app-btn-ajax' title='更换主题' data-id='themes'><i class='icon-dashboard icon-large'></i></a></li>
+          <li><a href='###' class='app-btn' title='系统配置' data-id='setting'><i class='icon-cog icon-large'></i></a></li>
+          <li><a href='###' class='app-btn' title='更换主题' data-id='themes'><i class='icon-dashboard icon-large'></i></a></li>
         </ul>
       </div>
       <div id='taskbar'>
@@ -54,7 +54,8 @@
               </div>
               <div class='col-md-3'>
                 <h4>
-                <i class='icon-th-list'></i> 所有应用 &nbsp;<small class='muted'>共 20 款应用</small></h4>
+                <i class='icon-th-list'></i> 所有应用 &nbsp;<small class='muted'>共 <span class='apps-count'
+                >0</span> 款应用</small></h4>
               </div>
               <div class='col-md-4'>
                 <div class='input-group'>
@@ -65,54 +66,12 @@
                 </div>
               </div>
               <div class='col-md-4 text-right'>
-                <button class='btn btn-clear'><i class='icon-plus'></i> 添加应用</button>
+                <button class='btn btn-clear app-btn' data-id='store'><i class='icon-plus'></i> 添加应用</button>
               </div>
             </div>        
           </div>
-          <div class='all-apps-list'>
+          <div class='all-apps-list' id="all-apps-list">
             <ul class='bar-menu'>
-              <li class='active' title='已激活'>
-                <a href='###' class='app-btn'>
-                  <img src='img/app-1.png' alt=''>
-                  禅道项目管理系统
-                </a>
-              </li>
-              <li>
-                <a href='###' class='app-btn'>
-                  <img src='img/app-2.png' alt=''>
-                  蝉知企业门户系统
-                </a>
-              </li>
-              <li>
-                <a href='###' class='app-btn'>
-                  <img src='img/app-1.png' alt=''>
-                  禅道项目管理系统
-                </a>
-              </li>
-              <li>
-                <a href='###' class='app-btn'>
-                  <img src='img/app-1.png' alt=''>
-                  禅道项目管理系统
-                </a>
-              </li>
-              <li>
-                <a href='###' class='app-btn'>
-                  <img src='img/app-1.png' alt=''>
-                  禅道项目管理系统
-                </a>
-              </li>
-              <li>
-                <a href='###' class='app-btn'>
-                  <img src='img/app-1.png' alt=''>
-                  禅道项目管理系统
-                </a>
-              </li>
-              <li>
-                <a href='###' class='app-btn'>
-                  <img src='img/avatar.jpg' alt=''>
-                  Catouse
-                </a>
-              </li>
             </ul>
           </div>
         </div>

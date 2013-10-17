@@ -47,7 +47,7 @@ $(function()
     initWindowActions();
 
     initWindowResize();
-    // initOther();
+    initOther();
 });
 
 // == 应用库 ==
@@ -59,6 +59,9 @@ function initAppsLib()
     lib['allapps'] = new App('allapps', '', '所有应用', 'none', '查看所有已安装应用', 'fullscreen', null, null, null, true);
     lib['store'] = new App('store', 'store.html', '应用商店', 'html', '浏览更多应用并安装', 'max', null, null, null, true);
     lib['themes'] = new App('themes', 'themes.html', '主题', 'html', '更换主题', 'fixed', null, null, null, true);
+    lib['setting'] = new App('setting', 'setting.html', '系统配置', 'html', '个性化配置', null, null, null, null, true);
+    lib['profile'] = new App('profile', 'profile.html', '个人资料', 'html', '查看或编辑个人资料', null, null, null, null, true);
+
 
     lib['0'] = new App('0', 'guidelines.html', '窗口应用开发指南', 'html', '了解如何进行窗口应用开发', null, {width:900, height: 600});
     lib['1'] = new App('1', 'http://pms.zentao.net/', '禅道项目管理', 'iframe', '禅道项目管理系统');
@@ -103,33 +106,19 @@ function initShortcusEvents()
         {
             alert(config.appNotFindTip);
         }
+
+        var fullWindow = $(this).closest('.window-fullscreen.window-active');
+        if(fullWindow.length>0)
+        {
+            hideWindow(fullWindow);
+        }
+
         event.preventDefault();
     });
 }
 
 function initOther()
 {
-    $('#allAppsBtn').click(toggleAllApps);
-    $('#closeAllApps').click(hideAllApps);
-
-    function toggleAllApps()
-    {
-        if($('#allApps').hasClass('show')) hideAllApps(); else showAllApps();
-    }
-
-    function hideAllApps()
-    {
-        $('#allAppsBtn').removeClass('active');
-        $('#allApps').fadeOut(config.animateSpeed).removeClass('show');
-        $('#deskContainer').fadeIn(config.animateSpeed);
-    }
-
-    function showAllApps()
-    {
-        $('#allAppsBtn').addClass('active');
-        $('#deskContainer').fadeOut(config.animateSpeed);
-        $('#allApps').fadeIn(config.animateSpeed).addClass('show');
-    }
 }
 
 // == 应用窗口对象 ==
