@@ -7,6 +7,7 @@ var config =
     appIconRoot      : 'img/',  // 应用图标库目录地址
     windowHeadheight: 36,      　// 桌面任务栏栏高度
     bottomBarHeight  : 42,      // 应用窗口底栏高度
+    desktopSize      : null,    // 当前桌面区域尺寸
     desktopPos       : {x: 96, y: 0},
     defaultWindowPos : {x: 110, y: 20},
     defaultWindowSize: {width:700,height:538},
@@ -26,7 +27,7 @@ var config =
     // 获取下一个新建窗口z-index
     getNewZIndex     : function() { return this.windowZIndexSeed++; },
     // window模版
-    windowHtmlTemplate   : "<div id='{idstr}' class='window window-movable' style='width:{width}px;height:{height}px;left:{left}px;top:{top}px;z-index:{zindex};' data-id='{id}'><div class='window-head'><img src='{iconimg}' alt=''><strong>{title}</strong><ul><li><button class='reload-win'><i class='icon-repeat'></i></button></li><li><button class='min-win'><i class='icon-minus'></i></button></li><li><button class='max-win'><i class='icon-resize-full'></i></button></li><li><button class='close-win'><i class='icon-remove'></i></button></li></ul></div><div class='window-content'></div></div>",
+    windowHtmlTemplate   : "<div id='{idstr}' class='window {cssclass}' style='width:{width}px;height:{height}px;left:{left}px;top:{top}px;z-index:{zindex};' data-id='{id}'><div class='window-head'><img src='{iconimg}' alt=''><strong>{title}</strong><ul><li><button class='reload-win'><i class='icon-repeat'></i></button></li><li><button class='min-win'><i class='icon-minus'></i></button></li><li><button class='max-win'><i class='icon-resize-full'></i></button></li><li><button class='close-win'><i class='icon-remove'></i></button></li></ul></div><div class='window-content'></div></div>",
     frameHtmlTemplate    : "<iframe id='iframe-{idstr}' name='iframe-{idstr}' src='{url}' frameborder='no' allowtransparency='true' scrolling='auto' hidefocus='' style='width: 100%; height: 100%; left: 0px;'></iframe>",
     leftBarShortcutHtmlTemplate : '<li><a href="javascript:;" class="app-btn" title="{title}" data-id="{id}"><img src="{iconimg}" alt=""></a></li>',
     appsLib           : null
@@ -42,6 +43,7 @@ $(function()
     initWindowActivable();
     initWindowActions();
 
+    initWindowResize();
     // initOther();
 });
 
@@ -53,7 +55,7 @@ function initAppsLib()
 
     lib['allapps'] = new App('allapps', '', '所有应用', 'none', '查看所有已安装应用', 'fullscreen', null, null, null, true);
     lib['store'] = new App('store', 'store.html', '应用商店', 'html', '浏览更多应用并安装', 'max', null, null, null, true);
-    lib['themes'] = new App('themes', 'themes.html', '主题', 'html', '更换主题', null, null, null, null, true);
+    lib['themes'] = new App('themes', 'themes.html', '主题', 'html', '更换主题', 'fixed', null, null, null, true);
 
     lib['0'] = new App('0', 'guidelines.html', '窗口应用开发指南', 'html', '了解如何进行窗口应用开发');
     lib['1'] = new App('1', 'http://pms.zentao.net/', '禅道项目管理', 'iframe', '禅道项目管理系统');
@@ -142,6 +144,7 @@ function App(id, url, title, type,　description, display, size, position, imgic
     this.position = position ? position : null;
     this.iconimg  = imgicon ? imgicon : config.appIconRoot + 'app-' + this.id + '.png';
     this.systemapp= systemapp ? systemapp : false;
+    this.cssclass = 'window-movable';
     
 
     this.toWindowHtml   = function()
@@ -160,9 +163,30 @@ function App(id, url, title, type,　description, display, size, position, imgic
 
     this.init = function()
     {
-        this.zindex = config.getNewZIndex();
-        if(!this.position)
-            this.position = config.getNextDefaultWinPos();
+        switch(this.display)
+        {
+            case 'normal':
+                this.zindex = config.getNewZIndex();
+                if(!this.position) this.position = config.getNextDefaultWinPos();
+                break;
+            case 'fixed':
+                this.cssclass += ' window-fixed';
+                this.zindex = config.getNewZIndex();
+                if(!this.position) this.position = config.getNextDefaultWinPos();
+                break;
+            case 'fullscreen':
+                this.cssclass += ' window-fullscreen window-active';
+                this.zindex = config.getNewZIndex() + 20000;
+                this.position = config.desktopPos;
+                this.size = config.desktopSize;
+                break;
+            case 'max':
+                this.cssclass += ' window-max';
+                this.zindex = config.getNewZIndex();
+                this.position = config.desktopPos;
+                this.size = config.desktopSize;
+                break;
+        }
 
         this.left     = this.position.x;
         this.top      = this.position.y;
@@ -376,6 +400,8 @@ function closeWindow(winQuery)
 function toggleMaxSizeWindow(winQuery)
 {
     var win = getWinObj(winQuery);
+    if(win.hasClass('window-fixed')) return;
+
     if(win.hasClass('window-max'))
     {
         var orginLoc = win.data('orginLoc');
@@ -478,6 +504,55 @@ function activeWindow(query)
     }
 
     config.activeWindow = win.addClass('window-active').css('z-index',parseInt(win.css('z-index'))+10000);
+}
+
+// 调整界面元素尺寸
+// 初始化窗口尺寸更改
+function initWindowResize()
+{
+    refreshSize();
+    $(window).resize(refreshSize);
+}
+
+function refreshSize()
+{
+    refreshDesktopSize();
+    resizeAppsMenu();
+    refreshWindowSize();
+}
+
+function refreshDesktopSize()
+{
+    var desktop = $('#desktop');
+    config.desktopSize = {width: desktop.width() - config.desktopPos.x, height: desktop.height() - config.desktopPos.y - config.bottomBarHeight};
+    console.log('desktopSize:'+config.desktopSize.width+","+config.desktopSize.height);
+}
+
+// 更新桌面窗口尺寸，仅限最大化状态及全屏状态的窗口尺寸
+function refreshWindowSize()
+{
+    $('.window-fullscreen,.window-max').each(function()
+    {
+        var win = $(this);
+        win.width(config.desktopSize.width);
+        win.height(config.desktopSize.height);
+        handleWinResized(win);
+    });
+}
+
+// 更新appsMenu尺寸
+function resizeAppsMenu()
+{
+    var menu = $('#apps-menu');
+    var iconHeight = menu.find('li').height();
+    var menuHeight = config.desktopSize.height - $('#leftBar .dock-bottom').height();
+    console.log('iconHeight:'+iconHeight+',menuHeight:'+menuHeight);
+    while(menuHeight%iconHeight!=0)
+    {
+        menuHeight--;
+    }
+    menu.height(menuHeight);
+    console.log('iconHeight:'+iconHeight+',menuHeight:'+menuHeight);
 }
 
 // == 辅助 ==
