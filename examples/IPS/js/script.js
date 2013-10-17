@@ -15,6 +15,7 @@ var config =
     safeCloseTip     : '确认要关闭　【{0}】 吗？',
     appNotFindTip    : '应用没有找到！',
     busyTip          : '应用正忙，请稍候...',
+    fullscreenMode   : false,   // 是否正处于全屏状态
     getNextDefaultWinPos : function() 
         {
            this.defaultWindowPos = {x: this.defaultWindowPos.x + 30, y: this.defaultWindowPos.y + 30};
@@ -216,6 +217,7 @@ function App(id, url, title, type,　description, display, size, position, imgic
 // 如果应用窗口没有打开则创建一个应用窗口
 function openWindow(app)
 {
+    console.log('open window：'+app.title+","+app.id);
     var appWin = $('#' + app.idstr);
     if(appWin.length<1)
     {
@@ -323,13 +325,14 @@ function toggleShowWindow(winQuery)
 }
 
 //　最小化窗口
-function hideWindow(winQuery)
+function hideWindow(winQuery, silence)
 {
     var win = getWinObj(winQuery);
     if(!win.hasClass('window-min'))
     {
         win.fadeOut(config.animateSpeed).addClass('window-min');
-        activeWindow(config.lastActiveWindow);
+        if(!silence)
+            activeWindow(config.lastActiveWindow);
     }
 }
 
@@ -337,6 +340,7 @@ function hideWindow(winQuery)
 function showWindow(winQuery)
 {
     var win = getWinObj(winQuery);
+    console.log('showWindow：'+win.attr('data-id'));
     if(win.hasClass('window-min'))
     {
         win.fadeIn(config.animateSpeed).removeClass('window-min');
@@ -537,14 +541,39 @@ function activeWindow(query)
 
     if(config.activeWindow)
     {
-        config.lastActiveWindow = config.activeWindow;
+        if(config.activeWindow.hasClass('window-fullscreen'))
+        {
+            hideWindow(config.activeWindow,true);
+        }
+        else
+        {
+            config.lastActiveWindow = config.activeWindow;
+        }
         config.activeWindow.removeClass('window-active').css('z-index', parseInt(config.activeWindow.css('z-index'))%10000);
+        
     }
 
     config.activeWindow = win.addClass('window-active').css('z-index',parseInt(win.css('z-index'))+10000);
 
     $('.app-btn').removeClass('active');
     $('.app-btn[data-id="'+win.attr('data-id')+'"]').addClass('active');
+
+    handleFullscreenMode(win);
+}
+
+function handleFullscreenMode(win)
+{
+    var id = win.attr('data-id');
+    if(win.hasClass('window-fullscreen'))
+    {
+        $("#desktop").addClass('fullscreen-mode');
+        config.fullscreenMode = true;
+    }
+    else
+    {
+        config.fullscreenMode = false;
+        $("#desktop").removeClass('fullscreen-mode');
+    }
 }
 
 // 调整界面元素尺寸

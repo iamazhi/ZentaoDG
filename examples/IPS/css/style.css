@@ -341,6 +341,15 @@ button{
   z-index: 200000;
   background-color: #314400;
   background-color: rgba(0,0,0,0.7);
+  display: none;
+}
+.fullscreen-mode .window
+{
+  visibility: hidden;
+}
+.fullscreen-mode .window-active
+{
+  visibility: visible;
 }
 .window-fullscreen .all-apps-panel{
   padding:0 0px 42px 96px;
