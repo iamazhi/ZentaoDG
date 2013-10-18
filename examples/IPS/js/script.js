@@ -5,7 +5,7 @@ var config =
     activeWindow     : null,    // 当前激活的窗口
     lastActiveWindow : null,    //　上次激活的窗口
     appIconRoot      : 'img/',  // 应用图标库目录地址
-    windowHeadheight: 36,      　// 桌面任务栏栏高度
+    windowHeadheight : 36,      　// 桌面任务栏栏高度
     bottomBarHeight  : 42,      // 应用窗口底栏高度
     desktopSize      : null,    // 当前桌面区域尺寸
     desktopPos       : {x: 96, y: 0},
@@ -613,9 +613,12 @@ function resizeAppsMenu()
     var menu = $('#apps-menu');
     var iconHeight = menu.find('li').height();
     var menuHeight = config.desktopSize.height - $('#leftBar .dock-bottom').height();
-    while(menuHeight%iconHeight!=0)
+    if(iconHeight>0)
     {
-        menuHeight--;
+        while(menuHeight%iconHeight!=0)
+        {
+            menuHeight--;
+        }
     }
     menu.height(menuHeight);
 }
